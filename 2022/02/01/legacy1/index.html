@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="소프트웨어 변경 - 1"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>소프트웨어 변경 - 1 - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>소프트웨어 변경 - 1</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022/02/01
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/software/">#software</a> <a href="/tags/lagacy/">#lagacy</a> <a href="/tags/refactoring/">#refactoring</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Software-Engineering/">Software Engineering</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">새로운 기능(feature)의 추가</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">버그 수정</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">새로운 기능 추가와 버그수정</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">설계 개선</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">최적화</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">위험한 변경</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">피드백 활용</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">단위 테스트 (유닛 테스트)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">좋은 단위 테스트의 조건</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">단위 테스트가 아닌 테스트</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">테스트를 통한 코드 보호</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">레거시 코드를 변경하는 순서</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">감지와 분리</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">테스트코드를 작성할 때 의존관계를 제거하는 이유</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">가짜 객체</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">mock</span></a></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>프로그램을 제작하는 과정에서 프로그램의 변경은 필수불가결하게 일어날 수 밖에 없는 작업입니다.<br>일반적으로 프로그램을 변경하는 이유는 크게 4가지로 나뉩니다.</p>
+<h3><span id="새로운-기능feature의-추가">새로운 기능(feature)의 추가</span></h3><p>새로운 기능의 추가는 프로그램의 변경 이유 중에서 가장 기본적인 이유 입니다.<br>기존의 프로그램이 제공하지 않는 기능을 고객이 요구할 때 소프트웨어를 변경하게 됩니다.</p>
+<h3><span id="버그-수정">버그 수정</span></h3><p>프로그램의 동작이 의도한대로 진행되지 않을 경우 우리는 버그가 있다고 이야기 합니다.<br>버그는 프로그램의 신뢰성을 떨어뜨려 고객이 프로그램에 대해 신뢰를 하지 못하게 되는 큰 원인 중 하나입니다.<br>따라서 버그의 수정 역시 프로그램을 변경하는 큰 이유중 하나를 차지합니다.</p>
+<h4><span id="새로운-기능-추가와-버그수정">새로운 기능 추가와 버그수정</span></h4><p>실제 업무를 하면서 이 둘을 구분 짓는 건 쉬운일이 아닙니다. 관점에 따라 하나의 수정사항이 새로운 기능의 추가 일 수도, 버그 수정(혹은 동작의 변경) 일 수도 있기 때문입니다.<br>기본적으로는 동작 변경의 여부가 이 둘을 나누는 가장 중요한 포인트가 됩니다. 따라서 프로그래머의 관점에서는 기존 코드를 변경하는 경우에는 동작 변경, 새로운 코드를 추가해 적용하는 경우 동작의 추가로 간주할 수 있습니다.</p>
+<p>예를 들어 홈페이지의 로그를 좌상단에서 우상단으로 이동한다고 했을 때, 기존의 좌상단의 로고를 보여주던 코드가 사자리고, 새롭게 우상단에 로고를 보여주는 코드가 추가 되기 때문에(물론 css등을 수정하여 html코드를 건드리지 않고도 변경이 가능합니다.) 이 경우에는 새로운 기능의 추가로 볼 수도 있을 것입니다.</p>
+<h3><span id="설계-개선">설계 개선</span></h3><p>남은 두가지 이유는 앞서 언급한 두 이유와는 다르게, 프로그래머가 필요에 의해 자발적으로 진행하는 경우 입니다. 이 중 설계 개선은 소프트웨어 구조를 좀 더 수정하기 쉽게 변경하고 싶을 때를 나타냅니다. 이렇게 변경하는 경우에는 기존의 프로그램의 동작을 바꾸지 않는 것이 특징입니다. 만약 설계 개선을 통해 동작이 변경된다면 이는 <code>버그</code>이기 때문에 다시 변경이 필요하게 됩니다. 많은 경우에 이와 같은 경우로 인해 자주 시도하지는 않습니다.</p>
+<p>위와 같이 설계 개선하는 것을 리팩토링이라고 표현하는데, 기본적으로 프로그램의 동작이 변경되지 않았음을 확인할 테스트 코드를 작성하고 이를 이용해 변경된 코드를 검증하는 식으로 작업을 진행하게 됩니다. 가장 중요한 점은 앞에서도 언급한 버그가 나타나지 않게 리팩토링 전후에 기능상의 변경이 없어야 합니다.</p>
+<h3><span id="최적화">최적화</span></h3><p>최적화는 리팩토링과 비슷하지만 어떤 기능을 수행하는 시간을 줄이거나 사용하는 리소스를 줄이기 위해 프로그램을 변경하는 것을 말합니다.</p>
+<p>위와 같은 이유로 프로그램을 변경할 때 중요한 점은 의도하지 않은 동작이 변경되지 않았음을 확인할 수 있어야 한다는 것입니다. 다만 코드의 수정이 어떤 영향을 미칠지 어렵다는 것이 문제입니다. 따라서 안전한 변경을 위해선 내가 지금 수정하는 코드가 얼마나 많은 코드에 영향을 미칠지를 정확히 이해하는 것이 필요합니다.</p>
+<h2><span id="위험한-변경">위험한 변경</span></h2><p>프로그램을 변경하면서 위험을 최소화 하기 위해서는 다음 3가지를 따져볼 필요가 있습니다.</p>
+<ol>
+<li>어떤 변경을 해야하는지?</li>
+<li>변경이 정확하게 이뤄졌는지 어떻게 확인할 수 있는지?</li>
+<li>무언가를 손상시키지 않았는지 어떻게 확인할 수 있는지?</li>
+</ol>
+<p>대부분의 팀들은 변경이 필요할 때, 기존 코드에 최소한의 변경만을 하며, 문제가 없으면 변경하지 않는 정책을 가지는 경우가 많습니다. 짧은 기간으로 봤을 때는 효율적으로 보일 수 있으나 장기적으로 봤을 땐 코드가 비대해지고 가독성이 떨어지는 원인이 됩니다. 하지만 좋은 시스템을 가진 팀이라면 변경에 확신을 가지고 진행할 수 있겠지만 나쁜 시스템을 가진 팀이라면 변경에 확신을 가지지 못하고 위와 같이 단기적으로만 대응 할 수 밖에 없습니다. 이런 나쁜 시스템이 지속 되면 컴포넌트가 비대해질 뿐만 아니라 개발자 개인의 실력을 키울 수 있는 기회도 놓치게 됩니다.</p>
+<h1><span id="피드백-활용">피드백 활용</span></h1><p>프로그램을 변경하는 과정에서 아무리 신중하게 작업을 한다고 해도 그 작업이 안전해진다는 보장은 없습니다. 변경의 안정성을 높이기 위해서는 적절한 도구와 기법을 통해 변경이 완전한지 피드백을 받을 수 있는 시스템을 구축하는 것이 필요합니다. 바로 테스트코드 입니다. 잘 짜여진 테스트코드는 새롭게 변경된 코드가 기존에 제공하던 기능을 그대로 제공하는지 새로운 기능을 정확히 제공하는지 확인 할 수 있고 문제가 있는 부분도 빠르게 찾아낼 수 있게 합니다. 이러한 <strong>피드백</strong>을 통해 더욱 신중하고 안전하게 코드를 변경 할 수 있습니다.</p>
+<p>일반적으로 회귀 테스트를 통해 많은 팀에서 테스트를 진행하고 있습니다. 프로그램을 실제 사용자 입장에서 테스트 하기 때문에, 직관적으로 문제를 확인 할 수 있지만 프로그램의 크기가 커질 수록 테스트에 소요되는 시간도 오래걸리고 문제가 발생했을 때, 이를 바로 확인하기도 어려운 문제가 있습니다. 따라서 각 코드의 유닛 테스트를 통해 테스트의 범위를 줄여 테스트의 소요 시간을 줄이고 문제가 생길 경우 원인이 되는 부분을 빠르게 확인 할 수 있도록 해야 합니다.</p>
+<h2><span id="단위-테스트-유닛-테스트">단위 테스트 (유닛 테스트)</span></h2><p>유닛 테스트는 프로그램 내부의 독립적인 개별 컴포넌트를 테스트하는 것을 의미힙니다. 이때 컴포넌트는 프로그램 내에서 가장 작은 동작 단위를 나타냅니다. 절차지향 프로그래밍 언어에서는 함수를 뜻하고 객체지향 프로그램에서는 클래스를 의미합니다. 이렇게 작은 단위의 테스트를 통해 <strong>빠르게 오류 위치를 파악</strong> 하고 각 테스트의 <strong>실행 시간을 줄이고</strong> 최대한 적은 코드로 <strong>세밀한 부분까지 테스트</strong> 하게 됩니다. 그로인해 테스트 코드 작성 및 실행에 대한 피로감을 줄여 더 유용하게 사용될 수 있게 합니다.</p>
+<h3><span id="좋은-단위-테스트의-조건">좋은 단위 테스트의 조건</span></h3><p>위에서 말한 장점을 살리기 위해 아래와 같은 조건을 만족하는 것이 좋습니다.</p>
+<ol>
+<li>실행 속도가 빠릅니다.</li>
+<li>오류 위치 파악에 도움이 됩니다.</li>
+</ol>
+<p>기본적인 단위테스트는 특별한 이유가 없는한 0.1초 이내로 끝나야 합니다.</p>
+<h4><span id="단위-테스트가-아닌-테스트">단위 테스트가 아닌 테스트</span></h4><p>위에서 언급한 특징들 때문에 아래의 테스트들은 단위 테스트라고 보기 어렵습니다.</p>
+<ol>
+<li>데이터베이스와 연동해야하는 테스트</li>
+<li>네트워크를 통해 통신해야하는 테스트</li>
+<li>파일시스템을 수정해야하는 테스트</li>
+<li>테스트 실행을 위해 코드 외적인 부분에 대해 별도의 작업이 필요한 테스트</li>
+</ol>
+<p>완벽한 테스트를 위해 필요한 테스트이긴 하나 단위테스트 레벨에서는 이 부분을 분리하여 실제 원하는 부분만 테스트 할 수 있어야 합니다.</p>
+<h2><span id="테스트를-통한-코드-보호">테스트를 통한 코드 보호</span></h2><p>레거시 프로젝트를 수정할 땐 변경할 코드에 테스트 코드 부터 먼저 추가해야 합니다. 테스트 코드가 새롭게 변경한 코드의 정합성을 판단하는 데에 도움을 주고 기본적인 버그를 잡을 수 있게 합니다. 다만 항상 모든 레거시 클래스에 단위 테스트 코드를 추가하기는 어렵습니다. 의존 관계 때문입니다. 경우에 따라선 이 의존 관계의 분리를 위해 원래 진행하고자하는 코드 변경 보다 더 큰 변경이 발생 할 수도 있습니다. 경우에 따라서는 의존관계로 묶이는 클래스들을 묶어 큰 단위 테스트를 만들 수 있지만, 어느 부분에서는 의존관계를 끊어줘야하기 때문에, 결국에는 어느정도의 정리가 불가피하게 됩니다.<br>따라서 의존성이 생기는 부분을 확인하여 인터페이스를 추출하거나 필요한 정보들만 전달하는 형태로 리팩토링하고 테스트코드를 작성하는 방향으로 진행합니다. 물론 오류가 생길 수 있는 경우라면 무리해서 리팩토링을 진행하는 것 보다는 보수적으로 진행하는 것도 좋은 방법입니다.</p>
+<h2><span id="레거시-코드를-변경하는-순서">레거시 코드를 변경하는 순서</span></h2><p>앞서 나온 내용들을 정리하여 다음과 같은 순서로 작업할 수 있습니다.</p>
+<ol>
+<li>변경 지점을 식별합니다.</li>
+<li>테스트 루틴을 작성할 위치를 찾습니다.</li>
+<li>의존 관계를 제거합니다.</li>
+<li>테스트 코드를 작성합니다.</li>
+<li>변경 및 리팩토링을 수행합니다.</li>
+</ol>
+<h1><span id="감지와-분리">감지와 분리</span></h1><p>많은 레거시 코드들이 클래스들간의 의존관계에 의해 원하는 객체들만 테스트코드로 감싸기 어려운 경우가 많습니다.<br>여러가지 경우가 있겠지만 지금은 스트 대상 클래스가 다른 클래스에 주는 영향을 알아봐야 할 경우에 사용할 수 있는 방법에 대해 이야기 하려고 합니다.</p>
+<h4><span id="테스트코드를-작성할-때-의존관계를-제거하는-이유">테스트코드를 작성할 때 의존관계를 제거하는 이유</span></h4><ol>
+<li>감지 - 컴포넌트 내부에 계산된 값을 확인하고 싶을 때, 이를 감지하기 위해 해당 값을 사용하여 통신하는 의존 관계의 클래스를 분리합니다.</li>
+<li>분리 - 코드를 테스트코드로 실행할 때, 코드를 분리하기 위해 의존 관계의 클래스를 분리합니다.</li>
+</ol>
+<h2><span id="가짜-객체">가짜 객체</span></h2><p>단위테스트를 위해 코드를 분리한 후에는 코드 내부에서 사용되는 값을 감지 할 수 있다고 했습니다. 이를 위해서 필요한 것이 바로 가짜 객체 입니다. 대부분의 경우 내부에서 계산된 값은 의존성을 가지는 협업객체로 전달이 되는데, 이 때 협업객체를 우리가 테스트하기 좋은 형태의 가짜 객체를 만들어 주입하여 내부의 값을 감지하는 것입니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SessionManager</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> RedisClient client;</span><br><span class="line">    <span class="keyword">private</span> Decryptor decryptor;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Session <span class="title">getSession</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> decryptor.decrypt(client.get(key));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>위와 같은 예제에서 SessionManager.getSession을 실행하는 일반적인 상황이라면 실제 Redis 인스턴스에 키를 조회하여 데이터를 불러온 후 복호화 객체를 통해 데이터를 복호화 하여 데이터를 리턴하는 형태를 가지게 되는데, SessionManager의 getSession 메소드의 단위테스트에서는 조회된 데이터가 실제로 복호화 객체에 전달 되는지가 중요하기 때문에, 아래와 같은 가짜 객체들로 테스트를 할 수 있습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MockRedisClient</span> <span class="keyword">implements</span> <span class="title">RedisClient</span> </span>&#123;</span><br><span class="line">    <span class="function">Session <span class="title">get</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> DEFAULT_SESSION;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MockDecryptor</span> <span class="keyword">implements</span> <span class="title">Decryptor</span> </span>&#123;</span><br><span class="line">    Session lastDecrypt;</span><br><span class="line"></span><br><span class="line">    <span class="function">Session <span class="title">decrypt</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.lastDecrypt = session;</span><br><span class="line">        <span class="keyword">return</span> session;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">someTestcode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> mockRedis = <span class="keyword">new</span> MockRedisClient();</span><br><span class="line">    <span class="keyword">var</span> mockDecryptor = <span class="keyword">new</span> MockDecryptor();</span><br><span class="line">    <span class="keyword">var</span> sessionManager = <span class="keyword">new</span> SessionManager(mockRedis, mockDecryptor);</span><br><span class="line">    <span class="keyword">var</span> result = sessionManager.getSession(<span class="string">&quot;key&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> result.equals(DEFAULT_SESSION);</span><br><span class="line">    <span class="keyword">assert</span> mockDecryptor.lastDecrypt != <span class="keyword">null</span> &amp;&amp; mockDecryptor.lastDecrypt == DEFAULT_SESSION;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>고정 된 값만 리턴하는 가짜 RedisClient, 복호화는 하지 않고 마지막으로 복호화 요청한 객체만 저장하는 가짜 Decryptor를 이용해 위와 같은 테스트 코드를 작성했습니다.<br>위 테스트코드를 통해 SessionManager의 getSession메소드가 우리가 의도한 대로 실행됨을 확인 할 수 있었습니다. 실제 객체들을 사용하지 않는 만큼 프로그램 전체로 봤을 때는 완벽한 테스트라고 하기는 어렵겠지만 이 단위테스트가 테스트하는 SessionManager라는 클래스에 대해서는 충분히 테스트를 해볼 수 있기 때문에, 충분한 신뢰성을 가질 수 있다고 할 수 있으며, 또한 버그가 있을 경우 어떤 분이 문제일지 바로 확인 할 수 있기 때문에 디버깅 시간을 크게 줄일 수 있습니다.</p>
+<h3><span id="mock">mock</span></h3><p>최근엔 위의 예제 처럼 직접 가짜객체를 만들지 않고 mock 객체를 만들어 사용하는 것이 더 일반적입니다.<br>자바의 경우 <a target="_blank" rel="noopener" href="https://site.mockito.org/">mockito</a>, <a target="_blank" rel="noopener" href="https://github.com/powermock/powermock">powermock</a>, 코틀린의 경우 <a target="_blank" rel="noopener" href="https://mockk.io/">mockk</a>라는 라이브러리를 통해 해당 클래스 또는 인터페이스의 mock객체를 별도의 클래스 구현없이 만들고 일관된 형태로 관리할 수 있어 단위테스트작성에 많은 도움이 됩니다.</p>
+<hr>
+<p>출처<br>이 글은 레거시 활용 전략의 1~3 장까지의 내용을 정리한 글입니다.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

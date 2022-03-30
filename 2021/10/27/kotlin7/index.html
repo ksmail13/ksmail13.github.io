@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 7. Class"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 7. Class - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 7. Class</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/10/27
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a> <a href="/tags/object/">#object</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">object</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">익명 객체</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">싱글톤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">탑레벨 함수 &amp; 싱글톤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">클래스</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">클래스 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">객체 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">속성 제어 변경</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">접근 제어자</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">초기화 블록</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">보조 생성자</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">인스턴스 메소드</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">인라인 클래스</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">컴패니언 객체</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">제네릭 클래스</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">데이터 클래스</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">출처</span></a></li></ol></li></ol></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>코틀린은 여러가지 형태로 코드를 작성할 수 있습니다. 그리고 클래스 역시 코틀린은 사용하기 매우 좋습니다. 자바에서 한땀한땀 만들어야 했던 보일러플레이트는 코틀린에서는 필요없습니다. 많은 코드라인을 줄일 수 있어 정말 편하게 개발 할 수 있습니다.</p>
+<h1><span id="object">object</span></h1><p>object는 코틀린의 지시어로 특정 클래스를 싱글톤으로 만들어줍니다. 일반적인 싱글톤은 여러가지를 고려해야하는 디자인 패턴인데, 이를 언어레벨에서 지원해준다는건 매우 편하다고 할 수 있습니다. 다만 단순 싱글톤을 만드는 것으로 끝나지 않습니다.</p>
+<h2><span id="익명-객체">익명 객체</span></h2><p>코틀린에서는 new라는 연산자가 존재하지 않습니다. 그래서 익명 객체를 사용하기가 좀 애매합니다. 따라서 코틀린은 이 object를 통해 지원 합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> r = <span class="keyword">object</span> : Runnable &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">run</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// to something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r.run()</span><br></pre></td></tr></table></figure>
+
+<p>그리고 위와 같이 단일 추상 메소드 인터페이스(자바기준 FunctionalInterface)의 경우엔 아래와 같이 간단하게 표현 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> r = Runnable &#123; println(<span class="string">&quot;run&quot;</span>) &#125;</span><br></pre></td></tr></table></figure>
+
+<p>또한 여러가지 인터페이스를 한번에 구현 할 수도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> r : Appendable = <span class="keyword">object</span> : Appendable, Closable &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">append</span><span class="params">(s: <span class="type">String</span>)</span></span>: Appendable &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">close</span><span class="params">()</span></span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>다만 이런 경우엔 이 익명 객체를 받는 변수는 명확하게 어떤 타입일지를 지정해야 합니다.</p>
+<h2><span id="싱글톤">싱글톤</span></h2><p>아래의 형태로 object를 사용하면 싱글톤으로 선언됩니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> Singleton &#123;</span><br><span class="line">    <span class="keyword">val</span> someConst = <span class="number">12345</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">process</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>멀티스레드 상황에서도 안정적으로 동작하기 때문에, 훨씬 더 편하게 싱글톤을 사용할 수 있습니다. 코틀린 컴파일러는 이를 바로 객체로 인식하기 때문에 별도로 생성이 불가능합니다. 이러한 특징으로 자바에서 private 생성자를 가지는 static 메소드를 클래스를 생각 할 수 있는데, 실제로 객체가 만들어지는 구조이기 때문에 다르다고 할 수 있습니다. static으로 인식되기를 원한다면 어노테이션(@JvmStatic)을 통해 컴파일러에게 알려줄 수 있습니다. 그리고 메소드 뿐만 아닐 속성값도 선언 할 수 있습니다.</p>
+<h2><span id="탑레벨-함수-amp-싱글톤">탑레벨 함수 &amp; 싱글톤</span></h2><p>비슷한 사용성에 의해 둘 중 어떤걸 사용해야 할지 고민이 될 수 있다.<br>둘의 큰 차이라면 싱글톤의 경우 앞에 객체명을 통해 접근해야하는데 이것이 일종의 namespace와 같이 작용하게 됩니다.<br>따라서 각 메소드들이 하나의 namespace로 묶으면 좋을 것 같다면 <strong>싱글톤</strong>이 더 좋을 것입니다. 그리고 특정 상태값을 공유한다면 이 역시 싱글톤이 유리할 것 입니다. 만약 그렇지 않다면, 탑레벨 함수로 사용하면 더 간단하게 선언 할 수 있으니 좋을 것 같습니다.</p>
+<h1><span id="클래스">클래스</span></h1><h2><span id="클래스-생성">클래스 생성</span></h2><p>코틀린의 클래스 정의는 매우 쉽습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clazz</span></span></span><br></pre></td></tr></table></figure>
+<p>클래스에 선언할 것이 없다면 {} 도 필요 없습니다. 그냥 이름 앞에 class만 붙이면 됩니다.<br>여기에 속성을 필요하면 다음과 같이 선언 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clazz</span></span>(<span class="keyword">val</span> attr: String)</span><br></pre></td></tr></table></figure>
+
+<p>위와 같이 선언하면 클래스 + 생성자 + 프로퍼티 세가지를 한번에 선언합니다.<br>풀어서 얘기하면 Clazz 클래스를 선언하고 이 클래스는 String객체 하나를 받는 생성자를 정의하고 attr이라는 이름의 속성값이 존재합니다. 이 모든걸 한줄에 표현이 됩니다. 그리고 저 속성값은 val이기 때문에, getter만 생성되지만 var라면 setter까지 생성됩니다.</p>
+<p>만약 생성자의 접근제어자를 설정하고 싶다면 constructor 지시어를 사용하면 됩니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clazz</span> <span class="keyword">protected</span> <span class="keyword">constructor</span></span>(<span class="keyword">val</span> attr: String)</span><br></pre></td></tr></table></figure>
+
+<h2><span id="객체-생성">객체 생성</span></h2><p>객체 생성은 클래스 이름에 ()를 붙이는 것으로 실행합니다. new 연산자는 없습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> clz = Clazz(<span class="string">&quot;field&quot;</span>)</span><br><span class="line">println(clz.attr) <span class="comment">// field</span></span><br><span class="line"></span><br><span class="line">clz.attr = <span class="string">&quot;mod field&quot;</span> <span class="comment">// ERROR</span></span><br></pre></td></tr></table></figure>
+
+<h2><span id="속성-제어-변경">속성 제어 변경</span></h2><p>자동으로 생성되는 setter를 임의로 조정할 수도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clazz</span></span>(attr: String) &#123;</span><br><span class="line">    <span class="keyword">var</span> attribute = attr</span><br><span class="line">    <span class="keyword">set</span>(v) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v.isBlank()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> IllegalArgumentException(<span class="string">&quot;Must exist&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        field = v</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>코틀린에서는 별도의 내부 변수를 개발자가 컨트롤 하지 않습니다. 필요에 따라 코틀린이 알아서 만들게 되고 개발자는 getter, setter 내부에서 field라는 이름의 변수로 접근하게 합니다. (위 예제에서 setter 내부에서 attribute에 접근하면 메소드를 호출 하는걸로 인식하여 재귀 함수가 됩니다.)<br>위 예제에서는 초기값으로 attr를 파라메터로 받은 값을 attribute에 할당하게 됩니다.</p>
+<h2><span id="접근-제어자">접근 제어자</span></h2><p>코틀린도 역시 접근제어자가 있습니다. 대부분이 자바와 비슷하나 internal 이라는 타입이 자바와 다릅니다. internal은 모듈단위의 접근을 허용 합니다. 여기서 모듈이라고 한다면 같은 패키지(jar)로 한정된다고 생각하시면 됩니다. 자바의 바이트코드로는 따로 표시되지는 않지만 코틀린 컴파일러가 internal이 붙은것에 이름을 변경하는 식으로 처리하여 컴파일 타임에서 반영되기 때문에 런타임시 별도의 오버헤드는 없습니다.<br>코틀린은 기본적으로 public으로 선언됩니다.</p>
+<p>setter역시 접근제어자를 선언할 수 있으며 기본적으로는 해당 프로퍼티의 접근제어자를 따릅니다.</p>
+<h2><span id="초기화-블록">초기화 블록</span></h2><p>클래스 선언과 동시에 생성되는 생성자 외에 별도의 필드를 할당하거나 별도의 초기화 로직이 필요하다면 자바의 그것처럼 초기화 블록을 사용 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clazz</span></span>(<span class="keyword">val</span> attr: String) &#123;</span><br><span class="line">    <span class="keyword">val</span> other: String</span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        other = <span class="string">&quot;not <span class="variable">$attr</span>&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>초기화 블록은 여러개를 선언할 수 있으며, 위에서 순서대로 실행 됩니다.</p>
+<h2><span id="보조-생성자">보조 생성자</span></h2><p>주 생성자로 모든 생성자를 표현하기 어려울 경우 별도의 생성자를 둘 수 도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clazz</span></span>(<span class="keyword">val</span> attr: String) &#123;</span><br><span class="line">    <span class="keyword">val</span> other: String</span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        other = <span class="string">&quot;not <span class="variable">$attr</span>&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(test: <span class="built_in">Int</span>) : <span class="keyword">this</span>(test.toString()) &#123;</span><br><span class="line">        println(<span class="string">&quot;init by Int&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Clazz(<span class="string">&quot;attr&quot;</span>)</span><br><span class="line">Clazz(<span class="number">15</span>)</span><br></pre></td></tr></table></figure>
+<p>다만 이때 주 생성자를 호출하여 사용해줘야 합니다.</p>
+<h2><span id="인스턴스-메소드">인스턴스 메소드</span></h2><p>메소드는 클래스 내부에 함수를 정의하면 됩니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clazz</span></span>(<span class="keyword">val</span> attr: String) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">process</span><span class="params">()</span></span>: String = <span class="string">&quot;attr: <span class="variable">$attr</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>기본적으로 public이며 원하는 접근제어자를 지정할 수 있습니다. </p>
+<h2><span id="인라인-클래스">인라인 클래스</span></h2><p> 컴파일 타임엔 클래스로 취급되고 실행시간에는 프리미티브타입으로 처리되는 클래스 입니다.<br>코틀린에서는 클래스로 취급하지만 컴파일 되어 자바에서 접근 할 땐 감싸진 일반적인 타입으로 사용합니다. 따라서 코틀린 상에서 특정 도메인의 데이터(사용자의 ID)를 처리할 때 컴파일러 레벨에서 아무값을 넘기지 않도록 검증하게 됩니다.</p>
+<p>인라인 클래스는 선언시에 단일 필드를 가지는 형태로 선언해야 하며 내부의 메소드나 프로퍼티는 자바에서 static 메소드로 처리 됩니다.</p>
+<blockquote>
+<p>기존의 inline이라는 지시어는 삭제되고 value라는 지시어로 변경되었습니다.</p>
+</blockquote>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JvmInline</span> <span class="comment">// for JVM env</span></span><br><span class="line">value <span class="class"><span class="keyword">class</span> <span class="title">UserId</span></span>(id: String)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">printId</span><span class="params">(id: <span class="type">UserId</span>)</span></span> = println(id.id)</span><br></pre></td></tr></table></figure>
+
+<h1><span id="컴패니언-객체">컴패니언 객체</span></h1><p>컴패니언 객체는 클래스와 매치되어 선언되지만 클래스와는 별도로 관리되는 싱글톤 객체 입니다.<br>스칼라에도 비슷한 역할의 컴패니언 객체가 있지만 다른점이 있다면 스칼라에서는 동일파일의 선언한 클래스와 동일한 이름을 가진 object 객체가 컴패니언 객체로 처리되지만 코틀린은 선언한 클래스에서 <code>companion object</code>를 통해 선언해야 하는 차이점이 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clazz</span> </span>&#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">val</span> TIMEOUT = <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">printClazz</span><span class="params">(c: <span class="type">Clazz</span>)</span></span> = println(c)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>일반적으로 자바의 static과 비슷한 역할을 하지만 object에서도 언급했듯이 실제로는 객체를 통해 실행되기 때문에, 실제 구동하는데에 차이점이 있다는 점을 꼭 상기해야 합니다.</p>
+<h1><span id="제네릭-클래스">제네릭 클래스</span></h1><p>자바의 그것과 동일합니다. 하지만 <a href="https://ksmail13.github.io/2021/10/20/kotlin6/">여기</a> 에서 언급한대로 공변성, 반공변성을 선언에도 반영할 수 있다는 장점이 있습니다. 그 밖에 문법적으로 다른 부분이 있다면 제약조건을 기술 할 때 <code>:</code>를 사용한다는 점이 있습니다. 물론 where절도 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clazz</span>&lt;<span class="type">T: AutoCloseable</span>&gt;</span>(<span class="keyword">val</span> resource: T) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">clear</span><span class="params">()</span></span> = resource.close()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clazz</span>&lt;<span class="type">T</span>&gt;</span>(<span class="keyword">val</span> resource: T) <span class="keyword">where</span> T: AutoCloseable, T:Appendable &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">clear</span><span class="params">()</span></span> = resource.close()</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">add</span><span class="params">(s: <span class="type">String</span>)</span></span> = resource.append(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1><span id="데이터-클래스">데이터 클래스</span></h1><p>데이터를 담고 있는 것을 목적으로 하는 클래스입니다. 대부분 구조체를 선언하는 목적으로 사용합니다. 구조체와 다른 점은 메소드가 추가 가능하며, 상속도 가능하다는 점입니다. 데이터 클래스의 가장 흥미로운 점은 선언과 동시에 toString, equals, hashcode 3종세트를 기본으로 구현해준다는 점입니다. 또한 componentN 또한 구현되어 있어 destructive 연산도 지원하는 만능 클래스 입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Structure</span></span>(<span class="keyword">val</span> id: String, <span class="keyword">val</span> content:String)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> s = Structure(<span class="string">&quot;id1&quot;</span>, <span class="string">&quot;Good&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> (id, content) = s <span class="comment">// id -&gt; id1 content -&gt; good</span></span><br><span class="line"><span class="keyword">val</span> (content, id) = s <span class="comment">// content -&gt; id1, id -&gt; good</span></span><br></pre></td></tr></table></figure>
+
+<p>destructive 연산에서 주의해야 할 점은 필드가 정의된 순서로 분해되어 각 변수에 반영되기 때문에, 위 예제처럼 이름을 맞추는게 아닌 순서를 맞춰야 한다는 점을 항상 생각해야 합니다.</p>
+<h4><span id="출처">출처</span></h4><ul>
+<li>다재다능 코틀린 프로그래밍</li>
+<li>코틀린 공식 문서</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

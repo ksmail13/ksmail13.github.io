@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 13. DSL"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 13. DSL - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 13. DSL</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/11/18
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a> <a href="/tags/dsl/">#dsl</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">내부 DSL 작성을 위한 코틀린 문법</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">세미콜론</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">infix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">확장함수</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">람다</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Type-safe builders</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">예제</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">스코프 제어를 통한 접근 제한</span></a></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>DSL은 Domain Specific Language 의 약자로 특정 도메인을 처리하기 위한 특화된 언어입니다.<br>CSS, XML, HTML 등등 우리는 이미 여러부분에서 사용하고 있는데, 앞서 살펴본 문법적인 특성을 이용하여 코틀린 언어 자체에서 DSL 구성이 가능합니다.</p>
+<p>일반적인 DSL(외부 DSL)은 해당 언어를 파싱하기 위한 파서가 필요합니다. json, xml 등 우리가 자주 사용하는 이러한 언어(혹은 표시방식)등도 결국 파싱을 통해 실제 내부에서 처리 하기 좋은 데이터로 변환해야 합니다. 우리는 이를 외부 DSL 이라고 부릅니다.</p>
+<p>반대로 코틀린을 기준으로 코틀린 내부에서 실행되는 DSL 은 내부 DSL 이라고 합니다. 기본적으로 코틀린 컴파일러가 파서 역할을 해주기 때문에(실제로는 일반 자바코드와 같다고 볼 수 있습니다.) 별도의 컴파일러를 구현할 필요는 없습니다만 자유롭게 원하는 표현식을 구현하는 외부 DSL 과는 다르게 컴파일러가 파싱을 하기 때문에 코틀린에 대한 문법적 제한은 있습니다. 간단한 예로 kotlin 으로 작성한 gradle 스크립트가 있습니다.</p>
+<p>이번 글에서는 코틀린 문법을 활용한 내부 dsl을 설계하는 법을 공유드릴 예정입니다.</p>
+<h1><span id="내부-dsl-작성을-위한-코틀린-문법">내부 DSL 작성을 위한 코틀린 문법</span></h1><h2><span id="세미콜론">세미콜론</span></h2><p>코틀린은 기본적으로 문장 마지막에 세미콜론으로 구분하지 않습니다. 이러한 특성은 표현력이 강한 DSL에서는 필수로 필요한 부분입니다.</p>
+<h2><span id="infix">infix</span></h2><p>중위 연산자의 도입으로 메소드를 호출하는데에 .과 괄호가 필요하지 않게 되었습니다. 이는 코드를 표현하는데에 있어 불필요한 내용을 줄이고 좀 더 가독성이 좋은 코드를 작성하는데에 도움이 됩니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name shouldBe <span class="string">&quot;sam&quot;</span></span><br></pre></td></tr></table></figure>
+<p><small>위 코드는 코틀린의 테스트 프레임워크인 kotest 의 assertion 예제중 하나입니다.</small></p>
+<h2><span id="확장함수">확장함수</span></h2><p>확장함수를 통해 기존에 정의된 클래스에 원하는 형태의 메소드가 추가 가능합니다. 이는 자바기반의 라이브러리라고 하더라도 코틀린을 통해 DSL 형태로 개량할 수 있다는 이야기 입니다.</p>
+<h2><span id="람다">람다</span></h2><p>코틀린에서는 함수의 마지막 파라메터가 람다일 경우 소괄호로 감쌀 필요없이 바로 람다만 선언해도 됩니다. 이는 역시 DSL 의 내용을 축약하고 가독성 좋게 표현할 수 있게 하는 요소 중 하나입니다.<br>그리고 중요한 점은 람다를 파라메터로 받을 때 일반 람다가 아닌 암시적 리시버를 사용해야 한다는 점입니다. 리시버를 통해 컨텍스트를 각 람다로 공유 할 수 있기 때문에, 이는 역시 DSL를 설계하는 데에 있어 중요한 역할을 합니다.</p>
+<h1><span id="type-safe-builders">Type-safe builders</span></h1><p>리시버를 참조한 함수들의 조합으로 빌더 함수들을 통해 빌더를 구현 할 수 있습니다. 그리고 이렇게 작성된 코드는 컴파일러에 의해 타입체크가 이루어지기 때문에 이를 type safe builder라고 합니다. 이로 인해 작성된 코드가 유효한지 검증할 필요가 없습니다.</p>
+<h2><span id="예제">예제</span></h2><p>위 내용을 가지고 DSL을 작성해봤습니다.</p>
+<p>복제 구성을 DSL 로 표현하는 코드입니다.<br>어떤 데이터를 동기형태로 복제하거나 비동기행태로 복제하게 정의합니다. </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">ReplicationMap</span></span>(<span class="keyword">val</span> sync: List&lt;String&gt;, <span class="keyword">val</span> async: List&lt;String&gt;)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReplicationMapBuilder</span></span>(</span><br><span class="line">    <span class="keyword">var</span> sync: MutableList&lt;String&gt; = mutableListOf(),</span><br><span class="line">    <span class="keyword">var</span> async: MutableList&lt;String&gt; = mutableListOf()</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="keyword">val</span> add = <span class="keyword">this</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">toReplicationMap</span><span class="params">()</span></span> = ReplicationMap(sync, async)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">infix</span> <span class="function"><span class="keyword">fun</span> <span class="title">sync</span><span class="params">(s: <span class="type">String</span>)</span></span> = sync.add(s)</span><br><span class="line">    <span class="keyword">infix</span> <span class="function"><span class="keyword">fun</span> <span class="title">async</span><span class="params">(s: <span class="type">String</span>)</span></span> = async.add(s)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">replicaMap</span><span class="params">(block: <span class="type">ReplicationMapBuilder</span>.() -&gt; <span class="type">Unit</span>)</span></span>: ReplicationMap =</span><br><span class="line">    ReplicationMapBuilder().apply(block).toReplicationMap()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> map = replicaMap &#123;</span><br><span class="line">        add sync <span class="string">&quot;primary&quot;</span></span><br><span class="line">        add sync <span class="string">&quot;secondary&quot;</span></span><br><span class="line">        add async <span class="string">&quot;replica1&quot;</span></span><br><span class="line">        add async <span class="string">&quot;replica2&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    println(map) <span class="comment">// ReplicationMap(sync=[primary, secondary], async=[replica1, replica2])</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>replicaMap 함수의 람다 내부에서 복제 구성을 담기 위해 mutable 한 ReplicationMapBuilder 클래스를 통해 replication map 을 먼저 구성하고 replicaMap 함수 리턴 전에 immutable 한 ReplicationMap으로 변환하여 리턴하는 형태로 구현했습니다.</p>
+<p>ReplicationMapBuilder에서는 sync, async 메소드를 통해 동기형태로 복제 할지 비동기로 복제할지 정하게 됩니다. 이 두 메소드는 infix로 선언되어 있기 때문에 중위연산자 형태로 호출이 가능합니다. 그리고 add 라는 변수는 this 라는 객체 포인터를 참조하는데, 이는 람다 내부에서 메소드를 호출 할 때 기본적으로 리시버의 이름을 this외로 지정하기 위해 추가했습니다. 이로 인해 좀 더 명시적으로 표시되었습니다.</p>
+<h1><span id="스코프-제어를-통한-접근-제한">스코프 제어를 통한 접근 제한</span></h1><p>내부 DSL은 별도의 파서가 필요 없이 컴파일어에 의존하여 파싱을 하게 해주는 장점이 있습니다. 다만 언어에서 제공하는 기능을 DSL에서도 사용 할 수 있기 때문에, 이런 부분에 대해 제한을 하고 싶은 경우 스코프 컨트롤 어노테이션을 이용해야 합니다.</p>
+<p>@DslMarker 는 컴파일어에게 중첩된 람다의 부모 리시버의 멤버를 접근할 수 없게 요청합니다.</p>
+<hr>
+<p>출처<br>다재다능 코틀린 프로그래밍</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 12. 유연하게 작성하는 코드"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 12. 유연하게 작성하는 코드 - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 12. 유연하게 작성하는 코드</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/11/15
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a> <a href="/tags/object/">#object</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">연산자 오버로딩</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">매핑된 연산자</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">단항 연산자</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">이항 연산자</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">주의사항</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">확장 함수 &amp; 속성</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">주의사항</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">static method 인젝팅</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">클래스 내부에서의 인젝팅</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">함수 확장</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">infix를 이용한 중위표현식</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Scope functions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">차이점</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">활용</span></a></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1><span id="연산자-오버로딩">연산자 오버로딩</span></h1><p>코틀린에는 자바에서는 지원하지 않는 몇 가지 기능이 있습니다. 그 중 하나는 연산자 오버로딩입니다.<br>이름 그대로 연산자를 오버로딩하는 기능입니다. C++에서 지원하지만 자바에서는 가독성을 떨어뜨린다는 이유로 추가되지 않았었습니다. 다만 제대로 사용한다면 코드를 간결하게 작성 할 수 있다는 장점이 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Matrix</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> m: Array&lt;IntArray&gt;) &#123;</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">plus</span><span class="params">(o: <span class="type">Matrix</span>)</span></span>: Matrix &#123;</span><br><span class="line">        <span class="keyword">if</span> (m.size != o.m.size) <span class="keyword">throw</span> IllegalArgumentException(<span class="string">&quot;Size not matched&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> (!(m zip o.m).all &#123; (a1, a2) -&gt; a1.size == a2.size &#125;) <span class="keyword">throw</span> IllegalArgumentException(<span class="string">&quot;Size not matched&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Matrix((m zip o.m).map &#123; (a1, a2) -&gt; (a1 zip a2).map &#123;(i1, i2) -&gt; i1 + i2&#125;.toIntArray() &#125;.toTypedArray())</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">toString</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> m.map &#123; it.joinToString(<span class="string">&quot;,&quot;</span>) &#125;.joinToString(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> m1 = Matrix(listOf(listOf(<span class="number">1</span>,<span class="number">2</span>), listOf(<span class="number">2</span>,<span class="number">3</span>)))</span><br><span class="line"><span class="keyword">val</span> m2 = Matrix(listOf(listOf(<span class="number">1</span>,<span class="number">2</span>), listOf(<span class="number">2</span>,<span class="number">3</span>)))</span><br><span class="line">println(m1 + m2) <span class="comment">// 2,4</span></span><br><span class="line">                 <span class="comment">// 4,6</span></span><br></pre></td></tr></table></figure>
+
+<p>예제코드에서는 행렬을 클래스화여 구현 했습니다.<br>여기서는 plus 라는 연산자를 오버로딩하여 두 행렬을 더하는 연산을 만들었습니다. 연산자 오버로딩을 위해 함수 앞에 <code>operator</code> 라는 지시어를 필요로 하고 컴파일러에서는 이렇게 선언된 메소드를 확인하여 사전에 정의된 형태와 다를 경우 에러를 발생시킵니다.<br>그리고 실제 사용은 println 에서 처럼 <code>+</code> 로 우리에게 익숙한 형태로 표현이 가능합니다.</p>
+<p>연산자 오버로딩은 클래스 내부에 선언하거나 확장함수를 통해 구현이 가능합니다. 확장함수를 통해서도 구현이 가능하기 때문에, 외부 라이브러리(심지어 다른 언어로 작성되어도)에서 정의된 클래스도 구현이 가능합니다.<br>연산자를 실행하는 객체는 이항식의 좌항이거나 단항식의 아규먼트 그자체가 됩니다.</p>
+<p>JVM 에서는 연산자 오버로딩을 지원하지 않기 때문에, 코틀린에서는 아래의 표 같이 특별한 이름의 함수에 연산자를 정의된 메소드 이름에 매핑하여 구현되어 있습니다.</p>
+<h2><span id="매핑된-연산자">매핑된 연산자</span></h2><h3><span id="단항-연산자">단항 연산자</span></h3><table>
+<thead>
+<tr>
+<th>표현</th>
+<th>매핑된 이름</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+a</td>
+<td>a.unaryPlus()</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>a.unaryMinus()</td>
+</tr>
+<tr>
+<td>!a</td>
+<td>a.not()</td>
+</tr>
+<tr>
+<td>a++</td>
+<td>a.inc()</td>
+</tr>
+<tr>
+<td>a–</td>
+<td>a.dec()</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>이러한 연산자를 코틀린의 기본 타입들에 대해 사용하는 경우 추가 오버헤드를 발생하지 않습니다.</p>
+</blockquote>
+<p>++, – 연산자의 경우 내부의 값을 변환하지 않고 새롭게 생성된 객체를 리턴해야 합니다.<br>그리고 증/감 연산자는 앞/뒤 위치에 따라 연산 방식이 바뀌는데 전위연산의 경우 아래의 형태로 실행됩니다.</p>
+<ul>
+<li>어떤 객체 a 에 대해 a.inc() 연산 실행 후 a에 할당</li>
+<li>a가 어떤 표현식에 대해 연산된 새로운 객체를 리턴</li>
+</ul>
+<p>후위 연산의 경우 아래와 같이 연산됩니다.</p>
+<ul>
+<li>초기값 a를 a0 에 저장</li>
+<li>a 에 a0.inc() 한 값을 저장</li>
+<li>값은 a0을 리턴</li>
+</ul>
+<h3><span id="이항-연산자">이항 연산자</span></h3><table>
+<thead>
+<tr>
+<th>표현</th>
+<th>매핑된 이름</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a + b</td>
+<td>a.plus(b)</td>
+</tr>
+<tr>
+<td>a - b</td>
+<td>a.minus(b)</td>
+</tr>
+<tr>
+<td>a * b</td>
+<td>a.times(b)</td>
+</tr>
+<tr>
+<td>a / b</td>
+<td>a.div(b)</td>
+</tr>
+<tr>
+<td>a % b</td>
+<td>a.rem(b)</td>
+</tr>
+<tr>
+<td>a..b</td>
+<td>a.rangeTo(b)</td>
+</tr>
+<tr>
+<td>a in b</td>
+<td>b.contains(a)</td>
+</tr>
+<tr>
+<td>a !in b</td>
+<td>!b.contains(a)</td>
+</tr>
+<tr>
+<td>a[i]</td>
+<td>a.get(i)</td>
+</tr>
+<tr>
+<td>a[i, j]</td>
+<td>a.get(i, j)</td>
+</tr>
+<tr>
+<td>a[i_1, …, i_n]</td>
+<td>a.get(i_1, …, i_n)</td>
+</tr>
+<tr>
+<td>a[i] = b</td>
+<td>a.set(i, b)</td>
+</tr>
+<tr>
+<td>a[i, j] = b</td>
+<td>a.set(i, j, b)</td>
+</tr>
+<tr>
+<td>a[i_1, …, i_n] = b</td>
+<td>a.set(i_1, …, i_n, b)</td>
+</tr>
+<tr>
+<td>a()</td>
+<td>a.invoke()</td>
+</tr>
+<tr>
+<td>a(i)</td>
+<td>a.invoke(i)</td>
+</tr>
+<tr>
+<td>a(i, j)</td>
+<td>a.invoke(i, j)</td>
+</tr>
+<tr>
+<td>a(i_1, …, i_n)</td>
+<td>a.invoke(i_1, …, i_n)</td>
+</tr>
+<tr>
+<td>a += b</td>
+<td>a.plusAssign(b)</td>
+</tr>
+<tr>
+<td>a -= b</td>
+<td>a.minusAssign(b)</td>
+</tr>
+<tr>
+<td>a *= b</td>
+<td>a.timesAssign(b)</td>
+</tr>
+<tr>
+<td>a /= b</td>
+<td>a.divAssign(b)</td>
+</tr>
+<tr>
+<td>a %= b</td>
+<td>a.remAssign(b)</td>
+</tr>
+<tr>
+<td>a == b</td>
+<td>a?.equals(b) ?: (b === null)</td>
+</tr>
+<tr>
+<td>a != b</td>
+<td>!(a?.equals(b) ?: (b === null))</td>
+</tr>
+<tr>
+<td>a &gt; b</td>
+<td>a.compareTo(b) &gt; 0</td>
+</tr>
+<tr>
+<td>a &lt; b</td>
+<td>a.compareTo(b) &lt; 0</td>
+</tr>
+<tr>
+<td>a &gt;= b</td>
+<td>a.compareTo(b) &gt;= 0</td>
+</tr>
+<tr>
+<td>a &lt;= b</td>
+<td>a.compareTo(b) &lt;= 0</td>
+</tr>
+<tr>
+<td>println(a) (변수 사용)</td>
+<td>getValue()</td>
+</tr>
+<tr>
+<td>a = * (변수 대입)</td>
+<td>setValue(*)</td>
+</tr>
+</tbody></table>
+<h2><span id="주의사항">주의사항</span></h2><p>위에서도 언급했듯이 자바에서는 난해한 부분에서의 연산자 오버로딩의 악용으로 인해 연산자 오버로딩를 제한하였습니다. 그만큼 양날의 검이라고 할 수 있는 기능입니다. 따라서 아래의 규칙을 지키도록 미리 프로젝트 전에 논의해야합니다.</p>
+<ul>
+<li>최대한 사용하지 않습니다.</li>
+<li>상식적인 선에서 사용합니다.</li>
+<li>오버로딩된 연산자는 연산자가 의미하는 그대로 구현되어야 합니다.</li>
+<li>변수이름을 의미있게 만들어 다른사람이 보기에 읽기 좋게 만들어야 합니다.</li>
+</ul>
+<h1><span id="확장-함수-amp-속성">확장 함수 &amp; 속성</span></h1><p>코틀린에서는 확장함수를 통해 기존에 작성된 클래스에 대해서 기능을 확장할 수 있습니다. 이는 타언어로 작성된 라이브러리에 정의된 클래스에서도 마찬가지 이고 final 클래스 역시 마찬가지 입니다.</p>
+<p>구현하기 전에 내가 작성하고자 하는 메소드가 기존에 있는 메소드인지 확인이 필요합니다. 기존에 있는 메소드일 경우 해당 메소드를 우선적으로 먼저 실행합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> String?.<span class="title">isEmpty</span><span class="params">()</span></span> = <span class="keyword">when</span>(<span class="keyword">this</span>) &#123;</span><br><span class="line">    <span class="literal">null</span> -&gt; <span class="literal">true</span></span><br><span class="line">    <span class="keyword">else</span> -&gt; length == <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위에 nullable 한 String에 isEmpty 라는 메소드를 추가했습니다.<br>선언시에 메소드 이름 앞에 확장할 클래스의 이름을 먼저 표시한 후에 <code>.</code>로 구분합니다. 그리고 함수 바디 내부에서 this 라는 레퍼런스에 접근하여 현재 이 메소드를 실행하는 객체에 접근 할 수 있습니다.</p>
+<p>다만 이런 확장함수의 한계가 있습니다. 사실 확장 함수는 static 메소드를 문법적으로 편하게 사용할 수 있게 해주는 것입니다. 따라서 확장 대상 객체의 private 메소드나 필드에 대해서는 접근 할 수 없습니다.</p>
+<p>필드 역시 확장 할 수 있는데, 아래와 같이 선언 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> List&lt;<span class="built_in">Int</span>&gt;.numOfOdds: <span class="built_in">Int</span> = <span class="keyword">this</span>.filter &#123; it % <span class="number">2</span> == <span class="number">1</span>&#125;.count()</span><br><span class="line"></span><br><span class="line">listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>).numOfOdds <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<p>이걸 자바에서 사용할 땐 아래처럼 사용합니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TestKt.getNumOfOdds(Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<p>보이는 것 처럼 static 한 형태로 사용하는걸 확인 할 수 있습니다.</p>
+<h3><span id="주의사항">주의사항</span></h3><p>기존에 정의된 메소드의 동작을 오버로딩하면 안됩니다. 인스턴스 메소드로 정의된 메소드는 항상 우선순위를 가지지만 다른 라이브러리(예를 들어 코틀린 stdlib)에서 정의된 확장함수와 동일한 형태로 확장 함수를 추가 정의하면 덮어씌울 수 있게 됩니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> List<span class="type">&lt;T&gt;</span>.<span class="title">binarySearch</span><span class="params">(element:<span class="type">T</span>)</span></span> = <span class="keyword">this</span>.filter &#123; it == element &#125;.first() <span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+
+<p>이는 협업자들에게 많은 문제의 소지가 있기 때문에 꼭 피해야 합니다.</p>
+<h2><span id="static-method-인젝팅">static method 인젝팅</span></h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> String.Companion.<span class="title">parseUrl</span><span class="params">(link: <span class="type">String</span>)</span></span> = URL(link)</span><br></pre></td></tr></table></figure>
+
+<p>클래스 내부의 companion 객체도 역시 객체이기 때문에 확장함수를 추가할 수 있습니다.</p>
+<h2><span id="클래스-내부에서의-인젝팅">클래스 내부에서의 인젝팅</span></h2><p>확장함수의 적용 범위를 클래스 내부로 제한 할 수도 있습니다.<br>Matrix 에서 정의한 allSize 를 외부에서 사용하려면 컴파일 에러가 나게 됩니다.</p>
+<p>조심해야 할 부분은 this 인데, 일반적인 this 는 클래스자체의 this도 있고 확장함수의 this 도 있습니다. 따라서 이를 명확하게 표시하기 위해 라벨을 통해 표시 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Matrix</span></span>(<span class="keyword">val</span> m: List&lt;List&lt;<span class="built_in">Int</span>&gt;&gt;) &#123;</span><br><span class="line">    <span class="keyword">infix</span> <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">plus</span><span class="params">(o: <span class="type">Matrix</span>)</span></span>: Matrix &#123;</span><br><span class="line">        <span class="keyword">if</span> (m.size != o.m.size) <span class="keyword">throw</span> IllegalArgumentException(<span class="string">&quot;Size not matched&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> (!(m zip o.m).all &#123; (a1, a2) -&gt; a1.size == a2.size &#125;) <span class="keyword">throw</span> IllegalArgumentException(<span class="string">&quot;Size not matched&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Matrix((m zip o.m).map &#123; (a1, a2) -&gt; (a1 zip a2).map &#123;(i1, i2) -&gt; i1 + i2&#125; &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">toString</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&quot;&quot;<span class="subst">$&#123;m.allSize()&#125;</span>\n<span class="subst">$&#123;m.map &#123; it.joinToString(<span class="string">&quot;,&quot;</span>) &#125;</span>.joinToString(&quot;\n&quot;)&#125;&quot;&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> List<span class="type">&lt;List&lt;Int&gt;</span>&gt;.<span class="title">allSize</span><span class="params">()</span></span> = <span class="keyword">this</span><span class="symbol">@allSize</span>.sumOf &#123; it.count() &#125; <span class="comment">// use labeled this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="함수-확장">함수 확장</span></h2><p>코틀린에서는 함수 역시 객체로 취급합니다. 따라서 여기에도 확장함수가 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;V, T, R&gt;</span> <span class="params">((T)</span></span> -&gt; R).compose(<span class="keyword">crossinline</span> l: (V) -&gt; T): (V) -&gt; R = &#123; t: V -&gt;  <span class="keyword">this</span>(l(t)) &#125;</span><br></pre></td></tr></table></figure>
+<p><small>crossinline 으로 자바버전의 compose와 다르게 최적화 할 수도 있습니다.</small></p>
+<h1><span id="infix를-이용한-중위표현식">infix를 이용한 중위표현식</span></h1><p>코틀린에서는 메소드를 중위표현식으로도 표현이 가능합니다. 앞서 봤던 중위표현식으로 <code>to</code>가 있습니다.</p>
+<p>to는 두개의 객체를 하나의 Pair로 묶는 함수로 아래와 같이 정의되어 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">infix</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;A, B&gt;</span> A.<span class="title">to</span><span class="params">(that: <span class="type">B</span>)</span></span>: Pair&lt;A, B&gt; = Pair(<span class="keyword">this</span>, that)</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> to <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>infix 지시어를 사용하기 위해서는 메소드 혹은 확장함수여야 하고 파라메터도 하나만 해야합니다.</p>
+<h1><span id="scope-functions">Scope functions</span></h1><p>코틀린에서는 Any 를 통해 정의된 확장함수가 있습니다.<br>기본적으로 also, apply, let, run, with 라는 함수가 있습니다. 이 함수들은 람다를 하나 파라메터로 받고 전달받은 람다를 실행하고 객체를 리턴해주는 구조를 가지지만 약간의 디테일이 다릅니다.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Object reference</th>
+<th>Return value</th>
+<th>Is extension function</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>let</td>
+<td>it</td>
+<td>Lambda result</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>run</td>
+<td>this</td>
+<td>Lambda result</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>run</td>
+<td>-</td>
+<td>Lambda result</td>
+<td>No: called without the context object</td>
+</tr>
+<tr>
+<td>with</td>
+<td>this</td>
+<td>Lambda result</td>
+<td>No: takes the context object as an argument.</td>
+</tr>
+<tr>
+<td>apply</td>
+<td>this</td>
+<td>Context object</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>also</td>
+<td>it</td>
+<td>Context object</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<p>위는 공식 문서에서 제시한 각각의 차이점입니다.<br>간략하게 설명하면 다음과 같습니다.</p>
+<ul>
+<li>let<ul>
+<li>null 이 아닌 객체에 대해 람다를 실행 할 때</li>
+<li>표현식을 로컬 범위로 사용할 때</li>
+</ul>
+</li>
+<li>apply<ul>
+<li>객체 설정을 할 때</li>
+</ul>
+</li>
+<li>run<ul>
+<li>객체를 설정하고 결과를 계산할 때</li>
+<li>비확장함수에서 표현식이 필요할 때</li>
+</ul>
+</li>
+<li>also<ul>
+<li>객체를 사용할 때</li>
+</ul>
+</li>
+<li>with<ul>
+<li>어떤 하나의 객체에 대하여 묶어서 호출 하고 싶을 때</li>
+</ul>
+</li>
+</ul>
+<h2><span id="차이점">차이점</span></h2><ol>
+<li>this or it</li>
+</ol>
+<p>scope function 사용상의 차이점 중 하나는 파라메터입니다.<br>대표적으로 run의 경우 람다에서 별다른 파라메터 없이 자기 자신에 대한 확장 함수로서 람다가 취급되기 때문에 this로 접근이 가능하지만 let 의 경우 자기 자신에 대한 객체 레퍼런스를 it(혹은 파라메터)로 받기 때문에, 사용 방식에 차이가 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> str = <span class="string">&quot;Hello&quot;</span></span><br><span class="line">    <span class="comment">// this</span></span><br><span class="line">    str.run &#123;</span><br><span class="line">        println(<span class="string">&quot;The receiver string length: <span class="variable">$length</span>&quot;</span>)</span><br><span class="line">        <span class="comment">//println(&quot;The receiver string length: $&#123;this.length&#125;&quot;) // does the same</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// it</span></span><br><span class="line">    str.let &#123;</span><br><span class="line">        println(<span class="string">&quot;The receiver string&#x27;s length is <span class="subst">$&#123;it.length&#125;</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>this</code> 를 사용하는 함수는 run, with, apply 로 컨텍스트 객체에 접근할 때 this를 사용하기 때문에 별도의 객체 참조가 필요하지 않다는 장점이 있습니다.<br>하지만 이 함수를 실행하는 부분이 클래스의 내부라면 this에 대한 참조가 겹치기 때문에 이로인한 혼란이 생길 수 있습니다.</p>
+<p><code>it</code>를 사용하는 함수는 let, also 입니다. 이들은 앞서 소개한 함수들과는 다르게 파라메터의 형태로 넘어가기 때문에 it(혹은 정의된 파라메터변수)를 통해 접근해야 합니다.<br>당연히 객체 접근을 위해 명시적으로 표시해야 하지만 여러 코드블록이 겹친상황에서는 더 편하게 사용 할 수 있다는 장점이 있습니다.</p>
+<ol start="2">
+<li>리턴</li>
+</ol>
+<p>apply, also 의 경우 객체 자체를 리턴값으로 가지며 파라메터인 람다의 경우 리턴값이 Unit 임을 알 수 있습니다.<br>이는 내부에서 값을 처리하고 람다의 리턴값을 사용하지 않고 객체 자체를 내리는 것을 알 수 있습니다.<br>let, run, with 는 람다에서 리턴된 값을 실제 함수에서로 리턴하는 구조입니다.</p>
+<p>이러한 특성을 사용해 코드를 작성할 때 다음에 사용할 코드에 따라 두 가지 형태의 함수들 중에서 원하는 것을 선택하게 됩니다.</p>
+<h2><span id="활용">활용</span></h2><p>위 함수는 우리의 코드를 좀 더 간결하게 만들어줍니다.<br>맵 객체를 하나 선언하다고 해봅시다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">open</span> <span class="function"><span class="keyword">fun</span> <span class="title">someProperty</span><span class="params">()</span></span> = HashMap&lt;String, String&gt;().apply &#123;</span><br><span class="line">    put(<span class="string">&quot;test1&quot;</span>, getData(<span class="string">&quot;test1&quot;</span>))</span><br><span class="line">    put(<span class="string">&quot;test2&quot;</span>, parse(<span class="keyword">get</span>(<span class="string">&quot;test1&quot;</span>)))</span><br><span class="line">&#125;.toMap()</span><br></pre></td></tr></table></figure>
+<p><small>일반적으로 맵을 정의하는데에는 <code>mapOf</code>, <code>mutableMapOf</code>를 사용하는게 일반적입니다.</small></p>
+<p>여기서는 apply 를 사용했는데 이 함수를 이용해 put, get의 호출을 간소화 했으며 또한 이 전반적인 프로세스를 하나의 람다로 담았기 때문에, 하나의 표현식으로 인식되어 함수 바디를 별도로 선언하지 않고 = 표시법으로 선언함을 볼 수 있습니다. 이렇게 적절한 scope function 으로 코드의 생산성을 늘릴 수 있습니다.</p>
+<hr>
+<p>참고자료</p>
+<ul>
+<li>다재다능 코틀린 프로그래밍</li>
+<li>공식 문서 (<a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/scope-functions.html">https://kotlinlang.org/docs/scope-functions.html</a>)</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

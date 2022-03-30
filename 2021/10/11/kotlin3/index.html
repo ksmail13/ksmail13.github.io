@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 3. Function"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 3. Function - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 3. Function</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/10/11
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">함수</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">함수 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Unit타입</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">파라메터</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">블록바디</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">파라메터 기본 값</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">명시적 파라미터</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">가변 인자</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Destructing</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">출처</span></a></li></ol></li></ol></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1><span id="함수">함수</span></h1><p>코틀린에서는 함수를 정의하기 위해 별도의 클래스가 필요하지 않습니다. 이러한 단독함수(standalone function)는 다른 클래스나 또는 또다른 단독함수에서 재사용이 가능합니다.</p>
+<p>또한 패키징 역시 같이 반영되기 때문에, 개발자가 원하는 위치에 원하는 함수를 위치 시킬 수 있습니다.</p>
+<h2><span id="함수-생성">함수 생성</span></h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 일반적인 정의</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">addOne</span><span class="params">(i : <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> i+<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 단일 표현식을 활용한 정의</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">addTwo</span><span class="params">(i : <span class="type">Int</span>)</span></span> = i + <span class="number">2</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>함수의 정의는 fun 이라는 예약어로 시작하며, 함수 이름, 파라메터, 리턴 타입 순으로 정의됩니다. 여기서 파라메터는 또 <code>변수 명: 타입</code> 순으로 작성합니다.<br>따라서 <code>addOne</code> 함수를 해석하면 i 라는 이름의 정수형 파라메터를 하나 받아 정수형 값을 리턴한다고 해석 할 수 있습니다.</p>
+<p>두번째 방식의 경우 일반적인 자바와는 형태가 조금 다른데, 이와 같이 단일 표현식의 경우 = 을 통해 함수를 정의할 수 있습니다. 또한 이 경우 별도의 return 예약어를 사용하지 않더라도 표현식의 마지막 문장의 결과가 리턴되게 되며 또한 반환 타입 역시 별도의 선언없이 표현식의 결과 타입에 따라 결졍됩니다. 그리고 또한 이러한 암시적인 리턴타입은 컴파일 타임에 결정됩니다.<br>따라서 아래의 경우 컴파일러에서 에러를 발생시킵니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> id: String = addTwo(<span class="number">3</span>) <span class="comment">// ERROR!</span></span><br></pre></td></tr></table></figure>
+
+<p>다만 외부에서 참조하는 경우가 많은 함수라면 명시적으로 타입을 표현해주는 것도 좋다. 왜냐하면 나중에 해당 함수를 사용할 사용자가 이해하기 좋으며, 또한 함수 내용이 변경되었을 때, 뜻하지 않게 타입이 바뀌는 경우도 막을 수 있습니다.</p>
+<h2><span id="unit타입">Unit타입</span></h2><p>Unit타입은 자바의 void 와 대응되는 타입입니다. 함수내에서 아무것도 리턴할게 없는 경우 Unit<sup><a href="#1">1</a></sup>을 사용하면 됩니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">printMsg</span><span class="params">(msg:<span class="type">String</span>)</span></span> = println(msg)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> msg: <span class="built_in">Unit</span> = printMsg(<span class="string">&quot;msg&quot;</span>) <span class="comment">// ERROR</span></span><br><span class="line"></span><br><span class="line">println(<span class="string">&quot;msg is <span class="variable">$msg</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>위 코드의 실행 결과는 <code>msg is kotlin.Unit</code> 으로 표시된다. 보이는 것 처럼 Unit 함수의 경우 Unit 객체를 리턴하고, Unit 객체 내부에는 기본적인 toString, equals, hashcode 가 정의 되어 있기 때문에, 위와 같은 결과를 얻을 수 있습니다. 또한 이로인해 코틀린의 모든 함수는 표현식으로 취급될수 있고, 모든 함수 결과에 메소드를 호출 할 수 있습니다.</p>
+<h2><span id="파라메터">파라메터</span></h2><p>파라메터는 위에서 명시한대로 타입을 정확히 명시해야한다. 위 addOne, addTwo 함수에서는 모두 i 라는 정수형의 파라메터를 하나 받는것을 알 수 있습니다.<br>1개 이상의 파라메터가 필요한 경우, 콤마(,) 를 사이에 두어 구분하며 추가 할 수 있습니다.</p>
+<p>다만 변수선언과는 다르게 var, val 은 붙지 않는데, val 처럼 값의 변경은 불가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">testFun</span><span class="params">(i: <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line">    i = i+<span class="number">1</span> <span class="comment">// ERROR </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test.kts:8:5: error: val cannot be reassigned</span></span><br><span class="line"><span class="comment">//    i = i+1</span></span><br><span class="line"><span class="comment">//    ^</span></span><br></pre></td></tr></table></figure>
+
+<h2><span id="블록바디">블록바디</span></h2><p>함수를 정의하는데 =를 사용하는 방법과 {} 블록을 사용하는 방식 두가지가 있습니다.<br>블록을 사용하여 정의하는 경우 리턴타입을 꼭 정해야 하며, 명시하지 않은 경우 Unit으로 지정합니다. 또한 return 역시 명시적으로 표현해야 합니다.</p>
+<p>조심해야하는 점은 =와 {} 블록을 병기하는 경우인데, 이 경우는 리턴 타입이 람다 타입으로 추론합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">lambdaGen</span><span class="params">()</span></span> = &#123;<span class="number">1</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> lambda = lambdaGen()</span><br><span class="line">println(<span class="string">&quot;lambda is <span class="variable">$lambda</span>&quot;</span>)            <span class="comment">// lambda is () -&gt; kotlin.Int</span></span><br><span class="line">println(<span class="string">&quot;lambda return <span class="subst">$&#123;lambda()&#125;</span>&quot;</span>)    <span class="comment">// lambda return 1</span></span><br></pre></td></tr></table></figure>
+
+<p>위 코드에서 처럼 실행 결과처럼 lambdaGen 함수를 실행했을 때 1이라는 값이 리턴되는것이 아닌 1을 리턴하는 람다를 리턴하고 이 리턴된 람다를 실행했을 때, 의도한 1이라는 값이 나오게 됩니다.</p>
+<h2><span id="파라메터-기본-값">파라메터 기본 값</span></h2><p>코틀린은 함수 파라메터에 기본값을 지정 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">addOne</span><span class="params">(i: <span class="type">Int</span> = <span class="number">1</span>)</span></span> = i + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">println(addOne(<span class="number">10</span>)) <span class="comment">// 11</span></span><br><span class="line">println(addOne()) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>파라메터가 있을 때도 정상적으로 처리하고 파라메터가 없는 경우 기본 값으로 설정된 1로 처리되는 것을 확인할 수 있습니다.<br>이러한 파라메터 기본 값으로 원래 있는 함수에 파라메터를 추가할 때도 기존 코드의 영향을 줄이고 수정 할 수 있게 됩니다.</p>
+<p>파라메터의 기본 값은 파라메터의 위치와 무관하게 지정 할 수 있으나 일반 파라메터 보다 앞에 있을 경우 일반 파라메터에 파라메터를 넘기게 하기 위해 결국 모든 파라메터를 넘겨야하기 때문에, 이런식으로 정의하는 것은 피해야합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">add</span><span class="params">(a:<span class="type">Int</span> = <span class="number">1</span>, b: <span class="type">Int</span>)</span></span> = a + b</span><br><span class="line">println(<span class="string">&quot;add <span class="subst">$&#123;add(<span class="number">1</span>)&#125;</span>&quot;</span>) <span class="comment">// test.kts:14:21: error: no value passed for parameter &#x27;b&#x27;</span></span><br><span class="line">println(<span class="string">&quot;add <span class="subst">$&#123;add(b = <span class="number">1</span>)&#125;</span>&quot;</span>) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p>다만 파라메터를 명시적으로 지정하는 경우에는 가능합니다.</p>
+<p>또한 파라메터는 리터럴 값 외의 표현식으로 사용 할 수도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">numAndMsg</span><span class="params">(i: <span class="type">Int</span>, msg:<span class="type">String</span> = <span class="string">&quot;i is <span class="subst">$&#123;i&#125;</span>&quot;</span>)</span></span> = i to msg</span><br></pre></td></tr></table></figure>
+
+<p>메소드가 실행되는 과정에 기본값을 초기화 한 후 메소드가 실행됩니다. 그리고 기본 값 파라메터를 설정한 경우 표현식을 실행하지 않습니다.<br>이때 위 함수에서 파라메터 순서를 바뀌게 되면 msg는 i의 존재를 모르기 때문에, 컴파일이 불가능 합니다.</p>
+<h2><span id="명시적-파라미터">명시적 파라미터</span></h2><p>코틀린은 함수 실행시 명시적으로 파라메터를 지정할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">add</span><span class="params">(a:<span class="type">Int</span> = <span class="number">1</span>, b: <span class="type">Int</span>)</span></span> = a + b</span><br><span class="line">println(<span class="string">&quot;add <span class="subst">$&#123;add(b = <span class="number">1</span>)&#125;</span>&quot;</span>) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>위 코드 처럼 b 파라메터에 대해 명시적으로 할당하여 사용하는 것을 볼 수 있습니다.</p>
+<p>명시적 파라메터로 가독성이 올라가 코드를 이해 하는데 많은 도움이 됩니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">createUser</span><span class="params">(name: <span class="type">String</span>, age: <span class="type">Int</span>)</span></span> = name to age</span><br><span class="line">println(createUser(name=<span class="string">&quot;ksmail13&quot;</span>, age=<span class="string">&quot;100&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<h2><span id="가변-인자">가변 인자</span></h2><p>단일 파라메터상의 여러개의 값을 넣을 수 있는 형태의 파라메터 입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">max</span><span class="params">(<span class="keyword">vararg</span> arr:<span class="type">Int</span>)</span></span>:<span class="built_in">Int</span> = intArrayOf(*arr).maxOrNull()?:<span class="number">0</span></span><br><span class="line">max(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>위 max 함수의 경우 가변 인자로 넘어온 숫자들을 arr라는 이름의 배열(<code>Array&lt;out T&gt;</code>)에 저장하고 사용하는 모습을 보여줍니다.<br>intArrayOf는 마찬가지로 가변인자로 int 들을 받아 IntArray를 생성하는 함수 입니다. 이 함수를 사용하기 위해 가변 변수인 arr를 스프레드 연산자(<code>&#39;</code>)를 통해 전달하는 것을 보실 수 있습니다.</p>
+<p>가변인자를 사용하기 위해서는 함수 파라메터의 가장 <strong>마지막</strong>(마지막 파라메터가 람다인 경우엔 람다 앞)에 위치 해야합니다.</p>
+<h1><span id="destructing">Destructing</span></h1><p>코틀린은 Pair 등 Map.Entry 혹은 componentN 함수를 가지고 있는 타입에 대해 Destructing 을 지원합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> (a, b) = <span class="number">1</span> to <span class="number">2</span></span><br><span class="line">println(<span class="string">&quot;<span class="variable">$a</span>, <span class="variable">$b</span>&quot;</span>) <span class="comment">// 1, 2</span></span><br></pre></td></tr></table></figure>
+
+<p>to 는 pair를 만드는 코틀린 내장 함수 입니다. Pair는 Destructing 을 지원하기 때문에 두개의 변수에 각각 할당하는 것을 볼 수 있습니다.</p>
+<p>또한 람다 파라메터 에서도 사용가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map.mapValues &#123; entry -&gt; <span class="string">&quot;<span class="subst">$&#123;entry.value&#125;</span>!&quot;</span> &#125;</span><br><span class="line">map.mapValues &#123; (key, value) -&gt; <span class="string">&quot;<span class="variable">$value</span>!&quot;</span> &#125; <span class="comment">// Map.Entry</span></span><br><span class="line"></span><br><span class="line">&#123; a -&gt; ... &#125; <span class="comment">// one parameter</span></span><br><span class="line">&#123; a, b -&gt; ... &#125; <span class="comment">// two parameters</span></span><br><span class="line">&#123; (a, b) -&gt; ... &#125; <span class="comment">// a destructured pair</span></span><br><span class="line">&#123; (a, b), c -&gt; ... &#125; <span class="comment">// a destructured pair and another parameter</span></span><br></pre></td></tr></table></figure>
+
+<p>그리고 사용하지 않는 파라메터는 밑줄로 치환하여 해당 파라메터를 사용하지 않게 할 수도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.mapValues &#123; (_, value) -&gt; <span class="string">&quot;<span class="variable">$value</span>!&quot;</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h4><span id="출처">출처</span></h4><ul>
+<li>다재다능 코틀린 프로그래밍</li>
+<li>코틀린 공식 문서</li>
+</ul>
+<hr>
+<p><a name="1">1.</a> Unit이라는 이름은 타입 이론에서 아무런 정보를 갖지않는 싱글톤인 Unit에서 유래</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

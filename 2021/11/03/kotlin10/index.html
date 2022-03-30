@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 10. Funtional feature"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 10. Funtional feature - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 10. Funtional feature</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/11/03
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a> <a href="/tags/object/">#object</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">람다</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">익명함수</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">클로저</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">리턴</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">labeled 리턴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">논로컬 리턴</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">인라인 함수의 최적화</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">인라인 람다 해제</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">크로스인라인</span></a></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>코틀린은 함수형 패러다임을 지원합니다. 따라서 함수를 변수처럼 파라메터나 리턴 타입등으로 활용이 가능합니다.<br>그리고 <a target="_blank" rel="noopener" href="https://arrow-kt.io/">Arrow</a> 라는 라이브러리를 사용하면 스칼라 못지 않은 함수형 언어로의 활용도 가능합니다.</p>
+<h1><span id="람다">람다</span></h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> f1: (<span class="built_in">Int</span>) -&gt; String = &#123;i -&gt; i.toString()&#125;</span><br><span class="line"><span class="keyword">val</span> f2 = &#123;i: <span class="built_in">Int</span> -&gt; i.toString()&#125;</span><br></pre></td></tr></table></figure>
+
+<p>람다는 위와 같이 선언이 가능합니다. f1은 변수타입에 명시적으로 파라메터와 리턴 타입을 표시한 경우이고 f2는 람다 자체에서 명시된 파라메터를 이용하여 해당 람다의 타입을 확인 할 수 있습니다. 물론 두 방식 모두 섞을 수는 있겠지만 코드가 길어지기 때문에 굳이 그렇게 할 필요는 없습니다.</p>
+<h1><span id="익명함수">익명함수</span></h1><p>람다와 다르게 익명함수 역시 지원합니다. 람다와 다른점은 익명함수는 단순히 함수이기 때문에 리턴등을 명확하게 선언해야 합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> f3 = <span class="function"><span class="title">fun</span><span class="params">(i: <span class="type">Int</span>)</span></span> &#123;<span class="keyword">return</span> i.toString()&#125;</span><br></pre></td></tr></table></figure>
+<p>역할은 람다와 동일하지만 앞에 fun 지시어와 리턴을 명시적으로 표현한것이 다릅니다. 아무래도 표현식이 더 장황하기 때문에 람다보다는 사용 할 일이 많이 없습니다.</p>
+<h1><span id="클로저">클로저</span></h1><p>클로저는 상태가 없는 람다에 상태가 추가된 형태로 볼 수 있다. 외부 변수를 위에 범위가 확장되어있고 이를 위해 람다의 스코프가 확장되는 것을 랙시컬 스코핑(Lexical scoping)이라고 부릅니다.</p>
+<p>클로저가 외부 변수를 참조할 땐 해당 변수는 변경불가능한 상태를 사용하는것이 좋습니다. 변화가 가능하면 해당 함수는 참조무결성이 깨지기 때문에 함수형 프로그래밍을 진행하기 어렵습니다. </p>
+<h1><span id="리턴">리턴</span></h1><h2><span id="labeled-리턴">labeled 리턴</span></h2><p>일반적으로 코틀린의 람다는 리턴 키워드를 사용 할 수 없습니다. 람다에서 리턴 키워드를 사용하면 코틀린에서는 람다를 감싸는 외부 함수의 리턴으로 인식하게 됩니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">    .filter &#123;<span class="keyword">return</span> (it % <span class="number">2</span>) == <span class="number">0</span>&#125; <span class="comment">// not lambda return</span></span><br></pre></td></tr></table></figure>
+
+<p>그래서 코드 블록에 라벨을 추가하여 해당 블록을 빠져나가도록 명시적으로 지정 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">    .filter <span class="symbol">odd@</span>&#123;<span class="keyword">return</span><span class="symbol">@odd</span> (it % <span class="number">2</span>) == <span class="number">0</span>&#125; <span class="comment">// lambda return</span></span><br></pre></td></tr></table></figure>
+
+<p>혹은 람다를 파라메터로 받는 함수의 이름으로도 대체가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">        .filter &#123;<span class="keyword">return</span><span class="symbol">@filter</span> (it % <span class="number">2</span>) == <span class="number">0</span>&#125; <span class="comment">// label &#x27;filter&#x27; matched with method that receive lambda</span></span><br></pre></td></tr></table></figure>
+
+<h2><span id="논로컬-리턴">논로컬 리턴</span></h2><p>아까 위에서 람다에서 그냥 리턴하는 경우엔 외부함수의 리턴이라고 언급했습니다. 하지만 이는 선제조건이 필요합니다. 바로 실행하는 함수가 inline 함수여야 한다는 점입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">(i: (<span class="type">Int</span>) -&gt; <span class="type">Boolean</span>)</span></span> &#123;</span><br><span class="line">    println(<span class="keyword">if</span> (i(<span class="number">10</span>)) <span class="string">&quot;pass&quot;</span> <span class="keyword">else</span> <span class="string">&quot;fail&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test &#123;<span class="keyword">return</span> it &gt; <span class="number">5</span>&#125; <span class="comment">// ERROR return is not allow here</span></span><br></pre></td></tr></table></figure>
+
+<p>위와 같이 정의한 경우 컴파일 에러가 납니다. inline 함수가 아니기 때문입니다. 왜 인라인 함수여야하는지는 아래에서 다루도록 하겠습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">(i: (<span class="type">Int</span>) -&gt; <span class="type">Boolean</span>)</span></span> &#123;</span><br><span class="line">    println(<span class="keyword">if</span> (i(<span class="number">10</span>)) <span class="string">&quot;pass&quot;</span> <span class="keyword">else</span> <span class="string">&quot;fail&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">someFunc</span><span class="params">()</span></span> &#123;</span><br><span class="line">    test &#123;<span class="keyword">return</span> it &gt; <span class="number">5</span>&#125; <span class="comment">// ERROR inferred type is Boolean but Unit was expected</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>리턴을 하였을 때 외부 함수의 리턴타입과 매치되지 않아 컴파일 에러가 발생합니다. 네 someFunc는 unit 을 리턴하기 때문에 실패하는 것입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">(i: (<span class="type">Int</span>) -&gt; <span class="type">Boolean</span>)</span></span> &#123;</span><br><span class="line">    println(<span class="keyword">if</span> (i(<span class="number">10</span>)) <span class="string">&quot;pass&quot;</span> <span class="keyword">else</span> <span class="string">&quot;fail&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">someFunc</span><span class="params">()</span></span> &#123;</span><br><span class="line">    test &#123; <span class="keyword">return</span><span class="symbol">@test</span> it &gt; <span class="number">5</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>리턴에 별도의 라벨을 추가하여 test 메소드에서 실행될 함수 라벨을 이용하여 람다를 리턴하게 할 수 있습니다.<br>이렇게 외부 함수가 아닌 실행 중인 람다에서 빠져나오게 하는 리턴을 논로컬 리턴이라고 합니다.</p>
+<h1><span id="인라인-함수의-최적화">인라인 함수의 최적화</span></h1><p>코틀린에서 inline 키워드를 통해 함수가 일반적인 형태로 호출 되면 이 함수는 런타임에 기존의 함수와는 다르게 취급됩니다.<br>함수 내용자체가 함수 호출부에 반영되어 함수가 호출되는 형태가 아닌 컴파일 타임에 함수 내 코드가 호출부에 복사되는 형태로 바뀌게 됩니다.<br>앞에서 본 예제에서도 inline 함수에서 사용된 람다 역시 마찬가지로 함수와 마찬가지로 람다 자체도 실행 부분에 복사되게 됩니다.</p>
+<p>따라서 함수 호출을 줄임으로서 실행의 최적화가 가능합니다.<br>대표적인 예로 <a target="_blank" rel="noopener" href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/for-each.html">forEach</a>를 들 수 있는데, inline 으로 선언된 덕분에 자바와는 다르게 추가 오버헤드 없이 람다를 실행하여 성능을 최적화 할 수 있게 되었습니다.</p>
+<p>만약 inline 이 아니었다면 어땠을까?</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    println(<span class="string">&quot;normal lambda&quot;</span>)</span><br><span class="line">    listOf(<span class="number">1</span>).each &#123; showStack() &#125;</span><br><span class="line">    println()</span><br><span class="line">    println(<span class="string">&quot;inline lambda&quot;</span>)</span><br><span class="line">    listOf(<span class="number">1</span>).forEach &#123; showStack() &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">showStack</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> arrayOfStackTraceElements = Thread.getAllStackTraces()[Thread.currentThread()]</span><br><span class="line">    println(arrayOfStackTraceElements?.map &#123; it.toString() &#125;?.joinToString(<span class="string">&quot;\n&quot;</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> List<span class="type">&lt;T&gt;</span>.<span class="title">each</span><span class="params">(lambda: (<span class="type">T</span>) -&gt; <span class="type">Unit</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="keyword">this</span>) &#123;</span><br><span class="line">        lambda(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">normal lambda</span><br><span class="line">java.lang.Thread.dumpThreads(Native Method)</span><br><span class="line">java.lang.Thread.getAllStackTraces(Thread.java:1610)</span><br><span class="line">TestKt.showStack(Test.kt:53)</span><br><span class="line">TestKt$main$1.invoke(Test.kt:47)</span><br><span class="line">TestKt$main$1.invoke(Test.kt:47)</span><br><span class="line">TestKt.each(Test.kt:67)</span><br><span class="line">TestKt.main(Test.kt:47)</span><br><span class="line">TestKt.main(Test.kt)</span><br><span class="line"></span><br><span class="line">inline lambda</span><br><span class="line">java.lang.Thread.dumpThreads(Native Method)</span><br><span class="line">java.lang.Thread.getAllStackTraces(Thread.java:1610)</span><br><span class="line">TestKt.showStack(Test.kt:53)</span><br><span class="line">TestKt.main(Test.kt:49)</span><br><span class="line">TestKt.main(Test.kt)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>showStack() 은 현재스레드의 스택스레이스를 표시하는 함수 입니다. 별도로 정의한 each라는 함수는 inline이 아니기 때문에, 별도의 invoke 절차를 통해 람다가 실행된 것을 알 수 있습니다. 하지만 inline으로 선언된 forEach는 람다의 invoke가 없는 것을 알 수 있습니다.</p>
+<h2><span id="인라인-람다-해제">인라인 람다 해제</span></h2><p>다만 람다가 인라인처리가 되면 람다가 어떤 데이터로 취급되는 것이 아니라 실제 코드상에 람다 내용이 덮어씌워지게 됩니다. 따라서 람다를 별도의 변수로 취급하거나 리턴하거나 할 수 없습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> List<span class="type">&lt;T&gt;</span>.<span class="title">each</span><span class="params">(lambda: (<span class="type">T</span>) -&gt; <span class="type">Unit</span>)</span></span>: (T) -&gt; <span class="built_in">Unit</span> &#123;</span><br><span class="line">    <span class="keyword">val</span> l = lambda <span class="comment">// Illegal usage of inline-parameter &#x27;lambda&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="keyword">this</span>) &#123;</span><br><span class="line">        lambda(i)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> lambda <span class="comment">// Illegal usage of inline-parameter &#x27;lambda&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이런 람다의 인라인 처리는 인라인 함수에서는 기본으로 반영되는데, 이를 막고 싶은 경우엔 noinline이라는 지시어를 통해 막을 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> List<span class="type">&lt;T&gt;</span>.<span class="title">each</span><span class="params">(<span class="keyword">noinline</span> lambda: (<span class="type">T</span>) -&gt; <span class="type">Unit</span>)</span></span>: (T) -&gt; <span class="built_in">Unit</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="keyword">this</span>) &#123;</span><br><span class="line">        lambda(i)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> lambda</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>noinline을 통해 다시 람다를 함수 외부로 넘길 수 있게 되었습니다.</p>
+<h2><span id="크로스인라인">크로스인라인</span></h2><p>인라인 람다를 다른 곳에 넘기는건 완전 불가능할까요? 이를 위해 코틀린은 crossinline 이라는 것도 만들었습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> List<span class="type">&lt;T&gt;</span>.<span class="title">each</span><span class="params">(<span class="keyword">crossinline</span> lambda: (<span class="type">T</span>) -&gt; <span class="type">Unit</span>)</span></span>: (T) -&gt; <span class="built_in">Unit</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="keyword">this</span>) &#123;</span><br><span class="line">        lambda(i)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123; lambda(it) &#125; <span class="comment">// crossinline make this possible</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>crossinline은 inline의 특성을 유지하면서 해당 람다를 외부로 옮길 수 있는 inline 타입입니다.<br>위 예제에서 마지막 리턴문을 보면 람다 내부에 crossinline 으로 선언된 lambda가 실행되는 것을 확인할 수 있습니다. 다만 inline 이기 때문에 변수로 취급하거나 람다 자체를 리턴하는건 불가능합니다.<br>(물론 실행이 아닌 바이트코드가 해당 부분에 삽입되는 형태입니다.)</p>
+<hr>
+<p>출처</p>
+<p>다재다능 코틀린 프로그래밍<br>코틀린 공식문서</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

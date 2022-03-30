@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 8. Inherit"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 8. Inherit - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 8. Inherit</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/11/01
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a> <a href="/tags/object/">#object</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">인터페이스</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">추상 클래스</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">인터페이스 vs 추상 클래스</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">중첩 클래스와 내부 클래스</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">상속</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Sealed 클래스</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Enum</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">위임처리</span></a></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>코틀린의 클래스는 기본적으로 final입니다. 따라서 상속이 불가능한 형태로 되어 있습니다.<br>이는 컴파일 과정에서 또다른 최적화의 요소로 반영됩니다. 물론 <code>open</code>이라는 지시어를 통해 상속가능한 형태로 바꿔 줄 수 있습니다.</p>
+<h1><span id="인터페이스">인터페이스</span></h1><p>기본적으로는 자바의 그것과 동일합니다. 8버전이상의 자바에서 지원되는 default method 역시 별도의 지시어 없이 선언 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Accessable</span>&lt;<span class="type">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">access</span><span class="params">()</span></span>: T</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>static 요소가 필요한 경우 내부에 컴패니언 객체를 선언하여 사용 가능합니다.</p>
+<h1><span id="추상-클래스">추상 클래스</span></h1><p>추상 클래스도 마찬가지로 자바의 그것과 동일합니다.<br>제약 조건역시 동일합니다. 추상클래스는 클래스이기 때문에 한가지만 상속가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Base</span></span>(<span class="keyword">val</span> id: String) &#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="function"><span class="keyword">fun</span> <span class="title">process</span><span class="params">()</span></span>: String</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h2><span id="인터페이스-vs-추상-클래스">인터페이스 vs 추상 클래스</span></h2><p>기본적으로는 동일하지만 여러개를 상속(구현)할 수 있는지, 또한 필드를 가질 수 있는지 없는지에 따라 선택하게 됩니다. 일반적인 객체지향 설계에서는 상속보다는 구성들을 통한 조합을 더 선호하기 때문에 기능의 사용 가능 여부를 나타내는 인터페이스가 대부분의 경우에 맞겠지만 어떤 도메인에 일정한 필드들이 공통된 값을 가지고 존재해야 하는 경우라면 추상 클래스를 상속해야 할 것 입니다.</p>
+</blockquote>
+<h1><span id="중첩-클래스와-내부-클래스">중첩 클래스와 내부 클래스</span></h1><p>중첩 클래스는 클래스 내부에 클래스를 생성하는 것으로 기본적으로는 자바의 static inner class로 생성됩니다. static이기 때문에 내부 정보를 공유할 수 없습니다. 만약 자바의 기본 inner class가 필요한 경우엔 inner라는 지시어를 class 앞에 추가하면 됩니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> d:String = <span class="string">&quot;123&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Inner1</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">getD</span><span class="params">()</span></span> = d <span class="comment">// ERROR</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">inner</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner2</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">getD</span><span class="params">()</span></span> = d <span class="comment">// OK</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">toString</span><span class="params">()</span></span> = <span class="keyword">this</span><span class="symbol">@Outer</span>.toString()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1><span id="상속">상속</span></h1><p>코틀린의 모든 클래스는 Any 라는 클래스를 상속받습니다. 이는 명시적으로 지정하지 않아도 알아서 상속이 됩니다.<br>Any 는 자바의 Object처럼 equals, hashCode, toString를 가지고 있습니다.</p>
+<p>기본적으로 코틀린은 상속을 허용하지 않습니다. 무분별한 상속 구현을 막고 내부 바이트코드 상으로도 약간의 최적화를 가지는 효과를 가집니다. 정말 상속이 필요한 클래스라면 open 이라는 키워드를 추가함으로써 정의 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">OS</span></span>(<span class="keyword">val</span> name: String, <span class="keyword">open</span> <span class="keyword">val</span> arch: String = <span class="string">&quot;X86&quot;</span>) &#123;</span><br><span class="line">    <span class="keyword">open</span> <span class="keyword">val</span> version: String = <span class="string">&quot;1.0.0&quot;</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">toString</span><span class="params">()</span></span> = <span class="string">&quot;<span class="variable">$name</span>:<span class="variable">$arch</span> - <span class="variable">$version</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>필드 역시 상속이 가능한데 필드가 val 로 선언된 경우 val, var로 오버라이딩 할 수 있고 var은 var로만 오버라이딩 가능합니다.</p>
+<p>오버라이드를 할 때는 override 지시어를 추가해야합니다. 예제에서는 toString 에 대해 오버라이딩을 했는데, 코틀린에서 override 를 추가한 경우 해당 메소드는 자동적으로 open 상태이기 때문에, 만약 자식클래스에서의 오버라이딩을 원하지 않을 경우 final 을 추가하여 자바처럼 상속불가능하게 선언 가능합니다. 그리고 자바에서 @Override 는 개발자가 추가했을때 컴파일 타임에 검사를 하는 형태인데, 코틀린의 경우 override 가 없으면 무조건 실패하기 때문에, 실제 이 오버라이딩이 맞는지 확인 할 수 있다는 장점이 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Linux</span></span>(arch: String): OS(<span class="string">&quot;Linux&quot;</span>, arch) &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> arch = arch</span><br><span class="line">        <span class="keyword">set</span>(value) &#123;</span><br><span class="line">            field = value.ifEmpty &#123;</span><br><span class="line">                <span class="keyword">throw</span> IllegalArgumentException(<span class="string">&quot;must arch exist&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위 Linux 클래스는 OS라는 클래스를 상속한 클래스로 상속할 때 자바처럼 extends 나 implement 같은 지시어가 없이 : 만으로 상속을 선언합니다. 또한 위와 같이 클래스를 상속 받을 때는 부모클래스의 이름 뒤에 ()를 붙여 생성자를 실행하도록 해야합니다. 따라서 Linux 클래스도 OS의 생성자를 호출 하도록 했습니다.<br>추가로 arch 정보를 오버라이딩하여 setter를 수정하였고 빈 값은 들어올 수 없도록 설정했습니다.</p>
+<h1><span id="sealed-클래스">Sealed 클래스</span></h1><p>sealed 클래스는 재미있는 클래스 입니다. abstract 처럼 실제 객체를 가질 수 없는 오직 상속만을 위한 클래스지만 상속받을 수 있는 범위가 제한되어 있습니다. 일반적인 abstract 클래스는 일반적으로 접근제어자에 맞는 범위내에서 무제한으로 상속받을 수 있으나 sealed 클래스는 다릅니다. sealed 클래스를 정의한 파일에서만 상속을 받을 수 있습니다. 그로 인해 원하는 만큼 상속받는 자식 클래스를 제한 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sealed</span> <span class="class"><span class="keyword">class</span> <span class="title">Either</span>&lt;<span class="type">out L, out R</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> <span class="title">map</span><span class="params">(r: (<span class="type">R</span>) -&gt; <span class="type">T</span>)</span></span>: Either&lt;L, T&gt; = flatMap &#123; Right(r(it)) &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onLeft</span><span class="params">(e: (<span class="type">L</span>) -&gt; <span class="type">Unit</span>)</span></span>: Either&lt;L, R&gt; = <span class="keyword">when</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">        <span class="keyword">is</span> Right -&gt; <span class="keyword">this</span></span><br><span class="line">        <span class="keyword">is</span> Left -&gt; &#123;</span><br><span class="line">            e(lValue)</span><br><span class="line">            <span class="keyword">this</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Left</span>&lt;<span class="type">out L</span>&gt;</span>(<span class="keyword">val</span> lValue: L):Either&lt;L, <span class="built_in">Nothing</span>&gt;() <span class="comment">// 타입 파라메터 R을 대체</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Right</span>&lt;<span class="type">out R</span>&gt;</span>(<span class="keyword">val</span> rValue: R): Either&lt;<span class="built_in">Nothing</span>, R&gt;() <span class="comment">// 타입 파라메터 L을 대체</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;L, R, T&gt;</span> Either<span class="type">&lt;L, R&gt;</span>.<span class="title">flatMap</span><span class="params">(r: (<span class="type">R</span>) -&gt; <span class="type">Either</span>&lt;<span class="type">L</span>, T&gt;)</span></span>: Either&lt;L, T&gt; = <span class="keyword">when</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">    <span class="keyword">is</span> Either.Right -&gt; r(rValue)</span><br><span class="line">    <span class="keyword">is</span> Either.Left -&gt; <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>이전에 확인했던 Either 클래스 입니다. Either 클래스는 flatMap이라는 메소드를 가지고 있고 메소드의 내부를 보면 when 문을 이용해 자식 클래스 타입에 따라 실행을 분기합니다. 원래였다면 else 절이 있어야겠지만, sealed 클래스는 외부에서 상속을 받을 수 없기 때문에, 같은 파일 내에 정의된 자식 클래스 Right, Left 만 가지게 되고 이로 인해 위와 같이 구현이 가능했습니다.</p>
+<p>그리고 sealed 클래스의 생성자는 private 이기 때문에, sealed 클래스를 직접 사용하는건 불가능합니다. 다만 object 등을 통해서 싱글톤 객체로 사용은 가능합니다.</p>
+<h1><span id="enum">Enum</span></h1><p>자바의 enum 과 동일합니다. 특정 상태/데이터의 타입들을 나타내기 좋으며, 하나의 클래스의 제한된 객체들의 사용을 보장합니다. 상태값과 메소드를 가질 수 있으며, 원하면 인스턴스 선언 과정에서 상속(인터페이스 포함)하여 사용 할 수도 있습니다.</p>
+<h1><span id="위임처리">위임처리</span></h1><p>객체지향의 디자인패턴에는 위임(delegation)을 통해 특정 객체가 받아 다른 객체로 넘겨주는 경우가 있습니다.<br>일반적인 경우라면 인터페이스를 구현하여 해당 메소드들을 일일히 코드로 표현해야 했지만 코틀린은 언어에서 이를 지원합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Thinkable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">think</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DefaultRunnable</span>: <span class="type">Runnable &#123;</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">run</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DefaultThinkable</span>: <span class="type">Thinkable &#123;</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">thinkable</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(r: Runnable, t: Thinkable): Runnable <span class="keyword">by</span> r, Thinkable <span class="keyword">by</span> t</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> defaultRunnable = DefaultRunnable()</span><br><span class="line">    <span class="keyword">val</span> defaultThinkable = DefaultThinkable()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> person = Person(defaultRunnable, defaultThinkable)</span><br><span class="line">    person.think()</span><br><span class="line">    person.run()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<p>출처</p>
+<ul>
+<li>다재다능 코틀린 프로그래밍</li>
+<li>공식문서</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

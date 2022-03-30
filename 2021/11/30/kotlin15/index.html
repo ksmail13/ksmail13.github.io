@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 15. coroutine"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 15. coroutine - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 15. coroutine</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/11/30
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a> <a href="/tags/async/">#async</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Coroutine</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">dependency</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">예제</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">coroutine context &#x2F; thread</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">커스텀 스레드 풀 사용하기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">CoroutineStart</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">비동기로 결과 받기</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">continuation</span></a></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>코틀린은 코루틴이라는 기능을 통해 동시성을 지원합니다. 블로킹이 발생하는 일부 작업을 논블로킹화 시켜 시스템의 리소스를 효율적으로 사용하는데에 큰 도움을 줍니다.<br>다른 언어에도 이와 같은 이름을 가진 기능을 지원하고 있고 자바에서는 concurrent 패키지에 있는 Thread 클래스를 좀 더 쓰기 쉽게 래핑한 ExecutorService 같은 클래스 등을 통해 기본적인 비동기를 지원하고 reactive programming의 패러다임을 통해 비동기 처리를 위한 RxJava, Project Reactor 등의 리액티브 라이브러리를 통해서도 비동기 처리가 가능합니다.</p>
+<h1><span id="coroutine">Coroutine</span></h1><p>코루틴은 일반적인 함수와 다르게 진입점이 여러군데 입니다. 함수는 한번 실행되면 끝날때까지 계속 진행된다면 코루틴은 중간에 잠시 멈췄다 다시 실행이 가능합니다. 이 과정에서 기존에 실행하는 상태를 저장하고 추후 실행포인트에 복귀했을 때 기존 상태를 가지고 다시 진행이 가능하다는 특징이 있습니다.</p>
+<p>코틀린에서 코루틴은 일급 객체입니다. 기본적으로 코루틴을 지원하지만 실제로 사용하기 위해서는 별도의 라이브러리를 통해 정의된 편의함수를 사용해야 합니다.</p>
+<h2><span id="dependency">dependency</span></h2><p>코루틴을 사용하기 위해서는 위에서 언급한대로 별도의 라이브러리가 필요합니다. 메이븐이나 그래들을 통해 의존성을 추가 할 수 있습니다.<br>코루틴은 JVM, native 환경에서만 사용이 가능합니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation <span class="string">&#x27;org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="예제">예제</span></h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> kotlinx.coroutines.delay</span><br><span class="line"><span class="keyword">import</span> kotlinx.coroutines.launch</span><br><span class="line"><span class="keyword">import</span> kotlinx.coroutines.runBlocking</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime</span><br><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter</span><br><span class="line"><span class="keyword">import</span> kotlin.random.Random</span><br><span class="line"></span><br><span class="line"><span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">task</span><span class="params">(n: <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line">    println(<span class="string">&quot;<span class="subst">$&#123;LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)&#125;</span> - start task<span class="variable">$n</span> on thread <span class="subst">$&#123;Thread.currentThread()&#125;</span>&quot;</span>)</span><br><span class="line">    delay(Random(System.currentTimeMillis()).nextLong(<span class="number">1</span>, <span class="number">3</span>) * <span class="number">500</span>) <span class="comment">// 다음문장 실행을 지연시킵니다.</span></span><br><span class="line">    println(<span class="string">&quot;<span class="subst">$&#123;LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)&#125;</span> - end task<span class="variable">$n</span> on thread <span class="subst">$&#123;Thread.currentThread()&#125;</span>&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    runBlocking &#123; <span class="comment">// 내부 블로킹 연산을 코루틴으로 실행하도록 감싸는 함수</span></span><br><span class="line">        launch &#123; task(<span class="number">1</span>) &#125; <span class="comment">// 람다를 새로운 코루틴에서 실행</span></span><br><span class="line">        launch &#123; task(<span class="number">2</span>) &#125; <span class="comment">// 람다를 새로운 코루틴에서 실행</span></span><br><span class="line"></span><br><span class="line">        println(<span class="string">&quot;<span class="subst">$&#123;LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)&#125;</span> - run both task on thread <span class="subst">$&#123;Thread.currentThread()&#125;</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    println(<span class="string">&quot;finish&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>실행결과는 아래와 같습니다. (물론 랜덤으로 지연되게 했기 때문에, 결과는 실행마다 다릅니다.)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2021-11-30T02:02:44.146 - run both task on thread Thread[main,5,main]</span><br><span class="line">2021-11-30T02:02:44.156 - start task1 on thread Thread[main,5,main]</span><br><span class="line">2021-11-30T02:02:44.17 - start task2 on thread Thread[main,5,main]</span><br><span class="line">2021-11-30T02:02:44.676 - end task2 on thread Thread[main,5,main]</span><br><span class="line">2021-11-30T02:02:45.176 - end task1 on thread Thread[main,5,main]</span><br><span class="line">finish</span><br></pre></td></tr></table></figure>
+
+<p>일반적인 함수였다면 task1이 실행 / 완료 후 task2 가 실행 / 완료 되는 순서로 실행됐겠지만 코루틴을 사용하여 위와 같은 결과를 만들 수 있었습니다.<br>재미있는 점은 <code>delay</code> 함수가 실행될 때 <code>sleep</code> 처럼 스레드 전체가 멈추는 것이 아닌 다른 코루틴이 실행된다는 점입니다.</p>
+<p>각 함수 및 키워드에 대해 간단히 설명하면 </p>
+<ul>
+<li><code>runBlocking</code> 함수는 람다와 코루틴 컨텍스트 객체를 받는 함수로 기존의 블로킹 연산을 코루틴으로 감싸기 위해 사용하는 함수입니다.</li>
+<li><code>launch</code> 는 파라메터로 받은 람다를 별도의 코루틴에서 실행하게 도와주는 함수입니다.</li>
+<li>task는 <code>suspend</code> fun 형태를 가지는데, <code>suspend</code> 함수는 코루틴 내부에서 일반 함수처럼 사용됩니다. 다만 내부에서 delay 나 yield 함수를 통해 실행을 지연시킬 수 있습니다.</li>
+<li><code>delay</code> 함수는 코루틴 내부에서 지연 실행이 필요할 때 사용하는 함수입니다. 실제 스레드를 멈추지 않고 현재 실행상태를 멈추고 다른 코루틴이 실행될 수 있도록 한 후 delay 한 시간이 지나면 이후 문장이 실행되게 합니다.  위 예제에서는 0.5초 혹은 1초 뒤에 다음 문장이 실행되도록 지연해주는 역할을 합니다. </li>
+</ul>
+<p>만약 <code>delay</code> 대신 <code>sleep을</code> 사용했다면 task1 -&gt; task2 -&gt; ‘run both’ 메시지 표시 순으로 이루어졌을 것입니다. 로그에서 알 수 있듯이 모든 실행 스레드가 메인스레드라는 점에서 <code>delay</code> 과정에서는 스레드를 점유하여 물리적인 지연을 시키는 것이 아닌 내부 스케쥴러에 의해 지연된 실행을 할 수 있도록 했다는 것을 알 수 있습니다.</p>
+<h1><span id="coroutine-context-thread">coroutine context / thread</span></h1><p>위 예제에서는 모든 코루틴들이 메인 스레드에서 실행되는 것을 알 수 있었습니다. 코루틴에서는 별도의 컨텍스트를 지정하지 않았다면 기본 컨텍스트 상에서 동작합니다. 완벽한 비동기를 위해서는 여러 스레드를 통해 실행될 필요가 있습니다. 이를 위해 코루틴은 <code>runBlocking</code>, <code>launch</code> 등의 함수에 컨텍스트를 명시적으로 선언하여 원하는 컨텍스트(그리고 스레드)에서 코루틴을 실행 시킬 수 있습니다.</p>
+<p>코루틴 라이브러리에는 여러 일반적인 상황을 위해 미리 정의된 코루틴 컨텍스트가 있습니다.</p>
+<ul>
+<li><code>Dispatchers.Default</code> max(cpu 코어수, 2) 의 수 만큼 스레드풀을 만들어 사용하는 컨텍스트 입니다. 보통 cpu bound 잡을 실행할 때 사용합니다.</li>
+<li><code>Dispatchers.IO</code> 스레드 풀내에 가용 스레드가 부족하면 스레드를 늘리는 컨텍스트입니다. 이름 그대로 IO 작업을 할 때 사용합니다.</li>
+<li><code>Dispatchers.Main</code> 안드로이드 / swing 어플리케이션에서 메인스레드를 가리키는 컨텍스트입니다. 두 어플리케이션의 UI 업데이트 시에 사용합니다.</li>
+</ul>
+<p>위 컨텍스트를 이용해 1번 코루틴을 다른 스레드에서 실행하도록 해봤습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> kotlinx.coroutines.*</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime</span><br><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">logging</span><span class="params">(msg: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">    println(<span class="string">&quot;<span class="subst">$&#123;LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)&#125;</span> [<span class="subst">$&#123;Thread.currentThread().name&#125;</span>] - <span class="variable">$msg</span>&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">task</span><span class="params">(n: <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line">    logging(<span class="string">&quot;start task<span class="variable">$n</span>&quot;</span>)</span><br><span class="line">    yield() <span class="comment">// 제어권을 다른 코루틴으로 넘깁니다.</span></span><br><span class="line">    logging(<span class="string">&quot;end task<span class="variable">$n</span>&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    runBlocking &#123; <span class="comment">// 내부 블로킹 연산을 코루틴으로 실행하도록 감싸는 함수</span></span><br><span class="line">        launch(Dispatchers.Default) &#123; task(<span class="number">1</span>) &#125; <span class="comment">// 람다를 새로운 코루틴에서 실행</span></span><br><span class="line">        launch &#123; task(<span class="number">2</span>) &#125; <span class="comment">// 람다를 새로운 코루틴에서 실행</span></span><br><span class="line"></span><br><span class="line">        logging(<span class="string">&quot;run both task&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    logging(<span class="string">&quot;finish&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>실행결과는 다음과 같습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2021-11-30T02:34:22.123 [main] - run both task</span><br><span class="line">2021-11-30T02:34:22.123 [DefaultDispatcher-worker-1] - start task1</span><br><span class="line">2021-11-30T02:34:22.133 [main] - start task2</span><br><span class="line">2021-11-30T02:34:22.134 [main] - end task2</span><br><span class="line">2021-11-30T02:34:22.134 [DefaultDispatcher-worker-1] - end task1</span><br><span class="line">2021-11-30T02:34:22.134 [main] - finish</span><br></pre></td></tr></table></figure>
+
+<p>task1이 다른 잡들과 다른 스레드에서 병렬로 실행되는 것을 알 수 있습니다.</p>
+<h2><span id="커스텀-스레드-풀-사용하기">커스텀 스레드 풀 사용하기</span></h2><p>본인이 작성했거나 기본적으로 적용된 스레드가 아닌 별도의 커스텀 풀을 사용하고 싶을 경우 코루틴 라이브러리에 정의된 확장함수 <code>asCoroutineDispatcher()</code> 를 이용하여 변환이 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Executors.newWorkStealingPool().asCoroutineDispatcher().use &#123; ctx -&gt;</span><br><span class="line">    runBlocking &#123; <span class="comment">// 내부 블로킹 연산을 코루틴으로 실행하도록 감싸는 함수</span></span><br><span class="line">        launch(ctx) &#123; task(<span class="number">1</span>) &#125; <span class="comment">// 람다를 새로운 코루틴에서 실행</span></span><br><span class="line">        launch &#123; task(<span class="number">2</span>) &#125; <span class="comment">// 람다를 새로운 코루틴에서 실행</span></span><br><span class="line"></span><br><span class="line">        logging(<span class="string">&quot;run both task&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>use는 Closable 인터페이스의 확장함수로 자바의 try-with-resource 와 같은 기능을 합니다.</p>
+<h2><span id="coroutinestart">CoroutineStart</span></h2><p><code>launch</code> 함수에는 context 외에 <code>CoroutineStart</code> 파라메터를 추가로 받습니다. 이름 그대로 코루틴 시작 정책에 대한 내용으로 총 4가지 값을 가집니다.</p>
+<ul>
+<li><code>Default</code> 기본값으로 launch 함수의 실행과 동시에 람다를 컨텍스트 내의 스레드에서 실행합니다.</li>
+<li><code>Lazy</code> 명시적으로 <code>start</code> 를 호출해야 람다가 실행됩니다.</li>
+<li><code>ATOMIC</code> 중간에 스레드 외부로 부터 interrupt 가 불가능 한 실행입니다.</li>
+<li><code>UNDISPATCHED</code> 중단이 발생할 때(delay, yield 같은 함수가 실행될 때) 부터 컨텍스트 내의 스레드로 이관되는 형태를 가집니다.</li>
+</ul>
+<h1><span id="비동기로-결과-받기">비동기로 결과 받기</span></h1><p><code>launch</code> 함수는 Job이라는 객체를 리턴합니다. Future 와 비슷한 객체로 <code>launch</code> 의 람다가 실행이 끝날 때 까지 대기를 도와주는 객체입니다. 만약 람다의 결과값을 사용하고 싶다면 <code>async</code> 라는 함수를 사용합니다. <code>async</code> 는 Deferred 라는 객체를 리턴하는데, Job에 결과값을 별도로 담을 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    runBlocking &#123; <span class="comment">// 내부 블로킹 연산을 코루틴으로 실행하도록 감싸는 함수</span></span><br><span class="line">        <span class="keyword">val</span> intDeferred = async(Dispatchers.Default) &#123;</span><br><span class="line">            logging(<span class="string">&quot;processing&quot;</span>)</span><br><span class="line">            delay(<span class="number">1000</span>)</span><br><span class="line">            <span class="number">100</span></span><br><span class="line">        &#125;</span><br><span class="line">        logging(<span class="string">&quot;run both task&quot;</span>)</span><br><span class="line">        logging(<span class="string">&quot;intDeferred has <span class="subst">$&#123;intDeferred.await()&#125;</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    logging(<span class="string">&quot;finish&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2021-12-02T03:21:15.44 [DefaultDispatcher-worker-1] - processing</span><br><span class="line">2021-12-02T03:21:15.44 [main] - run both task</span><br><span class="line">2021-12-02T03:21:16.462 [main] - intDeferred has 100</span><br><span class="line">2021-12-02T03:21:16.462 [main] - finish</span><br></pre></td></tr></table></figure>
+
+<p><code>Deferred</code>의 <code>await</code>함수로 결과값을 받을 수 있는데, 결과를 받기위해 대기할 때도 스레드를 블로킹하지 않습니다.</p>
+<h1><span id="continuation">continuation</span></h1><p>suspend 함수는 데이터를 리턴하고 생긴것은 일반함수와 비슷하지만 앞서 살펴본것과 마찬가지로 실행 중간에 컨텍스트를 다른 코루틴으로 넘기는 등의 형태로 중단하고 다시 컨텍스트로 복귀하여 작업을 지속합니다. 이는 <a target="_blank" rel="noopener" href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-continuation/">Continuation</a>이라는 인터페이스 덕분에 가능합니다. 이 인터페이스는 함수가 suspension 된 이후에 돌아올 실행 포인트를 나타냅니다.</p>
+<p>인터페이스의 resumeWith 라는 메소드를 통해 다른 컨텍스트에서 실행된 결과를 반환받아 리턴할 수 있게 해줍니다.</p>
+<hr>
+<p>출처</p>
+<p>다재다능 코틀린 프로그래밍<br>코틀린 공식문서</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

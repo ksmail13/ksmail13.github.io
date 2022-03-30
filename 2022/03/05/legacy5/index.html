@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="소프트웨어 변경 - 5"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>소프트웨어 변경 - 5 - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>소프트웨어 변경 - 5</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022/03/05
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/software/">#software</a> <a href="/tags/refactoring/">#refactoring</a> <a href="/tags/test/">#test</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Software-Engineering/">Software Engineering</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">클래스를 테스트하기 어려울 때</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">파라메터가 복잡할 때</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">숨겨진 의존관계가 있을 때</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">생성자가 복잡할 때</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">숨겨진 전역의존관계가 있을 때</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">다중 include 의존 관계</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">매개변수가 중첩되어 생성되는 경우</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">매개변수가 중첩된 상속구조를 가지는 경우</span></a></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2><span id="클래스를-테스트하기-어려울-때">클래스를 테스트하기 어려울 때</span></h2><p>테스트코드에 클래스를 추가하는 작업은 어렵습니다. 크게 4가지 이유 때문입니다.</p>
+<ol>
+<li>클래스의 객체를 쉽게 생성할 수 없을 때</li>
+<li>클래스를 포함하는 테스트 하네스를 쉽게 빌드할 수 없을 때</li>
+<li>반드시 사용해야하는 생성자가 부작용을 일으킬 때</li>
+<li>생성자의 내부에서 상당량의 처리가 일어나며, 그 내용을 알아내야 할 때</li>
+</ol>
+<p>이번에는 해당 케이스를 확인해보고자 합니다.</p>
+<h3><span id="파라메터가-복잡할-때">파라메터가 복잡할 때</span></h3><p>테스트 코드에서 객체를 생성하는 가장 좋은 방식은 직접 생성하는 것입니다.<br>아래의 테스트 클래스를 테스트코드에서 생성한다고 가정했을 때,</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// main/kotlin/Test.kt</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>(<span class="keyword">val</span> a: A?, <span class="keyword">val</span> b: B?)</span><br><span class="line"></span><br><span class="line"><span class="comment">// test/kotlin/TestTest.kt</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestTest</span>: <span class="type">StringSpec</span></span>(&#123;</span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;initialize Test&quot;</span> &#123;</span><br><span class="line">        Test() <span class="comment">// 일단 클래스의 객체를 생성해봅니다.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>당연히 이 단계에서는 실패하게 됩니다. Test 클래스의 파라메터인 A와 B의 객체를 생성하지 않았기 때문입니다.<br>이를 알아보는 가장 단순한 방법은 코드를 작성하고 컴파일러의 빌드 결과를 확인하는 것입니다.</p>
+<p>따라서 이를 성공하도록 수정하기 위해 A,B클래스의 구조를 확인해봅니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 서버에 접근하여 데이터를 불러오는 클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>(<span class="keyword">val</span> host: String, <span class="keyword">val</span> port: <span class="built_in">Int</span>): IA &#123;</span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        <span class="comment">// read data from remote</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// implement method from interface IA</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 파일을 읽어오는 클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>(<span class="keyword">val</span> filePath: String) &#123;</span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        <span class="comment">// read file</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>두 클래스는 외부(네트워크, 파일)로부터 데이터를 읽어오는 클래스 였습니다.<br>이를 실제 테스트 코드에 반영한다면 다음과 같이 구현할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestTest</span>: <span class="type">StringSpec</span></span>(&#123;</span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;initialize Test&quot;</span> &#123;</span><br><span class="line">        Test(A(<span class="string">&quot;somewhere.com&quot;</span>, <span class="number">8888</span>), B(<span class="string">&quot;/tmp/test&quot;</span>))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>실제 코드상으로는 얼마 안되어 보이지만 실제 테스트코드가 실행되는 과정에서 A와 B클래스의 생성자 내부의 네트워크 연결 &amp; 파일 읽기 과정에서 문제가 발생하여 실제 테스트의 의도와 맞지 않은 테스트실패가 발생할 수 있습니다.</p>
+<p>따라서 이런 경우에는 가짜객체 혹은 모의객체를 사용하여 실제 객체가 아닌 대체된 객체를 사용하여 처리 할 수 있습니다.<br>아래 코드는 실제 객체를 생성하는 부분을 모의객체로 변경한 테스트코드 입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestTest</span>: <span class="type">StringSpec</span></span>(&#123;</span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;initialize Test&quot;</span> &#123;</span><br><span class="line">        <span class="keyword">val</span> mockA: A = mockk()</span><br><span class="line">        <span class="keyword">val</span> mockB: B = mockk()</span><br><span class="line">        Test(mockA, mockB)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>별도의 가짜객체를 만드는 수고를 들이지 않고 mockk 라이브러리의 기능을 활용하여 쉽게 구현 할 수 있습니다.<br>혹은 테스트에 불필요한 파라메터는 null 값을 보내는 방식입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestTest</span>: <span class="type">StringSpec</span></span>(&#123;</span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;initialize Test&quot;</span> &#123;</span><br><span class="line">        <span class="keyword">val</span> mockA: A = mockk()</span><br><span class="line">        Test(mockA, <span class="literal">null</span>) <span class="comment">// B 객체 대신 null 전달</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>널 값을 전달하는 경우는 일반적인 프로덕션 코드에서는 지양해야하는 부분 입니다. 하지만 테스트 코드에서는 특정 로직을 검사하는데에 불필요한 경우 의도적으로 null 값을 전달하여 쉽게 테스트코드를 작성하는 방향으로도 진행이 가능합니다. 다만 당연히 배포용 코드에는 null 값을 명시적으로 전달하는 것은 최대한 하지 말아야 합니다. 이는 코드의 안정성을 낮추는 원인이 됩니다. 꼭 null 을 사용해야하는 경우에는 <strong>Null 객체</strong>를 활용하는 방법도 있습니다.</p>
+<p>Null 객체는 내부 규칙을 통해 특정 객체의 null 포인터 대신하여 나타내는 객체입니다.<br>null 이 발생하는 상황에 <strong>예외를 던지거나</strong>, <strong>null 포인터를 리턴</strong> 할 수 있지만 모두 두 경우에 대해 별도의 추가 코드가 필요하다는 단점이 있습니다. (코틀린 같은 언어에서는 null safe 한 언어의 특성에 의해 이러한 부분이 많이 간략화되어 있기는 합니다.)<br>코틀린 환경에서는 object 혹은 클래스의 companion object를 이용해 쉽게 작성이 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span></span>(<span class="keyword">val</span> someField: String) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">fun</span> <span class="title">doSomething</span><span class="params">()</span></span> : <span class="built_in">Unit</span> &#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">object</span> NULLC: C(<span class="string">&quot;EMPTY&quot;</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">doSomething</span><span class="params">()</span></span> : <span class="built_in">Unit</span> &#123;</span><br><span class="line">        <span class="comment">// do nothing</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">returnC</span><span class="params">(<span class="keyword">val</span> param: <span class="type">String</span>)</span></span>: C &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">if</span> (param.isNotEmpty()) &#123;</span><br><span class="line">        C(param)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        C.NULL <span class="comment">// null 대신 C 의 NULL 객체를 리턴합니다.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> c = returnC(<span class="string">&quot;asdf&quot;</span>)</span><br><span class="line">    c.doSomething()</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>위 예제는 C라는 클래스에서 NULL 객체를 표현하기 위한 인스턴스를 정의하고 null 이 필요한 상황에 null 대신 NULL 상수값을 사용하는 코드 입니다.</p>
+<p>앞서 설명한 모의객체, NULL 객체 등을 이용하여 테스트 대상 클래스의 생성을 쉽게 할 수 있었습니다. 생성자 내부에서 의존성을 가지지 않는 경우에 사용할 수 있는 방법입니다. 다만 이 기법을 활용했을 때 테스트 대상의 동작이 변경되지 않는지 검토할 필요가 있습니다. </p>
+<h3><span id="숨겨진-의존관계가-있을-때">숨겨진 의존관계가 있을 때</span></h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> </span>&#123;</span><br><span class="line">    <span class="keyword">val</span> c : C</span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        c = C(<span class="string">&quot;From D&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위 클래스의 생성자는 파라메터가 없는 기본 생성자만 존재하는 클래스 입니다.<br>하지만 객체를 생성하는 과정에서 C 클래스의 객체를 내부에서 생성하여 의존하는 구조를 가집니다.</p>
+<p>만약 C 클래스가 사이드이펙트를 가져 실제 외부와의 통신을 통해 실제 어떤 행동(DB 데이터 저장, 메시지 전달 등)을 하게 된다면 테스트코드를 실행 할 때 마다 이러한 동작들이 실행되는다는 점입니다. 시스템 전체를 테스트해야 할 때는 크게 문제가 안될 수도 있지만 단위테스트 레벨에서 테스트코드를 구성하고자 할 때는 이는 문제가 될 수 있습니다.</p>
+<p>근본적인 문제는 D 클래스 내에서 C에 대한 의존관계가 숨어있다는 점입니다. 따라서 가짜 혹은 모의 C 객체를 생성할 수 있다면 변경작업을 진행하면서 이 가짜 혹은 모의객체를 통해 어떤 식으로든 피드백을 받을 수 있습니다.</p>
+<p>이때 사용할 수 있는 기법은 생성자 매개변수화 입니다. 말그대로 생성자의 파라메터로 의존관계를 가지는 클래스의 객체를 받을 수 있도록 수정하는 것입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span></span>(<span class="keyword">val</span> c : C) &#123;</span><br><span class="line">    <span class="comment">// other methods</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위와 같이 클래스 생성자에 C 객체를 받도록 수정하여 반영하는 것입니다. 이렇게 수정된 코드는 앞 챕터에서 사용했던 기법들을 이용하여 이제 테스트 할 수 있게 됩니다.</p>
+<p>다만 D라는 클래스가 이미 여러클래스에서 사용 중이라면 생성자를 변경하는 순간 모든 부분이 변경해야 한다는 부담이 있습니다. 따라서 이럴땐 다음과 같이 기본 생성자도 마찬가지로 구현하는 방식으로 우회 할 수도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span></span>(<span class="keyword">val</span> c : C) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(): <span class="keyword">this</span>(C(<span class="string">&quot;From D&quot;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">// other methods</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="meta">@JvmOverloads</span> <span class="keyword">constructor</span></span>(<span class="keyword">val</span> c : C = C(<span class="string">&quot;From D&quot;</span>)) &#123;</span><br><span class="line">    <span class="comment">// other methods</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>코틀린의 경우 default parameter 를 통해서도 구현이 가능하며 이 때 @JvmOverloads 어노테이션을 이용해 자바와도 호환되게 구성할 수 있습니다.<br>위와 같은 추가 코드를 통해 기존의 코드의 수정없이 구조를 개선할 수 있습니다.</p>
+<p>이외에 get 메소드 추출과 재정의, 팩토리 메소드 추출과 재정의, 인스턴스 변수 대체 등의 기법을 통해서도 개선이 가능하지만 생성자 매개변수화가 생성자 내에서 생성되는 객체가 자체적으로 의존관계를 갖지 않는 경우, 생성자 매개변수화는 매우 쉽게 적용할 수 있습니다.</p>
+<h3><span id="생성자가-복잡할-때">생성자가 복잡할 때</span></h3><p>앞서 설명한 생성자 매개변수화는 생성자 내부의 의존관계를 정리할 수 있는 쉬운 방법이지만 생성자 내부에서 생성되는 객체가 많은경우, 많은 수의 전역변수에 접근하는 경우에는 매개변수의 길이가 심하게 길어질 수 있습니다.<br>심한 경우 내부에서 생성된 객체를 통해 다시 새로운 객체를 생성하는 경우도 있습니다.</p>
+<p>일단 의존관계의 클래스를 파라메터화 시키는 방법입니다. 앞서 이야기한대로 매개변수의 길이가 많이 길어질 수 있다는 문제가 있지만 그럼에도 불구하고 가장 직관적이고 간단한 방법입니다. 다른 방식으로는 팩토리 객체를 만들어 의존관계를 가지는 객체를 주입받을 수 있습니다. 언어에 맞는 리팩토링 툴이 있다면 더 안전하게 처리할 수 있다는 장점도 있습니다. 다만 모든 언어에 적용하기는 어려우며, 일반적으로 바람직한 접근법은 아닙니다. 파생 클래스 안의 함수들은 기초 클래스로 부터 받은 변수를 사용할 수 있음을 전제로 합니다. 따라서 기초 클래스의 생성자 처리가 완전히 끝나기도 전에 생성자에서 재정의 함수를 호출 하는 것은 아직 초기화 되지 않은 변수에 접근 할 수 있는 위험성이 있습니다.</p>
+<p>또다른 방식으로는 인스턴스 변수 대체 기법 입니다. 기존 클래스 필드를 대체할 수 있는 setter 메소드를 추가하는 것 입니다.<br>이 때는 기존에 할당되어 있는 필드값을 초기화(또는 할당된 리소스를 해제)해주는 작업이 필수적으로 동반되어야 합니다. 그렇지 않을 경우 리소스 누수가 발생할 수 있습니다.</p>
+<h3><span id="숨겨진-전역의존관계가-있을-때">숨겨진 전역의존관계가 있을 때</span></h3><p>재사용이 가능한 컴포넌트가 하나둘씩 모습을 드러내면서 프레임워크라는 이름으로 우리의 소프트웨어에 점점 스며들고 있습니다.<br>대부분의 프레임워크는 우리가 사용한다기보다는 사실상 프레임워크가 규칙대로 작성된 우리의 코드를 실행하는 형태에 더 가까운데, 프레임워크는 어플리케이션의 생명주기를 관리하고 우리는 그 구멍을 채우는 코드를 작성하게 됩니다.</p>
+<p>테스트 프레임워크에서 클래스 생성 및 사용을 어렵게 하는 의존 관계중에 가장 까다로운 것은 전역변수에 대한 의존성입니다. 간단한 경우에는 생성자 매개변수화, 메소드 매개변수화, 호출 추출과 재정의 등의 기법을 사용해 의존관계 문제를 해결할 수 있지만 전역 변수와의 의존관계는 너무 광범위 하기 때문에 문제의 근원을 찾아서 해결하는 것이 오히려 쉬울 때가 많습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">object</span> SomeSingleton &#123;</span><br><span class="line">    <span class="keyword">val</span> someAppProperty: <span class="built_in">Int</span> = <span class="number">10</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getSomeValueFromRemote</span><span class="params">()</span></span>: SomeObj &#123;</span><br><span class="line">        <span class="comment">// find data from remote</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        doSomething(SomeSingleton.getSomeValueFrom())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">doSomething</span><span class="params">(prop: <span class="type">SomeObj</span>)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>위 예제에서 Test클래스는 SomeSingleton이라는 singleton 객체에 선언된 특정 프로퍼티를 불러와 생성자 내에서 사용합니다.<br>현재 상황에서 테스트코드 내에서 Test 객체를 생성했을 때 컴파일 타임에 문제가 발생하지는 않지만 실제 런타임 과정에서 싱글톤의 메소드가 실행되면서 내부의 코드가 실행됩니다. 그로인해 예상하지 못한 문제가 발생할 수 있습니다. 당장 위 코드에서는 생성자 매개변수화를 통해 넘어갈 수 있지만 이러한 형태가 전체 코드 중 여러군데가 있다면 해결을 위해 많은 시간이 걸리게 됩니다.</p>
+<p>이 중 싱글톤 패턴은 개발자가 자바에서 전역 변수를 사용하기 위한 방법 중 하나입니다. 일반적으로 전역변수가 바람직하지 않은 이유는 일단 투명하지 않다는 점입니다. 일반적으로 어떤 코드를 봤을 때, 그 코드가 무엇에 영향을 미치는지 알 수 있는 것이 좋습니다. 하지만 전역변수를 사용하면 이야기가 달라집니다. 어플리케이션 전역에서 접근할 수 있기 때문에, 어떤 부분에서 변수에 접근하는지 변수를 바꾸는지 알 수가 없습니다. 그리고 그로인해 코드를 이해하기 어렵게 만듭니다.</p>
+<p>따라서 클래스가 어느 전역 변수를 사용중인지 제대로 이해한 후에 테스트에 적절한 상태로 설정해야 한다는 점입니다.</p>
+<p>SomeSingleton 입니다. 따라서 가짜객체를 생성하여 사용하기는 상당히 어렵습니다. 다행히 최신 모의객체 라이브러리가 이를 지원합니다. 코틀린의 경우 mockk 라이브러리를 통해 이를 처리할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mockkObject(SomeSingleton)</span><br><span class="line"><span class="keyword">val</span> mockSomeObj: SomeObj = mockk()</span><br><span class="line"></span><br><span class="line">every &#123;SomeSingleton.getSomeValueFromRemote()&#125; returns mockSomeObj</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>만약 언어에서 관련된 별도의 라이브러리가 없다면 싱글톤 내부의 instance 필드를 업데이트 해주는 setter 객체를 생성하여 이를 교체하는 방식으로 개선할 수 있습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeSingletonInJava</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SomeSingletonInJava instance;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SomeSingletonInJava</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SomeSingletoneInJava <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> SomeSingletonInJava();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">setTestInstance</span><span class="params">(SomeSingletonInJava testInstance)</span> </span>&#123;</span><br><span class="line">        instance = testInstance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">resetInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        instance = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>위 코드는 자바로 만들어진 singleton 에서 테스트용 객체를 주입하기 위해 setTestInstance 메소드를 추가했습니다. 그리고 내부 인스턴스를 초기화는 메소드도 추가했는데, 이는 테스트코드 시작 혹은 끝에서 호출함으로써 매번 내부 객체를 초기화하여 다른 테스트에 영향을 주지 않는 방향으로도 활용이 가능합니다. 물론 자바도 코틀린처럼 static 객체를 모킹할 수 있는 라이브러리가 있습니다.</p>
+<p>다만 set을 통해 교체를 해야할 때는 문제가 있는데 가짜 객체를 만들 때는 Singleton 클래스의 생성자가 private 가 되기 때문에, 이로 인해 상속도 어려워지고 테스트용 객체를 만들기 어렵습니다.</p>
+<p>이럴 땐 왜 우리가 싱글톤을 사용했는지 고려해볼 필요가 있습니다.</p>
+<ol>
+<li>현실 세계를 모델링한 결과, 현실 세계에 한 개만 존재하기 때문에</li>
+<li>두 개가 존재할 때 심각한 문제가 발생하는 경우</li>
+<li>두 개를 생성하면 자원 소모가 극심해지는 경우</li>
+</ol>
+<p>위 이유 외에 단순히 여러곳에서 변수를 공유하기 위해서도 사용하는 경우가 있습니다. 이런 경우에는 굳이 싱글톤의 특성을 포기하여 타협하는 방법으로도 진행하는 방법도 있습니다. 그리고 이러한 singleton 의 규칙을 헤치는 방법을 사용했을 땐 경고메시지 등의 여러가지 방법으로 개발자에게 안내하면서 singleton 규칙을 해치지 않는 방향으로 개발을 유도 할 수도 있습니다. </p>
+<p>또 다른 방법은 singleton의 인터페이스 추출 후 singleton 내부 객체의 타입을 해당 인터페이스로 변경하여 사용하는 방법입니다. 이렇게 되면 원본객체의 singleton 규칙을 깨지 않으면서도 자유롭게 인스턴스를 교체할 수도 있습니다.</p>
+<p>지금까지 알아본 리팩토링을 정적 set 메소드 도입 기법이라고 합니다. 이 기법은 광범위하게 전역 의존 관계가 존재하는 경우에도 테스트 루틴을 배치할 수 있게 합니다. 다만 근본적인 전역 의존 관계를 제거하지는 못한다는 한계도 가지고 있습니다. 이를 극복하기 위해서는 메소드 파라메터화, 생성자 파라메터화 기법을 사용하여 근본적인 의존관계를 제거하는 형태로 리팩토링 해야합니다.</p>
+<p>전역 변수를 광범위하게 사용한다면 이는 클래스의 역할을 완전히 분리했는지 검토해볼 필요가 있습니다. 꼭 사용해야 하는지 고민해보고, 클래스 역할 범위를 최소화하여 구성한다면 실제 전역변수를 사용하게 되는 부분은 제한되게 되고 이는 다시 전역 변수를 다시 지역변수화 할 수 있는 또 하나의 계기가 될 수 있습니다.</p>
+<h3><span id="다중-include-의존-관계">다중 include 의존 관계</span></h3><p>C++ / C 언어의 경우 프로그램의 한 부분이 다른 부분을 알아야만 한다는 점입니다. 자바나 C#에서 한 파일이 다른 파일에 잇는 클래스를 사용할 필요가 잇는 경우 해당 클래의 정의를 사용하기 위해 import, using 문을 사용하여 코드에 추가 시킬 수 있습니다. 컴파일러는 이 구문을 이용해 해당 클래스가 컴파일 되었는지 확인하고 그렇지 않은 경우 컴파일하여 필요한 정보가 모두 포함되어 있는지 확인합니다.</p>
+<p>하지만 C++ 컴파일러의 경우 이런 형태의 최적하된 메커니즘이 없습니다. C++에서 한 클래스가 다른 클래스에 대해 알고 싶다면 달느 파일에 들어오는 클래스 선언문을 테스트 형태로 호출 측 파일에 인클루드 해야합니다. 이 방식은 시간이 오래 걸릴 수 밖에 없습니다. 컴파일러는 이 선언문을 발견할 때 마다 파싱을 다시 수행하고 빌드해야하기 때문입니다. 더욱 문제가 되는 것은 인클루드가 과도하게 사용도니느 경향인데, 한파일은 다른파일을 인클루드하고 그 파일은 다시 다른 파일을 인클루드하는 식으로 연쇄적으로 인클루드가 사용하기 쉽습니다. 인클루드 사용에 특별히 주의를 기울이지 않은 프로젝트에서는 작은 파일이 결과적으로 수만 줄의 코드를 포함하게 되는 경우도 있는데, 빌드 시간을 단축하고 싶어도 인클루드 구문이 시스템 여기저기에 분산돼 있기 때문에 특정 파일을 원인으로 지목하기 어렵습니다.</p>
+<p>C++ 레거시 코드를 다룰 때 테스트코드에서 C++ 객체를 생성하기가 어렵다는 것이 문제입니다. 따라서 무엇보다 헤더 의존 관계를 해소해야 합니다.<br>일단 테스트 코드를 작성할 때 테스트 대상 코드와 동일한 경로상에 테스트 코드를 추가하고 빌드해봅니다. 이렇게 하는 이유는 전처리 과정에서 간은 경로에 있는 파일이 가장 접근하기 쉽기 때문입니다. 테스트코드 내에서 객체를 선언할 때 include들이 문제가 되는데 사실 모든 인클루드가 테스트코드에 필요한 것은 아닙니다. 필요한 것만 하나씩 추가하는 방식으로 정말 의존관계가 필요한지 확인 할 수 있는데, 실제로는 이는 생각보다 복잡하고 혼란을 일으키기 쉽습니다. 의존 관계들이 연쇄적으로 엮이는 경우 실제로 필요한 것보다 많은 것을 인클루드 해야하기 때문입니다.</p>
+<p>테스트를 위해 가짜 객체를 작성한 경우, 프로젝트 구조에 따라 재사용할 수 있는데, 이럴 땐 공용 가짜 객체를 정의한 헤더를 하나 만들어 해당 헤더에서 참조하는 식으로 실제 구현체를 우회함으로써 중첩되는 import 구조에서 해방될 수 있습니다.</p>
+<p>이런 기법을 통해 크기가 크고 의존 관계 문제가 심각한 클래스에서 테스트코드를 작성하는데에 좀 더 작은 단위로 접근할 수 있게 되고 이 클래스가 추후에 여러 클래스로 분리 될 때, 각각의 클래스 들에 대해 개별적으로 테스트 프로그램을 작성하는것이 유용할 수 있습니다.</p>
+<h3><span id="매개변수가-중첩되어-생성되는-경우">매개변수가 중첩되어 생성되는 경우</span></h3><p>생성자의 파라메터가 여러개인 경우 이 클래스를 테스트 하기 위해 각 파라메터에 넘길 객체를 또 만들어야한다는 문제가 있습니다.<br>대부분의 경우 모의 객체나 테스트에 불필요한 파라메터에 대해 null 값을 전달하는 식으로 이를 간단하게 우회 할 수 있습니다. 가짜 객체로 처리하고자 한다면 필요한 인터페이스를 추출하고 인터페이스를 통해 가짜객체를 주입하게 할 수도 있습니다.</p>
+<h3><span id="매개변수가-중첩된-상속구조를-가지는-경우">매개변수가 중첩된 상속구조를 가지는 경우</span></h3><p>생성자 내부에서 싱글톤 클래스를 접근하는 경우에 앞서 이야기한 기법을 통해 이를 우회 할 수 있습니다. 하지만 이 문제를 해결하기 위해 다른 문제가 있는데, 바로 생성자에 전달해야하는 객체를 생성하기 어려울 때입니다. 이럴 땐 인터페이스를 추출하여 의존관계를 제거 하는 방법도 있겠지만 원본 클래스의 상속 구조가 복잡할 땐 인터페이스를 추출하는 <strong>위치를 잡기 어렵다</strong>는 점입니다. 이럴 땐 무리해서 인터페이스를 분리하는 것 보다는 원본 클래스에 상속하여 테스트에 불필요한 메소드 실행을 막기위해 해당 메소드를 <strong>오버라이딩</strong>하여 실행되지 않게 처리하는 방법도 고려해 볼 수 있습니다.</p>
+<p>물론… 모의객체 라이브러리를 사용하는 경우에는 이러한 고민 없이 쉽게 처리 할 수 있습니다.</p>
+<hr>
+<p>출처<br>이 글은 레거시 활용 전략의 9장의 내용의 내용을 정리했습니다.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 14. Recursive &amp; memoization"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 14. Recursive &amp; memoization - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 14. Recursive & memoization</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/11/23
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a> <a href="/tags/recursive/">#recursive</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">재귀 호출</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">꼬리재귀</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">메모이제이션</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">함수 확장 함수</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">델리게이트</span></a></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1><span id="재귀-호출">재귀 호출</span></h1><p>재귀 호출은 함수 내부에 자기 자신을 호출하여 반복하는 형태의 호출을 말합니다.<br>어떤 점화식을 표현하기에 가장 직접적인 방식입니다.</p>
+<p>피보나치 수열을 예로 든다면 피보나치의 점화식은 아래와 같습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(n) = f(n-1) + f(n-2)  (n=0 -&gt; 0, n=1 -&gt; 1, n &gt;= 0)</span><br></pre></td></tr></table></figure>
+<p>이를 실제 코드로 표현하면 다음과 같습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">fibo</span><span class="params">(n: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> = <span class="keyword">when</span> &#123;</span><br><span class="line">    n &lt; <span class="number">0</span> -&gt; <span class="number">0</span></span><br><span class="line">    n &lt; <span class="number">2</span> -&gt; n</span><br><span class="line">    n &gt;= <span class="number">2</span> -&gt; fibo(n - <span class="number">2</span>) + fibo(n - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>위의 점화식이 코드상에 그대로 표현되는 것을 알 수 있습니다.</p>
+<h2><span id="꼬리재귀">꼬리재귀</span></h2><p>재귀 호출은 구현이 쉽지만 함수 호출이 많아질수록 stackoverflow의 위험에 있습니다. 그리고 함수 호출에 대한 호출 비용 역시 크기 때문에, 프로덕션 레벨에서 쉽게 사용하기 어려운 호출 방식입니다. 일반적으로 이런 경우엔 for, while 등의 반복문을 이용하여 구현하게 됩니다. 하지만 반복문으로 표현하기 어려운 몇몇 경우에는 재귀를 사용하게 되는데, 이럴 때는 꼬리 재귀 최적화를 이용하여 코드를 작성하면 문제를 해결 할 수 있습니다.</p>
+<p>꼬리 재귀 최적화는 재귀호출 형태의 함수를 반복문 형태로 변경하여, 재귀호출로 인한 함수호출에 대한 비용을 줄일 수 있고 또한 stackoverflow의 문제에서도 자유로워집니다.</p>
+<p>위 피보나치를 꼬리재귀형태로 구현한 코드 입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">fiboTail</span><span class="params">(n: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">2</span>) <span class="keyword">return</span> max(n, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">tailrec</span> <span class="function"><span class="keyword">fun</span> <span class="title">loop</span><span class="params">(n1: <span class="type">Int</span>, n2:<span class="type">Int</span>, i:<span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">0</span>) <span class="keyword">return</span> n1 + n2</span><br><span class="line">        <span class="keyword">return</span> loop(n2, n1+n2, i - <span class="number">1</span>) </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> loop(<span class="number">0</span>, <span class="number">1</span>, n - <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>꼬리 재귀 최적화를 위해서는 가장 중요한 조건이 필요합니다. 재귀 호출 하는 부분이 함수 실행의 마지막이어야 합니다.(함수의 마지막 라인이 아닌 실행의 마지막이어야 합니다.) 꼬리 재귀 형태에서는 컴파일 과정에서 재귀 함수 호출을 제거하고 바이트코드 내부에 goto문을 사용하여 반복 할 수 있도록 할 수 있습니다.<br>또 함수앞에는 tailrec 이라는 지시어가 붙으면 컴파일러는 해당 함수가 꼬리 재귀 최적화가 가능한지 확인한 후 가능하면 꼬리재귀 최적화를 진행하여 코드를 수정합니다.</p>
+<p>그리고 꼬리재귀 최적화는 JVM, Kotlin/native에서만 사용 가능합니다.</p>
+<h1><span id="메모이제이션">메모이제이션</span></h1><p>메모이제이션은 어떤 함수의 호출 결과를 저장하여 다시 호출 될 때 저장된 값을 사용하여 함수를 호출하지 않도록 하는 최적화 기법입니다. 대부분의 경우 다이나믹 프로그래밍 알고리즘 문제를 풀 때 많이 사용하는 방법입니다. 비 꼬리 재귀 호출 형태의 피보나치 함수에 메모이제이션을 통해 최적화를 해보겠습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> cache:MutableMap&lt;<span class="built_in">Int</span>, <span class="built_in">Int</span>&gt; = mutableMapOf()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">fibo</span><span class="params">(n: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (n <span class="keyword">in</span> cache) <span class="keyword">return</span> cache[n]?:<span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> result = <span class="keyword">when</span> &#123;</span><br><span class="line">        n &lt; <span class="number">0</span> -&gt; <span class="number">0</span></span><br><span class="line">        n &lt; <span class="number">2</span> -&gt; n</span><br><span class="line">        n &gt;= <span class="number">2</span> -&gt; fibo(n - <span class="number">2</span>) + fibo(n - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">else</span> -&gt; <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cache[n] = result</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>map 을 이용해 결과를 캐시하여 호출 량을 절대적으로 줄일 수 있게 되었습니다.<br>근데 이 코드는 코틀린스럽지 않습니다. 좀 더 간단하게 작성 할 수 있을까요?</p>
+<h2><span id="함수-확장-함수">함수 확장 함수</span></h2><p>함수에 확장 함수를 추가 할 수 있는 코틀린의 특징을 이용해 아래와 같이 구현이 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T, R&gt;</span> <span class="params">((T)</span></span> -&gt; R).memo(): ((T) -&gt; R) &#123;</span><br><span class="line">    <span class="keyword">val</span> thiz = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">val</span> cache = mutableMapOf&lt;T, R&gt;()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;t:T -&gt; cache.getOrPut(t) &#123; thiz(t) &#125; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">lateinit</span> <span class="keyword">var</span> fibo: (<span class="built_in">Int</span>) -&gt; <span class="built_in">Long</span></span><br><span class="line">fibo = &#123; n: <span class="built_in">Int</span> -&gt;</span><br><span class="line">        <span class="keyword">when</span> &#123;</span><br><span class="line">            n &lt; <span class="number">0</span> -&gt; <span class="number">0L</span></span><br><span class="line">            n &lt; <span class="number">2</span> -&gt; n.toLong()</span><br><span class="line">            n &gt;= <span class="number">2</span> -&gt; fibo(n - <span class="number">2</span>) + fibo(n - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">else</span> -&gt; <span class="number">0L</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;.memo()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>정확히는 람다에 추가되는 함수이기 때문에 위와 같이 변수 상에 람다를 할당하는 방식으로 사용해야 합니다. 제네릭을 통해 모든 형태의 함수에서 사용이 가능합니다.</p>
+<h2><span id="델리게이트">델리게이트</span></h2><p>코틀린의 델리게이트를 사용하면 아래와 같이 간략화가 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Memoize</span>&lt;<span class="type">T, R</span>&gt;</span>(<span class="keyword">val</span> func: (T) -&gt; R) &#123;</span><br><span class="line">    <span class="keyword">val</span> cache = mutableMapOf&lt;T, R&gt;()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">getValue</span><span class="params">(thisRef: <span class="type">Any</span>?, props: <span class="type">KProperty</span>&lt;*&gt;)</span></span> = &#123;</span><br><span class="line">        t: T -&gt;</span><br><span class="line">        cache.getOrPut(t) &#123; func(t) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typealias</span> FiboFunc = (<span class="built_in">Int</span>) -&gt; <span class="built_in">Long</span></span><br><span class="line"><span class="keyword">val</span> fibo2: FiboFunc <span class="keyword">by</span> Memoize &#123; n -&gt; <span class="keyword">when</span> &#123;</span><br><span class="line">    n &lt; <span class="number">0</span> -&gt; <span class="number">0L</span></span><br><span class="line">    n &lt; <span class="number">2</span> -&gt; n.toLong()</span><br><span class="line">    n &gt;= <span class="number">2</span> -&gt; fibo2(n - <span class="number">2</span>) + fibo2(n - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; <span class="number">0L</span></span><br><span class="line">&#125; &#125;</span><br></pre></td></tr></table></figure>
+<p>이렇게 선언하는 경우에는 앞의 케이스와는 다르게 lateinit var 를 이용한 지연 초기화를 하지 않아도 되기 때문에 코드가 좀 더 간결해졌다. 델리게이션으로 인해 함수내의 fibo2 재귀 호출이 간접적으로 진행되기 때문에 가능해졌습니다.</p>
+<hr>
+<p>참고<br>다재다능 코틀린 프로그래밍<br>코틀린 공식문서</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

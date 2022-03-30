@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 5. Collection"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 5. Collection - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 5. Collection</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/10/18
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a> <a href="/tags/collection/">#collection</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Collection</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">collection 활용법</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">내부 데이터 순회</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">내부 데이터 확인</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Pair, Triple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">객체 배열과 프리미티브 배열</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Map</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-text">출처</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1><span id="collection">Collection</span></h1><p>코틀린은 기본적으로 array, list, Set, Map과 튜플 형태의 Pair, Triple을 제공합니다.<br>추가로 일반적인 컬렉션에는 immutable, mutable 두가지 형태를 모두 제공합니다.</p>
+<ul>
+<li>pair : 데이터가 2개 저장되는 튜플</li>
+<li>triple : 데이터가 3개 저장되는 튜플</li>
+<li>array : 크키가 고정된 동일한 타입의 변수의 묶음</li>
+<li>list : array에서 크기를 조절할 수 있는 자료 형태(순서가 있음)</li>
+<li>set : list에서 순서가 없는 형태</li>
+<li>map : 키에 매핑된 데이터를 저장하는 데이터 구조</li>
+</ul>
+<h2><span id="collection-활용법">collection 활용법</span></h2><h3><span id="생성">생성</span></h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> l = listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="keyword">val</span> a = arrayOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="keyword">var</span> s = setOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="keyword">val</span> m = mapOf(<span class="number">1</span> to <span class="string">&quot;One&quot;</span>, <span class="number">2</span> to <span class="string">&quot;Two&quot;</span>, <span class="number">3</span> to <span class="string">&quot;Three&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>기본적인 list, map, set 은 immutable 하기 때문에 생성 후 수정이 불가능합니다.<br>내부의 인터페이스 자체가 분리되어 있는데(정확히는 Mutable 버전이 immutable 버전을 상속한 형태), 자바처럼 런타임에서 확인하는 것이 아닌 컴파일 타임에서 바로 확인이 가능하다는 장점이 있습니다.<br>변경이 필요한 경우엔 mutable 버전으로 사용해야 합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> l = mutableListOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="keyword">var</span> s = mutableSetOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="keyword">val</span> m = mutableMapOf(<span class="number">1</span> to <span class="string">&quot;One&quot;</span>, <span class="number">2</span> to <span class="string">&quot;Two&quot;</span>, <span class="number">3</span> to <span class="string">&quot;Three&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3><span id="내부-데이터-순회">내부 데이터 순회</span></h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> l = listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(num <span class="keyword">in</span> l) &#123;</span><br><span class="line">    println(num)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> m = mapOf(<span class="number">1</span> to <span class="string">&quot;One&quot;</span>, <span class="number">2</span> to <span class="string">&quot;Two&quot;</span>, <span class="number">3</span> to <span class="string">&quot;Three&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ((k, v) <span class="keyword">in</span> m) &#123;</span><br><span class="line">    println(<span class="string">&quot;<span class="variable">$k</span> -&gt; <span class="variable">$v</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>데이터의 순회는 for문으로 가능합니다. 이는 내부에 <a target="_blank" rel="noopener" href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/iterator.html">iterator</a>를 구현하고<br>있어야 합니다.</p>
+<p>또한 foreach 과정에서 index를 가져오게 할 수도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ((idx, num) <span class="keyword">in</span> s.withIndex()) &#123;</span><br><span class="line">    println(<span class="string">&quot;<span class="variable">$idx</span> -&gt; <span class="variable">$num</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>withIndex는 각 엘레먼트의 값과 인덱스값을 가지는 구조체인 IndexedValue 의 iterator 를 리턴합니다.</p>
+<h3><span id="내부-데이터-확인">내부 데이터 확인</span></h3><p>in 연산자를 이용해 내부에 데이터가 있는지 확인 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> l = listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="number">1</span> <span class="keyword">in</span> l) &#123;</span><br><span class="line">    println(<span class="string">&quot;contain&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="pair-triple">Pair, Triple</span></h2><p>2개, 3개의 값을 저장하는 구조체입니다.<br>데이터는 immutable 하여 내부 데이터를 수정할 수는 없습니다.<br>만약 4개이상의 데이터를 저장하고 싶다면 차라리 별도의 <code>data class</code> 를 정의하는게 나을 수도 있습니다.</p>
+<p>pair의 경우 아래와 같이 편하게 선언 할 수도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> to <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to.html">to</a> 함수는 모든 객체에 사용 할 수 있는 확장 함수로 함수 양쪽의 값을 하나의 Pair 객체로 묶을 수 있습니다. 이는 map을 만들 때도 유용합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> m: Map&lt;<span class="built_in">Int</span>, String&gt; = mapOf(<span class="number">1</span> to <span class="string">&quot;One&quot;</span>, <span class="number">2</span> to <span class="string">&quot;Two&quot;</span>, <span class="number">3</span> to <span class="string">&quot;Three&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2><span id="객체-배열과-프리미티브-배열">객체 배열과 프리미티브 배열</span></h2><p>코틀린에서는 배열을 표현하기 위해 Array 라는 클래스가 존재합니다.</p>
+<p>코틀린 자체에서는 kotlin.Array로 인식되며, jvm 에서는 단순 array 로 인식됩니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intArr = arrayOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">println(intArr::<span class="class"><span class="keyword">class</span>) // <span class="title">class</span> <span class="title">kotlin</span>.<span class="title">Array</span></span></span><br><span class="line">println(intArr.javaClass) <span class="comment">// class [Ljava.lnag.Integer;</span></span><br></pre></td></tr></table></figure>
+<p>위 코드에서 intArr는 java에서 <code>Integer[]</code> 로 인식 됩니다. 일반적인 클래스라면 크게 문제가 될 상황은 아니지만 int, float 처럼 primitive 타입이 있는 경우에는 박싱된 객체를 사용하기 때문에 최적화에 이슈가 있을 수 있습니다. 뿐만 아니라 Array 는 모든 클래스에서 사용되는 공용 클래스이기 때문에 아래와 같이 특화된 기능을 제공하지 않습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intArr = intArrayOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">println(intArr.sum()) <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<p>배열은 생성 할 때 생성 함수를 이용해 각 인덱스에 할당될 값을 생성 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> evens = IntArray(<span class="number">3</span>) &#123;i -&gt; i*<span class="number">2</span>&#125;</span><br><span class="line">println(evens) <span class="comment">// 0,2,4</span></span><br></pre></td></tr></table></figure>
+<p>이는 리스트에서는 지원하지 않는 메소드입니다.<br>다만 array 보다는 list가 기능이 더 많기 때문에 일반적인 상황에서는 list를 사용하는 것이 좋습니다.</p>
+<h2><span id="list">List</span></h2><p>리스트는 immutable, mutable 한 인터페이스 둘 다 제공하고 있습니다.<br>각각 <code>listOf</code>, <code>mutableListOf</code>라는 함수로 각각 jvm 기준 <code>Arrays$ArrayList</code>, <code>ArrayList</code>를 생성합니다.</p>
+<p>재미 있는 점은 코틀린에서는 두 타입의 리스트는 인터페이스가 분리되어 있습니다. <code>List</code>와 <code>MutableList</code>로 <code>MutableList</code>가 <code>List</code>를 상속하여 mutable 한 메소드를 확장한 형태를 가집니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> l = listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">println(l[<span class="number">1</span>]) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>코틀린에서는 list 의 특정 인덱스상의 값을 불러오기 위해 <code>get</code> 을 사용할 필요가 없습니다. 배열에서 사용하듯 [] 연산자를 사용하면 됩니다.<br>또한 <code>contains</code> 대신 <code>in</code>, <code>set</code> 대신 <code>l[1] = 3</code> 처럼 사용도 가능합니다. 이외에 +, - 연산자도 오버라이딩하여 데이터를 추가/삭제(<code>List</code>에서는 새로운 객체를 생성)</p>
+<h2><span id="set">Set</span></h2><p>Set 은 순서가 없는 리스트로 생각하시면 됩니다. 또한 데이터가 중복되지 않는다는 특징이 있습니다.<br>기본적으로 <code>setOf</code> 함수를 통해 생성할 수 있으며 jvm 기준 <code>LinkedHashSet</code>을 사용하고 있습니다. 다만 인터페이스는 immutable 한 set이기 때문에 해당 객체에 데이터를 추가 할 수는 없습니다.</p>
+<p><code>Set</code>의 대부분의 인터페이스가 <code>List</code> 와 비슷하지만 순서가 없기 때문에, []를 통해 개별 데이터를 접근 할 수 없습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>).filter &#123;it == <span class="number">2</span>&#125;.forEach&#123;println(it)&#125; <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>극단적인 예시이지만 원하는 데이터를 Set에서 찾아야 할 땐 위처럼 filter 연산을 통해 걸러내야합니다.</p>
+<h2><span id="map">Map</span></h2><p>맵은 두 타입의 데이터를 매핑하는 정보를 저장하는 클래스입니다.<br>코틀린에서는 다른 컬랙션과 마찬가지로 immutable, mutable 한 클래스를 지원합니다. 또한 객체 생성을 위해 생성 함수가 존재하며 아래와 같이 사용할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> m = mapOf(<span class="string">&quot;a&quot;</span> to <span class="number">1</span>, <span class="string">&quot;b&quot;</span> to <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-of.html">mapOf</a>는 키, 밸류 순서대로 정의된 <code>Pair</code> 객체들의 배열로 구성합니다.<br>list 와 마찬가지로 <code>in</code> 연산자를 지원합니다. 다만 이 key 에 대해서만 확인이 가능합니다. 값에 대한 포함여부를 확인하고 싶은 경우 <code>containsValue</code>메소드를 이용하여 확인해야 합니다.</p>
+<p>[] 연산자 역시 특이한데, 용법은 <code>List</code>와 동일하지만 get의 결과 타입이 다릅니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> one:<span class="built_in">Int</span>? = m[<span class="string">&quot;a&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>일반 List 였다면 리턴타입이 Int 였겠지만 map의 경우 없는키로 요청하는 경우도 처리해야하기 때문에 (List에서는 IndexOutOfBoundsException가 발생합니다.) Nullable 한 타입(기존 타입에 ?가 추가된 형태)을 리턴합니다. 따라서 이에 대해 추가적인 확인 절차가 필요합니다.</p>
+<p>순회의 경우 내부에 iterator를 구현했기 때문에 foreach 문에서도 활용이 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ((k, v) <span class="keyword">in</span> m) &#123;</span><br><span class="line">    println(<span class="string">&quot;<span class="variable">$k</span> -&gt; <span class="variable">$v</span>&quot;</span>) <span class="comment">// a -&gt; 1</span></span><br><span class="line">                        <span class="comment">// b -&gt; 2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>iterator는 <code>Iterator&lt;Entry&lt;K,V&gt;&gt;</code> 객체를 리턴하고 foreach 는 각각의 <code>Entry</code> 객체를 가지고 반복하게 되는데, 이때 <code>Entry</code>는 component 메소드가 구현되어 있기 때문에 코틀린의 객체 destruction 에 의해 분리되어 각 개별 변수에 할당되어 사용 할 수 있습니다.</p>
+<h5><span id="출처">출처</span></h5><ul>
+<li>다재다능 코틀린 프로그래밍</li>
+<li>공식 문서</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

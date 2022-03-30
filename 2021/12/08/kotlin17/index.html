@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 17. Java와 사용하기"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 17. Java와 사용하기 - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 17. Java와 사용하기</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/12/08
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">컴파일</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">예제</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">코틀린에서 자바 호출</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">자바에서 코틀린 호출</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">companion object &amp; object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">람다</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">파라메터 기본값 사용</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">탑레벨 함수 접근</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">예외 처리</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">기타 어노테이션</span></a></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>코틀린은 자바 jvm 에서 실행 할 수 있기 때문에 당연히 자바로 작성된 코드와 병행하여 사용이 가능합니다.</p>
+<h1><span id="컴파일">컴파일</span></h1><p>두 코드를 같이 사용하는 방법은 크게 두가지 입니다.</p>
+<ul>
+<li>기존에 작성된 자바코드를 jar로 패키징하여 kotlin 실행 클래스패스에 추가</li>
+<li><a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/maven.html">maven</a>, <a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/gradle.html">gradle</a> 같은 빌드 툴을 통해 하나의 통합 프로젝트에서 작업</li>
+</ul>
+<p>대부분의 경우 빌드툴을 이용한 방법을 통해 사용하게 됩니다.</p>
+<h2><span id="예제">예제</span></h2><p>gradle 빌드툴을 사용하여 빌드하는 예제입니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">plugins &#123;</span><br><span class="line">    id <span class="string">&#x27;org.jetbrains.kotlin.jvm&#x27;</span> version <span class="string">&#x27;1.6.0&#x27;</span></span><br><span class="line">    id <span class="string">&#x27;application&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">group = <span class="string">&#x27;me.micky&#x27;</span></span><br><span class="line">version = <span class="string">&#x27;1.0-SNAPSHOT&#x27;</span></span><br><span class="line"></span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    testImplementation <span class="string">&#x27;org.jetbrains.kotlin:kotlin-test-junit5&#x27;</span></span><br><span class="line">    testImplementation <span class="string">&#x27;org.junit.jupiter:junit-jupiter-api:5.6.0&#x27;</span></span><br><span class="line">    testRuntimeOnly <span class="string">&#x27;org.junit.jupiter:junit-jupiter-engine:5.6.0&#x27;</span></span><br><span class="line">    implementation <span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk8&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test &#123;</span><br><span class="line">    useJUnitPlatform()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compileKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">&quot;1.8&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compileTestKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">&quot;1.8&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Constants.kt</span></span><br><span class="line"><span class="keyword">package</span> test</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> value = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Utils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ConstantsKt.value * i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>코틀린 탑레벨에 정의된 상수 값을 자바에서 사용하는 예제입니다. 코틀린에 정의된 상수를 자바에서 사용할 때 바로 변수를 사용하는것이 아닌 파일이름이 변형된 클래스 내부의 상수를 접근하는 형태로 사용하게 됩니다. 따라서 Constants.kt의 이름은 ConstantsKt 라는 네임스페이스로 변경되는 것으로 생각하시면 됩니다.</p>
+<h1><span id="코틀린에서-자바-호출">코틀린에서 자바 호출</span></h1><p>코틀린에서 자바 코드를 호출하는 것은 큰 어려움이 없습니다. 코틀린 문법 자체가 자바보다는 넓기 때문에, 크게 문제가 될 부분은 없습니다. 또한 일부 자바의 문법이 코틀린에서 더 간략하게 표시가 됩니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> val1;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getVal1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> val1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setVal1</span><span class="params">(<span class="keyword">int</span> val1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.val1 = val1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Test <span class="title">copy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Test test = <span class="keyword">new</span> Test();</span><br><span class="line">        test.val1 = <span class="keyword">this</span>.val1;</span><br><span class="line">        <span class="keyword">return</span> test;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">when</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;when&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test</span><br><span class="line"></span><br><span class="line"><span class="keyword">object</span> TestUser &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">val</span> t = Test()</span><br><span class="line">        t.val1 = <span class="number">10</span> <span class="comment">// setVal1</span></span><br><span class="line"></span><br><span class="line">        print(t.val1) <span class="comment">// getVal1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">copyTest</span><span class="params">(t: <span class="type">Test</span>)</span></span> = t.copy()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">useWhen</span><span class="params">()</span></span> = Test().`<span class="keyword">when</span>`()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Test라는 자바 클래스에는 setter/getter, copy 메소드가 있습니다. 코틀린에서는 getter/setter 는 프로퍼티로 인식하기 때문에, 위 예제 처럼 별도의 함수 호출이 아닌 프로퍼티를 사용하는 형태로 사용됩니다. 그 외의 일반 메소드의 경우 그냥 메소드를 호출하는 일반적인 형태를 가집니다. 그리고 코틀린이 미리 등록된 지시어의 경우에는 `로 감싸서 사용합니다.</p>
+<h1><span id="자바에서-코틀린-호출">자바에서 코틀린 호출</span></h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Struct</span></span>(<span class="keyword">val</span> i: <span class="built_in">Int</span>) &#123;</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">plus</span><span class="params">(s: <span class="type">Struct</span>)</span></span> = Struct(s.i + <span class="keyword">this</span>.i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">structTest</span><span class="params">(Struct s1, Struct s2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s1.plus(s2).getI();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이전에 언급한대로 코틀린의 필드는 기본적으로 프로퍼티이기 때문에 자바에서는 이를 getter/setter로 인식하여 접근하게 됩니다.<br>그리고 연산자 오버로딩을 통해 작성된 메소드의 경우 이와 매치된 이름을 통해 호출 할 수 있게 됩니다.</p>
+<h2><span id="companion-object-amp-object">companion object &amp; object</span></h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Struct</span></span>(<span class="keyword">val</span> i: <span class="built_in">Int</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">val</span> THOUSAND = <span class="number">1_000</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">()</span></span> &#123;</span><br><span class="line">            println(<span class="string">&quot;test&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@JvmStatic</span></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">staticTest</span><span class="params">()</span></span> &#123;</span><br><span class="line">            println(<span class="string">&quot;static test&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">plus</span><span class="params">(s: <span class="type">Struct</span>)</span></span> = Struct(s.i + <span class="keyword">this</span>.i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">t1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">assert</span> Struct.THOUSAND == <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">    Struct.Companion.test();</span><br><span class="line">    Struct.staticTest();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>클래스 내부에 선언된 companion object 에 선언된 상수, 메소드의 경우 위 예제와 같이 사용이 가능합니다. 기본적으로 companion object 는 object 이기 때문에 내부에 선언된 메소드를 사용하기 위해선 해당 Companion 레퍼런스를 통해 메소드에 접근해야 하지만 @JvmStatic 어노테이션을 선언한 메소드의 경우 자바에서는 static 메소드로 인식할수 있게 됩니다. 따라서 클래스 이름을 통해 접근할 수 있게 됩니다. 또한 const val 로 선언된 상수의 경우도 클래스 이름을 통해 접근가능합니다.</p>
+<h2><span id="람다">람다</span></h2><p>람다식은 자바에 사용하는 람다식 그대로를 사용합니다. 다만 매칭되는 인터페이스는 코틀린의 것을 따릅니다.</p>
+<p><code>(Int) -&gt; Int</code> 형태의 람다의 경우 코틀린의 <code>Function1&lt;Int, Int&gt;</code> 이라는 인터페이스에 매칭됩니다. 이는 자바에 정의된 Function 과는 다른 인터페이스로 코틀린에 자체적으로 선언된 인터페이스 입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">(f: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line">    println(f(<span class="number">10</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test(i -&gt; i + <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<h2><span id="파라메터-기본값-사용">파라메터 기본값 사용</span></h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JvmOverloads</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">println</span><span class="params">(i: <span class="type">Int</span> = <span class="number">10</span>)</span></span> &#123;</span><br><span class="line">    println(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Test.println();</span><br><span class="line">    Test.println(<span class="number">20</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>파라메터 기본값이 있을 경우 자바에서 사용할 때는 기본값이 없는 형태만 사용할 수 있습니다. 따라서 <code>@JvmOverloads</code>를 이용하여 컴파일 과정에서 오버로딩된 메소드를 추가하고 자바에서는 이를 사용할 수 있습니다.</p>
+<h2><span id="탑레벨-함수-접근">탑레벨 함수 접근</span></h2><p>파일 레벨에 정의된 탑레벨 함수의 경우 처음 예제 처럼 파일이름Kt 라는 네임스페이스로 묶어 접근할 수 있습니다. 이름이 마음에 안드는 경우 어노테이션을 이용해 수정할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@file:JvmName</span>(<span class="string">&quot;Util&quot;</span>)</span><br><span class="line"><span class="keyword">package</span> test</span><br><span class="line"><span class="comment">// test.UtilFunctions.kt</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">()</span></span> &#123;</span><br><span class="line">    println(<span class="number">10</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">t2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Util.test();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>어노테이션을 이용해 위 자바 코드 처럼 사용이 가능합니다.</p>
+<h2><span id="예외-처리">예외 처리</span></h2><p>코틀린은 기본적으로 예외를 명시적으로 처리하지 않는 unchecked exception가 기본입니다. 하지만 자바에서는 필요에 따라 checked exception를 사용해야하는 경우가 있습니다. </p>
+<p>그런 경우엔 <code>@Throw</code> 어노테이션을 통해 선언가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Throws(java.io.IOException::class)</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">readline</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// some code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        readline();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="기타-어노테이션">기타 어노테이션</span></h2><p>그 외 자바에 있지만 코틀린에서는 지원하지 않는 키워드는 매치되는 어노테이션을 이용해 표현이 가능합니다.</p>
+<ul>
+<li>synchronized -&gt; @Synchronized</li>
+<li>default(interface) -&gt; @JvmDefault</li>
+<li>volatile -&gt; @Volatile</li>
+<li>transient -&gt; @Transient</li>
+</ul>
+<p>기타 다른 어노테이션은 <a target="_blank" rel="noopener" href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/#annotations">여기</a>를 통해 확인할 수 있습니다.</p>
+<hr>
+<p>출처</p>
+<ul>
+<li>다재다능 코틀린 프로그래밍</li>
+<li>코틀린 공식 문서</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Mysql - 1. DB의 기본"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Mysql - 1. DB의 기본 - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Mysql - 1. DB의 기본</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022/03/30
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/dbms/">#dbms</a> <a href="/tags/mysql/">#mysql</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/dbms/">dbms</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">DBMS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">데이터베이스의 특징</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">DBMS의 분류</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">SQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">설계</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">DB설계 모델링 필수 용어</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">테이블 외의 DB 개체</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">모델링</span></a></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1><span id="dbms">DBMS</span></h1><p>데이터베이스가 데이터의 집합이라면 DBMS는 이 데이터베이스를 관리, 운영하는 역할을 합니다. 그리고 중요한 역할은 여러사람이 동시에 접근하여 데이터를 삽입 / 수정 / 조회등을 할 수 있어야 합니다. 따라서 Excel 같은 프로그램은 데이터의 집합이긴 하지만 DBMS라고 하기는 어렵습니다.</p>
+<h2><span id="데이터베이스의-특징">데이터베이스의 특징</span></h2><ol>
+<li><p>데이터 무결성<br>DB안의 데이터는 어떤 경로를 통해 들어오더라도 데이터에 오류가 있어선 안됩니다. 이를 위해 DB는 제약조건을 통해 데이터의 무결성을 지킵니다.<br>예를 들어 어떤 전화번호를 관리하는 DB가 있다면 전화번호는 무조건 하나만 존재해야합니다. 이럴 때 DB의 제약조건을 활용해 실제로 전화번호가 하나만 생성될 수 있도록 합니다.</p>
+</li>
+<li><p>데이터의 독립성<br>DB의 크기를 변경하거나 데이터 파일의 저장소를 변경하더라도 기존에 작성된 응용프로그램은 전혀 영향을 받지 않아야 합니다.</p>
+</li>
+<li><p>보안<br>DB안의 데이터는 아무나 접근할 수 있는 것이 아니라 데이터의 소유자 혹은 데이터에 접근이 허가된 사람만 접근할 수 있어야 합니다.<br>그리고 허가의 범위도 계정에 따라 다르게 할 수 있습니다.</p>
+</li>
+<li><p>데이터 중복의 최소화<br>동일한 데이터가 여러개 중복되어 저장되는 것을 방지합니다.<br>데이터를 DB에 통합하면 데이터를 하나의 테이블에 저장하고 이를 공유함으로써 데이터 중복이 최소화 된다.</p>
+</li>
+<li><p>데이터의 안정성 향상<br>DBMS에서 지원하는 백업, 복원 기능을 이용해 데이터가 깨지더라도 문제가 발생할 경우에 원상복구 방법이 쉽습니다.</p>
+</li>
+</ol>
+<h2><span id="dbms의-분류">DBMS의 분류</span></h2><p>현재 DBMS는 대부분 RDMBS(Relational DBMS)를 사용하지만 그 외에도 몇가지가 더 있습니다.</p>
+<ol>
+<li><p>계층형 RDBMS<br>데이터를 트리형태로 관리하는 RDBMS입니다. 트리의 특성상 1:N의 관계를 갖습니다. 계층형 DBMS의 경우 한번 정해진 구조를 변경하기가 상당히 까다롭습니다.</p>
+</li>
+<li><p>망형 DBMS<br>계층형 DBMS의 문제점을 개선한 구조로 1:1, 1:N, N:M의 관계도 지원하여 효과적이고 빠르게 데이터를 추출 할 수 있습니다. 하지만 내부에 복잡한 포인터를 가지기 때문에, 프로그래머가 모든 구조를 이해해야만 프로그램 작성이 가능하다는 단점이 있습니다.</p>
+</li>
+<li><p>관계형 DBMS<br>대부분의 서비스에서 사용하는 DBMS로 데이터베이스를 테이블이라는 최소 단위로 구성하여 관리하는 DBMS입니다. 테이블은 하나 이상의 열로 구성되어 있습니다.<br>정보 저장을 위해 하나의 테이블이 아닌 여러 개의 테이블로 나누어서 저장함으로써 불필요한 공간의 낭비를 줄이고 데이터 저장의 효율성을 보장해 줄 수 있습니다. 또 이렇게 나뉜 테이블은 키를 이용해 관계를 맺습니다. 그리고 이렇게 관계를 맺은 데이터는 SQL의 조인을 이용해 데이터를 효율적으로 불러올 수 있습니다.<br>관계형 RDBMS의 장점은 다른 DBMS에 비해 업무가 변화될 경우에 쉽게 변화에 순응 할 수 있는 구조이고 유지보수 측면에서도 편리한 특징을 가지고 있다는 것입니다. 또한 대용량 데이터의 무결성도 잘 보장해주기 때문에 동시에 데이터에 접근하는 응용프로그램을 사용할 경우에 RDMBS는 적절한 선택이 될 수 있습니다. 단점은 시스템 자원을 많이 사용한다는 점입니다. 하지만 최근 하드웨어의 발전으로 이는 많이 상쇄되어 많이 보완되었습니다.</p>
+</li>
+</ol>
+<p>그외에 최근에는 NOSQL 이라고 하는 Document oriented DBMS, Graph DBMS 형태의 sql을 사용하지 않는 DBMS도 다양한 서비스에서 사용됩니다.</p>
+<h1><span id="sql">SQL</span></h1><p>SQL은 RDMBS에서 데이터를 관리하기 위해 사용하는 언어입니다. 언어라고는 하지만 일반적인 프로그래밍 언어와는 다른 특징이 일부 있습니다.</p>
+<ol>
+<li><p>DBMS와는 독립적입니다.<br>SQL은 모든 DBMS 제작회사에 공통적으로 공개되고 각 제작회사는 이 표준 SQL에 맞춰서 DBMS를 개발합니다. 그러므로 표준 SQL은 대부분의 DBMS에서 공통적으로 호환 됩니다.</p>
+</li>
+<li><p>다른 시스템으로 이식성이 좋다.<br>SQL 표준은 여러 환경에서 운영되는 DBMS에서 호환서잉 좋습니다.</p>
+</li>
+<li><p>표준이 계속 발전한다.<br>SQL은 시간이 지남에 따라 표준이 발전하고 있습니다. 현재도 개선을 위한 연구가 지속 되고 있습니다.</p>
+</li>
+<li><p>대화식 언어이다.(인터프리터)<br>컴파일이 필요없이 DBMS의 쿼리 엔진을 통해 실행됩니다.</p>
+</li>
+<li><p>분산형 클라이언트 / 서버 구조<br>SQL의 실행을 요청하는 클라이언트, SQL를 읽고 실행하는 서버로 나뉘어 동작합니다.</p>
+</li>
+</ol>
+<p>주의할 점은 모든 SQL문법이 모든 DBMS에서 호환되지는 않는다는 점입니다. 개별 DBMS에서 지원하는 기능에 따라 이에 특화된 SQL문법이 존재하기도 하고 같은 SQL문이라도 내부 구조에 따라 일부 다르게 동작할 수 있다는 점도 명심해야합니다.</p>
+<h1><span id="설계">설계</span></h1><h2><span id="db설계-모델링-필수-용어">DB설계 모델링 필수 용어</span></h2><p>소프트웨어의 설계 단계에서 가장 중요한 과정중 하나는 DB모델링입니다. DB 모델링은 현실세계에서 사용되는 데이터를 DBMS에 올길지 결정하는 과정입니다. 이때 사용하는 용어는 다음과 같습니다. </p>
+<ol>
+<li>데이터 - 단편적인 정보를 나타냅니다. 정보는 있지만 아직 체계화 되지 못한 상태입니다.</li>
+<li>테이블 - 데이터를 표의 형태로 표현한 것을 말합니다.</li>
+<li>DB - 테이블이 저장되는 저장소입니다. 설계도 상에 기본적으로 원통으로 표시합니다.</li>
+<li>DBMS - DB를 관리하는 시스템 또는 소프트웨어를 말합니다.</li>
+<li>열(컬럼, 필드) - 각 테이블을 구성하는 기본 데이터 입니다.</li>
+<li>열 이름 - 컬럼을 식별하기 위한 이름입니다. 열 이름은 테이블내에서 중복되지 않고 고유해야 합니다.</li>
+<li>데이터 형식 - 각 열의 데이터 형식을 나타냅니다. 지원하는 형식은 DBMS별로 다릅니다.</li>
+<li>행 - 실질적인 데이터를 나타냅니다. 하나의 데이터를 테이블 내의 각 열로 매핑한 데이터를 나타냅니다.</li>
+<li>기본키 - 기본 키는 각 행을 구분하는 유일한 값을 나타냅니다. 기본 키 열은 중복 될 수 없고 비어있어서도 안됩니다. 또 각 테이블에는 키본키가 하나만 지정되어 있어야 합니다.</li>
+<li>외래키 - 두 테이블의 관계를 맺어주는 키를 말합니다.</li>
+<li>SQL - DBMS에서 데이터를 처리하기 위해 사용하는 언어입니다.</li>
+</ol>
+<h2><span id="테이블-외의-db-개체">테이블 외의 DB 개체</span></h2><p>지금까지는 테이블에 관련된 것만 언급했지만 DBMS에서는 그외의 기능도 지원합니다.</p>
+<ol>
+<li>인덱스</li>
+</ol>
+<p>데이터를 찾기 위한 색인을 나타냅니다. 데이터가 많을 때 빠른 검색을 위한 추가적인 기능으로 테이블 열 단위로 생성합니다. 인덱스가 없는 데이터를 찾기 위해서는 모든 데이터를 조회해야합니다. 이는 데이터가 많아질수록 속도가 떨어지는 문제가 있습니다. 인덱스는 특정데이터의 위치를 별도의 방식으로 저장하여 필요한 데이터를 찾을 때 이를 참조해 빠르게 검색하게 해줍니다. 하지만 이는 잘 못 사용하면 독이되는 경우도 있기 때문에, 세심하게 사용해야합니다.</p>
+<ol start="2">
+<li>뷰</li>
+</ol>
+<p>뷰는 가상의 테이블로 사용자 입장에서는 일반적인 테이블로 보이지만 실제로 데이터를 가지고 있지는 않습니다. 따라서 실체는 없고 진짜 테이블에 링크된 개념으로 생각하면 됩니다. 따라서 뷰를 조회하면 실제 테이블이 조회됩니다.</p>
+<ol start="3">
+<li>스토어드 프로시저</li>
+</ol>
+<p>스토어드 프로시저는 mysql에서 제공하는 기능입니다. 간단한 프로그램 기능으로 여러 SQL문을 하나로 묶어 실행합니다.</p>
+<ol start="4">
+<li>트리거</li>
+</ol>
+<p>트리거는 특정 테이블의 데이터에 변경이 일어났을 때를 감지하여 실행되는 코드입니다.</p>
+<h2><span id="모델링">모델링</span></h2><p>DB 모델링을 한다고하면 현 세계에서 사용되는 작업이나 사물들을 DBMS의 데이터베이스 개체로 옮기기 위한 과정이라고 할 수 있습니다.<br>하지만 이 모델링의 대상의 현실의 실존하는 무언가라고 할 수는 없습니다. 경우에 따라 어떤 행위에 대한 것 역시 모델링의 대상이 될 수 있습니다. 따라서 앞에서 이야기한 작업이나 사물들 만을 고려할 것이 아니라 다양한 상황에 맞게 DB를 구성해야 할 수도 있습니다.</p>
+<p>모델링은 크게 3단계를 거쳐 완성됩니다.<br>개념적 모델링, 논리적 모델링, 무리적 모델링으로 나눌 수 있습니다. 개념적 모델링은 주로 업무 분석 단계에 포함되며 논리적 모델링은 업무 분석의 후반부와 시스템 설계의 전반부에 걸쳐 진행됩니다. 그리고 물리적 모델링은 시스템 설계의 후반부에 주로 진행됩니다.</p>
+<hr>
+<p>이 글은 ‘이것이 MySQL 이다’ 의 내용 1~4장을 요약한 내용입니다.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

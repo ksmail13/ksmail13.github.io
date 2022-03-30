@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 4. Iterator"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 4. Iterator - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 4. Iterator</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/10/14
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Iterator, Argument matching</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Range</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">range 종류</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Collection 반복</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">When</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">출처</span></a></li></ol></li></ol></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1><span id="iterator-argument-matching">Iterator, Argument matching</span></h1><p>코틀린은 기존 다른 언어의 상태기반의 for 문은 제공하지 않습니다.<br>모든 for문은 자바의 foreach 형태의 for문 만을 지원합니다. 그럼 단순 반복은 어떻게 할 수 있을까요?</p>
+<h2><span id="range">Range</span></h2><p>코틀린은 Range로 범위를 표시할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="number">.5</span>.forEach &#123;println(it)&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>..</code> 는 1 부터 5까지 1씩 증가하는 IntRange 객체를 만드는 함수 입니다.</p>
+<p>IntRange 는 아래의 구조로 되어 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IntRange</span> : <span class="type">IntProgression</span>, <span class="type">ClosedRange</span>&lt;<span class="type">Int</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>IntProgressing 은 start(시작값), last(끝값), step(건너뛰는 정도의 값)을 가지는 구조체이고 ClosedRange 는 시작값과 끝값을 표현하는 범위표시를 위한 객체입니다. 말그대로 범위를 표시하기 위한 모든 정보가 포함된 객체로 생각하시면 됩니다.</p>
+<p>이 Range는 in 연산자(혹은 contains)를 이용해 특정 값이 range 에 포함되어 있는지 체크할 수 있고, for 문에서 블록내 변수에 값을 할당 할 수도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="number">3</span> <span class="keyword">in</span> <span class="number">1.</span><span class="number">.5</span>) println(<span class="string">&quot;true&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>또한 range 는 단순 정수 형 뿐만아니라 String 에도 적용이 가능합니다.</p>
+<h3><span id="range-종류">range 종류</span></h3><p>오름차순의 반복을 원한다면 위에서 사용한 <code>..</code> 연산자를 사용하면 됩니다. 다만 이 연산자는 끝값을 포함하는 범위이기 때문에, 끝값을 제외한 범위를 원하는 경우 <code>until</code> 함수로 대체 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span> until <span class="number">10</span>) &#123;       <span class="comment">// i in [1, 10), 10 is excluded</span></span><br><span class="line">    print(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>내림 차순의 반복을 원하는 경우 downTo 라는 함수를 사용 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">4</span> downTo <span class="number">1</span>) print(i)</span><br></pre></td></tr></table></figure>
+
+<p>기본적으로는 반복되는 값은 1 씩 변경이 됩니다. 하지만 1이상 만큼 변화를 원한다면 step 함수로 조절 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.8</span> step <span class="number">2</span>) print(i) <span class="comment">// 1357</span></span><br><span class="line">println()</span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">8</span> downTo <span class="number">1</span> step <span class="number">2</span>) print(i) <span class="comment">// 8642</span></span><br><span class="line">println()</span><br></pre></td></tr></table></figure>
+
+<h3><span id="collection-반복">Collection 반복</span></h3><p>코틀린에서 컬렉션의 반복은 자바의 foreach 와 동일합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> param = listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> (x <span class="keyword">in</span> param) &#123;</span><br><span class="line">    print(x)</span><br><span class="line">&#125;</span><br><span class="line">println() <span class="comment">// 1,2,3</span></span><br></pre></td></tr></table></figure>
+
+<p>다만 리스트는 단순 반복 외에 추가로 현재의 인덱스를 가져오게 할 수도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ((idx, num) <span class="keyword">in</span> nums.withIndex()) &#123; <span class="comment">// </span></span><br><span class="line">    println (<span class="string">&quot;<span class="variable">$idx</span> -&gt; <span class="variable">$num</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>withIndex 함수는 <code>Iterable&lt;IndextedValue&lt;T&gt;&gt;</code> 를 반환 하는 함수로 각 엘리먼트를 IndexedValue 클래스로 감싸 반복문을 실행하게 해줍니다.</p>
+<h2><span id="when">When</span></h2><p>코틀린에는 switch 문이 없습니다. 대신 더 많은 기능을 지원하는 when 을 사용할 수 있습니다. when은 if 처럼 표현식으로 사용할 수 도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for variable</span></span><br><span class="line"><span class="keyword">val</span> msg = <span class="keyword">when</span> (a) &#123;</span><br><span class="line">    <span class="number">1</span> -&gt; <span class="string">&quot;one&quot;</span></span><br><span class="line">    <span class="keyword">in</span> <span class="number">2.</span><span class="number">.3</span> -&gt; <span class="string">&quot;two or three&quot;</span></span><br><span class="line">    <span class="keyword">else</span> -&gt; <span class="string">&quot;bigger than three&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// for expression</span></span><br><span class="line"><span class="keyword">val</span> msg2 = <span class="keyword">when</span> &#123;</span><br><span class="line">    a == <span class="number">1</span> -&gt; <span class="string">&quot;a is one&quot;</span></span><br><span class="line">    b <span class="keyword">in</span> <span class="number">2.</span><span class="number">.3</span> -&gt; <span class="string">&quot;b is two or three&quot;</span></span><br><span class="line">    c.isEmpty() -&gt; <span class="string">&quot;c is empty&quot;</span></span><br><span class="line">    <span class="keyword">else</span> -&gt; <span class="string">&quot;anything else&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위 코드처럼 when자체를 표현식으로 사용하면서 내부의 조건문 역시 단일 표현식으로 사용 할 수 있습니다. 그리고 예제의 when은 string 객체를 리턴하지만 아래와 같이 unit 을 리턴하는 형태로도 사용할 수 있습니다. 이런 경우 else는 생략 가능합니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> &#123;</span><br><span class="line">    a == <span class="number">1</span> -&gt; println(<span class="string">&quot;a is one&quot;</span>)</span><br><span class="line">    b <span class="keyword">in</span> <span class="number">2.</span><span class="number">.3</span> -&gt; println(<span class="string">&quot;b is two or three&quot;</span>)</span><br><span class="line">    c.isEmpty() -&gt; println(<span class="string">&quot;c is empty&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>그리고 when 블록에서 사용가능한 변수도 정의 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a = someFunction()</span><br><span class="line"><span class="keyword">val</span> msg = <span class="keyword">when</span> (a) &#123;</span><br><span class="line">    <span class="number">1</span> -&gt; <span class="string">&quot;one&quot;</span></span><br><span class="line">    <span class="keyword">in</span> <span class="number">2.</span><span class="number">.3</span> -&gt; <span class="string">&quot;two or three&quot;</span></span><br><span class="line">    <span class="keyword">else</span> -&gt; <span class="string">&quot;bigger than three&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a isn&#x27;t use anymore</span></span><br></pre></td></tr></table></figure>
+<p>위 예시처럼 when 만을 위해 특정 변수를 만들어 사용해야하는 경우에는 아래와 같이 더 간략화 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> msg = <span class="keyword">when</span> (<span class="keyword">val</span> a = someFunction()) &#123;</span><br><span class="line">    <span class="number">1</span> -&gt; <span class="string">&quot;one&quot;</span></span><br><span class="line">    <span class="keyword">in</span> <span class="number">2.</span><span class="number">.3</span> -&gt; <span class="string">&quot;two or three&quot;</span></span><br><span class="line">    <span class="keyword">else</span> -&gt; <span class="string">&quot;bigger than three&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>when의 변수자리에 단일표현식으로 리턴되는 값을 사용하는 변수를 만들고 when블록 내에서 사용할 수 있습니다. 별거 아닌것처럼 보이지만 이걸 함수에서 사용한다면 블록으로 구현해야할 코드를 단일 표현식으로 줄일 수 있다는 장점이 있습니다.</p>
+<h4><span id="출처">출처</span></h4><ul>
+<li>다재다능 코틀린 프로그래밍</li>
+<li>코틀린 공식 문서</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

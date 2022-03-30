@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kotlin - 11. 내부 반복과 지연 연산"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Kotlin - 11. 내부 반복과 지연 연산 - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kotlin - 11. 내부 반복과 지연 연산</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021/11/10
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kotlin/">#kotlin</a> <a href="/tags/language/">#language</a> <a href="/tags/object/">#object</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/language/">language</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">외부 반복자 vs 내부 반복자</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">내부 반복자</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">filter, map, reduce</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">flatMap과 flatten</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">정렬</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">그룹화</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">지연연산</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Sequence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">무한 Sequence</span></a></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>함수형 프로그래밍에서는 반복을 외부에 직접적으로 표현하지 않습니다.<br>일단 명시적인 반복문의 경우 명시적인 반복을 위한 상태를 표시해줘야 하기 때문에 함수형 프로그래밍과 어울리지 않으며 또한 각 내부 상태를 고치기에 용이하기 때문에, 함수형 프로그래밍에서 지향하는 불변성과는 거리가 멀어집니다.<br>따라서 함수형 프로그래밍에서는 내부 반복자를 통해 반복문을 대체합니다. 내부 반복자는 내부에서 반복을 처리하며 외부에서는 단순히 해당 범위내의 상태만 변경하기 때문에 별도의 반복을 위한 상태를 관리할 필요가 없고 반복 처리의 범위가 현재 처리하는 상태에만 한정되어 불변성을 유지할 수 있는 장점이 있습니다.</p>
+<p>기본적으로 filter, map 같은 함수들을 생각하면 좋은데, 이들은 컬렉션 객체들을 순회하면서 미리 정의된 람다에 따라 컬렉션을 처리하는 구조를 가집니다.<br>물론 앞서 살펴본대로 기본적으로 람다의 실행은 함수의 실행이기 때문에 이로인한 성능상의 영향이 있을 수 있지만 편리하고 표현력이 강하다는 장점이 있기 때문에 많은 곳에서 활용하게 됩니다.</p>
+<h1><span id="외부-반복자-vs-내부-반복자">외부 반복자 vs 내부 반복자</span></h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">val</span> l = listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 외부 반복자를 통한 반복</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> l) &#123;</span><br><span class="line">    <span class="keyword">if</span> ((i % <span class="number">2</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">        println(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 내부 반복자를 통한 반복</span></span><br><span class="line">l</span><br><span class="line">    .filter &#123; (it % <span class="number">2</span>) == <span class="number">0</span> &#125;</span><br><span class="line">    .forEach &#123; println(it) &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>위 코드에서 두 반복의 결과는 동일합니다. 일단 내부 반복자를 사용한 부분이 코드가 단순하여 읽기 좋습니다.<br>만약 이 반복에 조건이 추가 되고 그에 따라 처리해야 할 작업도 늘어난다면 작업에 대해 <strong>선언</strong>만 하면 되는 내부 반복자는 이후 코드의 유지보수 관점에서도 코드를 더 간결하게 관리할 수 있는 좋은 방법 중 하나입니다.</p>
+<h1><span id="내부-반복자">내부 반복자</span></h1><p>위에서 본 것 처럼 외부 반복자는 for(혹은 while) 와 if의 조합으로 코드를 작성합니다.<br>내부 반복자의 경우 filter, map, flatMap, reduce 같은 함수들을 조합하여 코드를 작성합니다.</p>
+<h2><span id="filter-map-reduce">filter, map, reduce</span></h2><p>내부 반복자에서 가장 많이 사용하게 될 함수들로 역할은 이름 그대로를 따릅니다.</p>
+<p>filter는 조건에 맞춰 반복자를 통과하는 데이터들을 판별하여 사용여부를 결정하는 함수 입니다.<br>map은 mapping 이라는 이름처럼 기존 값을 다른 값으로 매핑하는 역할을 가집니다.<br>reduce는 단어의 뜻은 줄어든다는 뜻인데, 코드상에서는 반복하는 데이터의 수를 줄이는 함수입니다. 일반적으로 데이터들의 합이나 다른 컬렉션으로의 변형등을 할 때 사용합니다.<br>일반적으로 많이 사용하는 로직의 경우에는 개별적인 함수(sum, count, joinToString, toList, toSet, first, last 등)로도 정의되있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 0 부터 10 범위내 짝수의 제곱의 합</span></span><br><span class="line"><span class="keyword">val</span> r = (<span class="number">0.</span>.<span class="number">.10</span>)</span><br><span class="line">    .filter &#123; it % <span class="number">2</span> == <span class="number">0</span> &#125;</span><br><span class="line">    .map &#123; it * it &#125;</span><br><span class="line">    .reduce &#123; (acc, i) -&gt; acc + i &#125;</span><br><span class="line"></span><br><span class="line">println(r) <span class="comment">// 4 + 16 + 36 + 64 + 100 = 220</span></span><br></pre></td></tr></table></figure>
+
+<h2><span id="flatmap과-flatten">flatMap과 flatten</span></h2><p>기본적으로 어떤 복잡한 반복을 평평하게 만들어주는 기능을 합니다. 가장 대표적인 예로 이중 컬렉션을 하나의 컬렉션으로 병합입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> l = listOf(</span><br><span class="line">    listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>),</span><br><span class="line">    listOf(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>),</span><br><span class="line">    listOf(<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">println(l.flatten()</span><br><span class="line">    .map &#123; it * it &#125;</span><br><span class="line">    .sum()) <span class="comment">//285</span></span><br></pre></td></tr></table></figure>
+
+<p>하지만 단순히 그렇게만 보면 안됩니다. flatMap은 앞서 설명한 filter, map의 기반이 됩니다. 그게 가능한 이유는 flatmap 은 지금 반복의 흐름을 바꿀 수 있기 때문입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> List<span class="type">&lt;T&gt;</span>.<span class="title">myFilter</span><span class="params">(condition: (<span class="type">T</span>) -&gt; <span class="type">Boolean</span>)</span></span> = flatMap &#123;</span><br><span class="line">    <span class="keyword">if</span> (condition(it)) &#123;</span><br><span class="line">        listOf(it)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        listOf&lt;T&gt;()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위 예제처럼 flatMap을 이용해 조건에 충족하는 값만 사용하도록 반복의 흐름을 조정 할 수 있습니다. 이는 map 과는 다른 flatMap의 중요하고도 핵심적인 차이점이라 할 수 있습니다.<br>또한 이러한 역할이 비단 이런 내부 반복자 외에 많은 선언형 프로그래밍에서 사용되기 때문에, 이에 대해 자세히 이해하는것이 좋습니다.</p>
+<h2><span id="정렬">정렬</span></h2><p>반복 중 정렬기능도 제공합니다. sorted, sortedDescending, sortedBy, sortedByDescending<br>sortedBy 함수는 파라메터로 넘어가는 람다를 이용하여 데이터를 비교가능한 데이터로 만들어 비교 후 정렬을 하도록 도와줍니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> ages = listOf(<span class="number">14</span>, <span class="number">10</span>, <span class="number">22</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">ages.sorted().forEach(::println) <span class="comment">// 8, 10, 14, 22</span></span><br></pre></td></tr></table></figure>
+
+<h2><span id="그룹화">그룹화</span></h2><p>특정 조건으로 분기하여 여러가지 그룹으로 데이터를 분류 할 수 있습니다. 분기 방식에 따라 결과값인 Map 타입의 제네릭 타입에 반영되는 형태입니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> oddOrEven: Map&lt;<span class="built_in">Boolean</span>, List&lt;<span class="built_in">Int</span>&gt;&gt; = (<span class="number">0.</span>.<span class="number">.10</span>).groupBy &#123; it%<span class="number">2</span> == <span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>groupBy 는 데이터를 통해 실행한 람다식의 결과 값이 같은 것들을 리스트 형태로 모아 Map 형태로 묶어주는 함수 입니다.<br>람다의 결과 값이 Boolean 이기 때문에, 결과 Map의 키가 Boolean 이 되고 원본데이터가 Int 형태이기 때문에 List로 묶어 <code>List&lt;Int&gt;</code> 타입이 값이 됩니다.<br>람다 하나를 더 추가하면 value 의 값도 조절 할 수 있습니다.</p>
+<h1><span id="지연연산">지연연산</span></h1><p>콜렉션에서의 내부 연산은 생각보다 많은 오버헤드를 부릅니다. 컬렉션에서의 반복자 함수의 결과를 보면 모두 해당 컬렉션의 타입 그대로임을 알 수 있습니다.<br>이는 반복자 함수가 한번 실행 할 때마다 컬렉션을 생성한다는 의미입니다. 컬렉션 내부 데이터에 대해 모두 연산을 진행 한 후 이를 새로운 컬렉션에 담아 리턴하고 다음 연산을 진행하는 형태로 설명만 보더라도 상당히 비효율적임을 알 수 있습니다.<br>작은 크기의 컬렉션이면 괜찮겠지만 크기가 커지면 불필요한 연산도 많아지고 사용하는 메모리도 많아지는 여러모로 위험한 방식입니다.</p>
+<p>이를 회피하기 위해선 Sequence를 사용합니다. Sequence 는 컬랙션과 마찬가지로 filter, map, reduce등의 내부 반복자 연산을 제공하지만 다른점은 단말 연산이 실행되어야 반복을 시작한다는 점입니다.</p>
+<h2><span id="sequence">Sequence</span></h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> l = listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="keyword">val</span> mappedL = l.map &#123;it + <span class="number">1</span>&#125;</span><br><span class="line">println(mappedL.size) <span class="comment">// 4</span></span><br><span class="line"><span class="keyword">val</span> filteredL = mappedL.filter &#123;it%<span class="number">2</span> == <span class="number">0</span>&#125;</span><br><span class="line">println(filteredL.size) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p>일반적인 컬렉션 상에서 내부 반복자를 통해 처리할 경우 각 함수 별로 새로운 리스트를 생성하기 때문에 위 데이터가 표시되는 것을 알 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>).asSequence()</span><br><span class="line"><span class="keyword">val</span> mappedS = s.map &#123; it + <span class="number">1</span> &#125;</span><br><span class="line">println(mappedS.size) <span class="comment">// Unresolved reference : size</span></span><br><span class="line"><span class="keyword">val</span> filteredS = mappedS.filter &#123;it%<span class="number">2</span> == <span class="number">0</span>&#125;</span><br><span class="line">println(filteredS.size) <span class="comment">// Unresolved reference : size</span></span><br></pre></td></tr></table></figure>
+
+<p>Sequence는 사이즈를 측정 할 수 없습니다. 아직까지 선언만 되었을 뿐 데이터가 처리되지 않았기 때문에, 데이터가 몇 개인지 판별 할 수 없습니다.<br>또한 위 코드 까지는 단순히 작업을 <strong>선언</strong>만 했기 때문에, 람다식들은 연산조차 되지 않았습니다.</p>
+<h2><span id="무한-sequence">무한 Sequence</span></h2><p>위에서 언급한대로 Sequence는 실제 연산이 되지 않기 때문에, 무한한 데이터를 가지는 (사실은 선언만되었지만) 시퀸스를 정의 할 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> random = Random(System.currentTimeMillis())</span><br><span class="line">generateSequence &#123; random.nextInt() &#125;</span><br><span class="line">    .filter &#123; it &gt; <span class="number">0</span> &#125;</span><br><span class="line">    .forEach(::println) <span class="comment">// infinite loop, print only positive number</span></span><br></pre></td></tr></table></figure>
+
+<p>generateSequence는 Sequence를 생성하는 함수입니다. 위에서는 랜덤한 수를 계속 생성하는 시퀸스를 생성하는데에 사용했습니다.<br>그리고 forEach가 실행될 때 generateSequence의 람다가 실행되어 랜덤한 수를 가져오는 구조 입니다. 이런 forEach, toList 같은 단말 함수가 실행되면 그때서야 데이터의 반복이 시작되는 것을 알 수 있습니다.</p>
+<p>그리고 원하는 만큼 데이터를 얻으면 종료 시킬 수 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> random = Random(System.currentTimeMillis())</span><br><span class="line">generateSequence &#123; random.nextInt() &#125;</span><br><span class="line">    .filter &#123; it &gt; <span class="number">0</span> &#125;</span><br><span class="line">    .take(<span class="number">10</span>)</span><br><span class="line">    .forEach(::println) <span class="comment">// 10 number of positive number</span></span><br></pre></td></tr></table></figure>
+<p>여기서는 take 를 이용하여 양수 10개까지만 가져오도록 수정했습니다. </p>
+<p>다른 방식으로 sequence 함수를 사용하는 방법도 있습니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sequence&lt;<span class="built_in">Int</span>&gt; &#123; </span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        yield(random.nextInt())</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line">    .forEach &#123; println(it) &#125;</span><br></pre></td></tr></table></figure>
+
+<p>sequence 함수 내부에 반복문을 통해 데이터를 반복적으로 생성하고 yield 함수를 통해 데이터를 반복시키는 형태를 가집니다.</p>
+<hr>
+<p>참고자료</p>
+<p>다재다능 코틀린 프로그래밍</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

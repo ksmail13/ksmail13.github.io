@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="zsh로 터미널 사용하기"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>zsh로 터미널 사용하기 - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>zsh로 터미널 사용하기</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018/03/19
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/terminal/">#terminal</a> <a href="/tags/zsh/">#zsh</a> <a href="/tags/antigen-zsh/">#antigen.zsh</a> <a href="/tags/oh-my-zsh/">#oh-my-zsh</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/terminal/">terminal</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">zsh 설치하기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">antigen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">내 zshrc</span></a></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>처음 개발 공부를 하면서 어려운 점은 바로 터미널을 사용하는 것이라고 생각한다.</p>
+<p>고등학생 때 검둥이 맥북을 조금이라도 더 효율적으로 사용해보려고 쉘 공부를 하려고 했었다. 하지만 게임하느라 매일 붓캠만 켜서 제대로 해보지도 않았고 결국 실제로 쉘을 제대로 사용해보려고 한 건 대학교 2학년 이후 였던 것 같다. 어거지로 여러 기능을 써보다 말다를 반복하던 중 별 생각없이 쉘 꾸미기를 알아보던 중 <code>zsh</code>라는 다른 쉘의 존재를 알았다.</p>
+<p>일단 처음 사용하기 시작한건 <code>oh-my-zsh</code>의 테마 기능으로 쉘을 좀 더 이쁘게 쓸 수 있는 걸 알고 <code>zsh</code>사용을 시작했다.</p>
+<blockquote>
+<p>사실 테마라고 해도 그냥 PS1 값을 미리 정해놓은 템플릿 같은 느낌이다.<br>물론 테마에 따라 <strong>부가기능</strong>이 있는 경우도 있다.</p>
+</blockquote>
+<p>플러그인을 통해 좀 더 다양한 기능을 쓸 수 있는건 그 이후 였다. 사실 <code>oh-my-zsh</code>만으로는 플러그인을 설치하고 사용하기가 여간 귀찮은게 아니다. 플러그인 소스가 있는 github 소스를 oh-my-zsh에 지정된 폴더에 클론해서 <code>.zshrc</code>에 등록해야 하는데 여간 귀찮은 일이 아니었다. 그러던 중 <code>antigen</code>라는 zsh용 플러그인 매니저의 존재를 알고 더 제대로 사용해보기 시작했다. 그리고 플러그인 내부에 선언된 alias의 존재를 알고 정말 신세계를 경험할 수 있었다.</p>
+<p>이 글을 통해 내가 어떻게 <code>zsh</code>를 사용하고 있는지 공유하려고 한다.</p>
+<h2><span id="zsh-설치하기">zsh 설치하기</span></h2><p>설치는 상당히 간단하다. 기본적인 패키지 매니저라면 패키지를 제공하기 때문에 그냥 패키지 매니저를 통해 설치하면된다.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 본인 os에 맞게 사용</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ubuntu</span></span><br><span class="line">sudo apt-get install zsh git</span><br><span class="line"><span class="comment"># ubuntu</span></span><br><span class="line">sudo apt install zsh git</span><br><span class="line"></span><br><span class="line"><span class="comment"># fedora</span></span><br><span class="line">sudo dnf install zsh git</span><br><span class="line"><span class="comment"># fedora</span></span><br><span class="line">sudo yum install zsh git</span><br><span class="line"></span><br><span class="line"><span class="comment"># osx with homebrew</span></span><br><span class="line">brew insatll zsh git</span><br><span class="line"></span><br><span class="line"><span class="comment"># make zsh default shell</span></span><br><span class="line">chsh -s $(<span class="built_in">which</span> zsh)</span><br></pre></td></tr></table></figure>
+
+<p>git을 추가로 설치 했는데 이는 antigen을 사용하기 위해서다.<br>OSX는 brew를 설치하지 않았다면 <a target="_blank" rel="noopener" href="https://brew.sh/index_ko">brew</a> 부터 설치하자.</p>
+<h2><span id="antigen">antigen</span></h2><p>antigen은 zsh의 플러그인 매니저다.</p>
+<p>oh-my-zsh는 추가 플러그인 혹은 테마를 설치하기 위해서는 지정된 경로에 직접 클론을 받아야하는 귀찮은 작업이 필요한데, antigen은 이를 run configuration에 한 줄 적는 걸로 끝내버린다.</p>
+<p>설치는 아래와 같이 진행한다.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">curl -L git.io/antigen &gt; antigen.zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 출처 : https://github.com/zsh-users/antigen#installation</span></span><br></pre></td></tr></table></figure>
+
+<p>이렇게 하면 계정 홈 폴더에 antigen.zsh라는 쉘파일이 다운받아진다.</p>
+<p>그리고 아래와 같은 내용을 <code>.zshrc</code>에 적용하면 된다.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /your/home/path/antigen.zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># oh-my-zsh 활성화</span></span><br><span class="line">antigen use oh-my-zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># oh-my-zsh의 기본 플러그인 활성화</span></span><br><span class="line">antigen bundle git</span><br><span class="line">antigen bundle heroku</span><br><span class="line">antigen bundle pip</span><br><span class="line">antigen bundle lein</span><br><span class="line">antigen bundle command-not-found</span><br><span class="line"></span><br><span class="line"><span class="comment"># zsh의 syntax highlight 플러그인 사용</span></span><br><span class="line">antigen bundle zsh-users/zsh-syntax-highlighting</span><br><span class="line"></span><br><span class="line"><span class="comment"># theme 설정</span></span><br><span class="line">antigen theme robbyrussell</span><br><span class="line"></span><br><span class="line"><span class="comment"># 위 설정 적용</span></span><br><span class="line">antigen apply</span><br><span class="line"></span><br><span class="line"><span class="comment"># 출처 : https://github.com/zsh-users/antigen#usage</span></span><br></pre></td></tr></table></figure>
+
+<p>위 설정 파일의 주석만 보더라도 기본적인 내용은 파악이 된다.</p>
+<p>중요한 점은 <code>zsh-syntax-highlighting</code>을 설정하는 부분인데, 원래 antigen을 사용하지 않았다면 저 플러그인을 oh-my-zsh 플러그인 폴더에 직접 다운받아 적용해야 한다. 하지만 antigen을 통해 한번에 처리하는 걸 알 수 있다.</p>
+<p>저장 후 <code>source ~/.zshrc</code> 혹은 터미털을 다시 열면 설정이 적용되는 걸 알 수 있다.</p>
+<h2><span id="내-zshrc">내 zshrc</span></h2><p>내가 설정한 zshrc를 마지막으로 이 글을 마무리한다.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/antigen.zsh</span><br><span class="line"><span class="built_in">source</span> `<span class="built_in">which</span> activate.sh`</span><br><span class="line"></span><br><span class="line">antigen use oh-my-zsh</span><br><span class="line"><span class="comment"># antigen bundle robbyrussell/oh-my-zsh plugins/ruby</span></span><br><span class="line"></span><br><span class="line">antigen bundle git</span><br><span class="line">antigen bundle pip</span><br><span class="line">antigen bundle fedora <span class="comment"># antigen bundle ubuntu</span></span><br><span class="line">antigen bundle dnf    <span class="comment"># antigen bundle brew</span></span><br><span class="line">antigen bundle tmux</span><br><span class="line">antigen bundle tmuxinator</span><br><span class="line">antigen bundle command-not-found</span><br><span class="line">antigen bundle common-aliases</span><br><span class="line">antigen bundle gradle</span><br><span class="line">antigen bundle mvn</span><br><span class="line">antigen bundle python</span><br><span class="line">antigen bundle virtualenv</span><br><span class="line">antigen bundle autoenv</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">antigen bundle djui/alias-tips <span class="comment"># 현재 사용한 커맨드의 축약된 알리아스를 알려줌</span></span><br><span class="line">antigen bundle zsh-users/zsh-syntax-highlighting</span><br><span class="line"></span><br><span class="line">antigen theme dannynimmo/punctual-zsh-theme punctual</span><br><span class="line"></span><br><span class="line">antigen apply</span><br></pre></td></tr></table></figure>
+
+<p>기본 oh-my-zsh 플러그인은 <a target="_blank" rel="noopener" href="https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins">여기</a>에서 찾아보자</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
