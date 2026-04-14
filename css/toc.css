@@ -1,0 +1,14 @@
+.toc {
+  list-style: none;
+  padding: 0;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8em;
+}
+.toc-child {
+  list-style: none;
+  padding-left: 1em;
+}
+.toc-link {
+  cursor: pointer;
+  text-decoration: none;
+}

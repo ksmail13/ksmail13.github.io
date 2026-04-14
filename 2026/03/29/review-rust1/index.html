@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta name="google-site-verification" content="C06BO77KOqAeNb8oqCA4jHrmbcckq2yTDVQDTbBQjEY" />
+    <meta name="naver-site-verification" content="63fa9b46362f4aff7e78c857ceb53fb60352e6c3" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104476503-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104476503-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCDTGZ9');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="그냥 자료정리하는 블로그">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Minkyu Kim">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Rust로 만든 apache httpd? - httprs"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="그냥 자료정리하는 블로그" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="쌍떡잎식물"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Rust로 만든 apache httpd? - httprs - 쌍떡잎식물</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDTGZ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">쌍떡잎식물</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Rust로 만든 apache httpd? - httprs</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2026/03/29
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/rust/">#rust</a> <a href="/tags/http/">#http</a> <a href="/tags/nix/">#nix</a> <a href="/tags/linux/">#linux</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/rust/">rust</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- toc -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>목차</h3>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Rust를 사용한 HTTP 서버 만들기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">멀티프로세스 기반 HTTP 서버 구현</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">TCP 소켓 핸들링</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">HTTP Request 파싱</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Rust의 특징을 살린 코드</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">enum 과 pattern matching 을 활용한 null &#x2F; error check</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">전반적인 후기</span></a></li></ol></li></ol>
+            </div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Java 애플리케이션을 개발하면서 항상 느꼈던 점은 개발은 편하지만 뭔가 무겁다는 느낌이 들었습니다.<br>한번 작성하면 어떤 환경에서든 바로 실행 할 수 있고, 괜찮은 패키지 매니저와 메모리를 직접 관리하지 않아도 된다는 점은 좋았지만 실행 후 최대 성능까지 도달하는 시간이 오래걸리고 힙 메모리에 대한 튜닝이 필요하다는 점은 요즘엔 크게 신경쓰지 않아도 되거나 이미 많은 프랙티스로 해결할 수 있지만 여전히 아쉬운 부분으로 남아있었습니다.</p>
+<p>그런 저에게 Rust는 Java 개발을 하면서 참 흥미로웠던 언어 였습니다. 별다른 런타임 없이 컴파일 타임에 메모리 안정성을 보장하고 성능은 C/C++ 급의 성능을 낼 수 있다니 어떻게 보면 제가 원하던 부분을 살살 긁어주는 느낌이었습니다. 게다가 최근 직무전환으로 C언어를 이용해 플랫폼을 개발하는 저에게 내장 패키지 매니저와 내장 formatter 등등 현대적인 개발환경은 매우 부럽게 느껴졌습니다.</p>
+<p>게다가 최근에는 Linux kernel에도 <a target="_blank" rel="noopener" href="https://news.hada.io/topic?id=24987">Rust 통합 작업이 정식 구성요소</a>로 편입되었다고 하니 언어의 안정성도 이제는 완전히 검증되었다고 봐도 무방할 정도로 생각 됩니다.(원래도 firefox js 엔진 개발에도 활용되었던 만큼 안정적이라고 봐도 되겠지만요)</p>
+<h1><span id="rust를-사용한-http-서버-만들기">Rust를 사용한 HTTP 서버 만들기</span></h1><p>그러한 Rust를 이용해 뭘 해볼까하다 HTTP 서버를 만들어봐야겠다고 생각했습니다.<br>먼저 HTTP는 TCP를 사용한 응용 중에 가장 많이 사용되는 프로토콜이면서 가장 간단한 프로토콜입니다. text 기반의 데이터로 통신을 하기 때문에 구현하기도 쉽고 에러를 파악하는데에도 용이합니다.</p>
+<p>어떤 식으로 HTTP 동작을 구현해볼까 하다 멀티프로세스 기반으로 진행하게 되었습니다.<br>일단 현재 업무로 Apache httpd 기반의 서버를 개발 중이기도 하고, HTTP 서버를 만들어보면서 제가 파악하지 못한 기능에 대해서도 학습하면 좋겠다는 생각에 진행하게 되었습니다.</p>
+<p>HTTP 스펙은 기본적으로 <a target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc1945.html">RFC 문서</a>로 확인이 가능합니다. 처음부터 1.1 버전을 구현하면 좋았겠지만 먼저 PoC의 느낌으로 1.0 버전의 구현을 목표로 진행했습니다.</p>
+<h2><span id="멀티프로세스-기반-http-서버-구현">멀티프로세스 기반 HTTP 서버 구현</span></h2><p>기본적으로 Rust의 표준 라이브러리에는 TCP 소켓, thread 에 대한 기능은 구현되어 있지만 프로세스(정확히는 fork)에 대해서는 크게 지원하지 않고 있습니다. 정확히는 지원은 하지만 윈도우에서도 호환될 시나리오(<code>std::process::Command</code>)에 대해서만 지원하고 있습니다. (뿐만 아니라 대부분의 standard library의 API가 많은 OS 들에서 공통으로 지원하는 부분에 대해서 구현되어 있습니다.)따라서 리눅스에서 fork 를 통해 프로세스를 생성하기 위해서는 <code>nix</code> 크레이트를 사용해야 합니다.</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> nix::unistd::fork;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> pid = fork().unwrap();</span><br><span class="line">    <span class="keyword">if</span> pid == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;Child process&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;Parent process&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>nix</code> 크레이트는 리눅스 시스템 콜을 Rust에서 사용하기 좋게 wrapping 한 라이브러리 입니다. 덕분에 fork, epoll 등등의 시스템 콜을 쉽게 사용할 수 있습니다. 다만 앞서 리눅스 시스템 콜을 wrapping 한 라이브러리인 만큼 윈도우나 macos 를 타겟으로 생각하고 있다면 도입을 고려할 필요는 없습니다.</p>
+<h2><span id="tcp-소켓-핸들링">TCP 소켓 핸들링</span></h2><p>먼저 TCP 소켓 자체는 standard libarary에 있는 <code>std::net::TcpListener</code>, <code>std::net::TcpStream</code>를 사용하면 됩니다.<br>하지만 socket에 대해 다양한 옵션을 지정하기 위해서는 <code>socket2</code> 크레이트를 사용해야 합니다.</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> socket2::&#123;Domain, Protocol, Socket, Type&#125;;</span><br><span class="line"><span class="keyword">use</span> std::net::SocketAddr;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() -&gt; std::io::<span class="built_in">Result</span>&lt;()&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> addr: SocketAddr = <span class="string">&quot;0.0.0.0:8080&quot;</span>.parse().unwrap();</span><br><span class="line">    <span class="keyword">let</span> socket = Socket::new(Domain::IPV4, Type::STREAM, <span class="literal">Some</span>(Protocol::TCP))?;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// SO_REUSEADDR (reusehost) 및 SO_REUSEPORT 설정</span></span><br><span class="line">    socket.set_reuse_address(<span class="literal">true</span>)?;</span><br><span class="line">    socket.set_reuse_port(<span class="literal">true</span>)?;</span><br><span class="line"></span><br><span class="line">    socket.bind(&amp;addr.into())?;</span><br><span class="line">    socket.listen(<span class="number">128</span>)?;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> listener: std::net::TcpListener = socket.into();</span><br><span class="line">    <span class="literal">Ok</span>(())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Rust의 기본 <code>TcpListener</code>로도 <code>bind</code>일반적인 소켓 생성은 가능하지만 linux 기준 socket 부터 bind 사이에 설정하는 socket 옵션들(SO_REUSEADDR, SO_REUSEPORT 등)을 설정할 수 없기 때문에 <code>socket2</code> 크레이트를 사용해야 합니다. 다행히 <code>socket2</code> 크레이트는 <code>std::net::TcpListener</code>로 변환하는 기능도 제공하기 때문에 중간에 순수 TcpListener에서 socket2 로 변환하는 과정에서 큰 불편함 없이 사용할 수 있습니다.</p>
+<h2><span id="http-request-파싱">HTTP Request 파싱</span></h2><p>http1.0의 요청은 1.1과는 크게 다르지 않습니다. 다만 Tcp를 좀 더 효율적으로 사용하는 keep-alive 나 chunked encoding 등은 지원하지 않습니다. 그래서 그런 부분들을 제외한 기본적인 요청 <a target="_blank" rel="noopener" href="https://github.com/ksmail13/httprs/blob/master/httprs/src/http/mod.rs#L155">파싱 로직</a>을 구현했습니다.</p>
+<p>다만 이제부터 Rust의 특징을 살린 코드를 작성할 필요가 있었습니다.<br>아래는 요청받은 Http request 를 구조화 한 구조체 입니다.</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#[allow(dead_code)]</span></span><br><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">struct</span> <span class="title">HttpRequest</span></span>&lt;<span class="symbol">&#x27;a</span>&gt; &#123;</span><br><span class="line">    remote_addr: &amp;<span class="symbol">&#x27;a</span> SocketAddr,</span><br><span class="line">    method: HttpMethod,</span><br><span class="line">    http_version: HttpVersion,</span><br><span class="line">    path: <span class="built_in">String</span>,</span><br><span class="line">    header: HashMap&lt;&amp;<span class="symbol">&#x27;a</span> <span class="built_in">str</span>, <span class="built_in">Vec</span>&lt;&amp;<span class="symbol">&#x27;a</span> <span class="built_in">str</span>&gt;&gt;,</span><br><span class="line">    param: HashMap&lt;&amp;<span class="symbol">&#x27;a</span> <span class="built_in">str</span>, <span class="built_in">Vec</span>&lt;&amp;<span class="symbol">&#x27;a</span> <span class="built_in">str</span>&gt;&gt;,</span><br><span class="line">    reader: <span class="built_in">Box</span>&lt;<span class="keyword">dyn</span> Read + <span class="symbol">&#x27;a</span>&gt;,</span><br><span class="line">    <span class="comment">// TODO : 필요한건 나중에 추가</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이 중에 눈에 띄는 타입이 있습니다. 바로 <code>String</code>, <code>&amp;&#39;a str</code> 입니다. 두 타입은 모두 <strong>문자열</strong>을 표시하기 위해 사용하는 타입입니다.<br>다만 가장 큰 차이점은 <code>String</code>은 실제 힙에 할당되어 <strong>수정</strong>이 가능한 문자열이고 <code>&amp;&#39;a str</code>은 문자열을 <strong>가리키는 포인터(참조)</strong> 라는 점입니다. Java로 치자면 <code>String</code>은 <code>StringBuilder</code>에 가깝고 <code>&amp;&#39;a str</code>은 <code>String</code>에 가깝습니다. (물론 Java의 String도 내부적으로는 char[]를 사용하기 때문에 완벽하게 일치하는 비유는 아닙니다.)</p>
+<blockquote>
+<p><strong>note</strong> <code>&amp;&#39;a str</code> 에서 <code>&#39;a</code> 는 <strong>라이프타임(lifetime)</strong> 이라고 부릅니다. 쉽게 말해 참조하는 데이터의 유효기간에 대한 alias 입니다. 자세한 내용은 <a target="_blank" rel="noopener" href="https://rinthel.github.io/rust-book-ko/ch04-01-what-is-ownership.html">rust book</a> 을 참고하시면 좋습니다. 처음에는 적극적으로 변수의 라이프타임을 지정할 수 있을 것이라고 생각했는데, 지금까지의 경험으로는 컴파일러가 대부분의 경우 라이프타임을 추론하기 때문에, 따로 지정할수는 없었습니다.</p>
+</blockquote>
+<h3><span id="rust의-특징을-살린-코드">Rust의 특징을 살린 코드</span></h3><p>그렇다면 Rust의 특징을 살린 코드는 어떤 것일까요?</p>
+<p>일반적인 Java로 파일 내의 http header 같은 특정 포멧(<code>key: value</code>)의 문자열을 읽고 파싱하여 map(혹은 연관 배열)에 저장하는 로직은 다음과 같이 작성할 수 있습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str = <span class="string">&quot;key1: value1\nkey2: value2\nkey3: value3&quot;</span>;</span><br><span class="line">        String[] pairs = str.split(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (String pair : pairs) &#123;</span><br><span class="line">            String[] keyValue = pair.split(<span class="string">&quot;:&quot;</span>);</span><br><span class="line">            map.put(keyValue[<span class="number">0</span>], keyValue[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(map);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위 코드의 문제점은 무엇일까요?</p>
+<p>바로 <code>split</code>을 호출할 때마다 새로운 메모리를 할당한다는 점입니다. Java의 경우 String에 대해서 어느정도 최적화를 지원하지만 Rust의 경우 이렇게 되면 별다른 최적화 없이 무조건 메모리를 할당하게 되고 이는 성능 저하를 야기합니다.</p>
+<p>그렇다면 Rust에서는 split은 어떻게 사용할 수 있을까요?</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::collections::HashMap;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="built_in">str</span> = <span class="string">&quot;key1: value1\nkey2: value2\nkey3: value3&quot;</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> map: HashMap&lt;&amp;<span class="built_in">str</span>, &amp;<span class="built_in">str</span>&gt; = HashMap::new();</span><br><span class="line">    <span class="keyword">for</span> pair <span class="keyword">in</span> <span class="built_in">str</span>.split(<span class="string">&quot;\n&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> iter = pair.split(<span class="string">&quot;:&quot;</span>);</span><br><span class="line">        <span class="keyword">let</span> key = iter.next().unwrap();</span><br><span class="line">        <span class="keyword">let</span> value = iter.next().unwrap();</span><br><span class="line">        map.insert(key, value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;:?&#125;&quot;</span>, map);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>코드상으로는 동일합니다. 하지만 메소드가 리턴하는 타입이 다릅니다. Java의 경우 <code>split</code> 메소드는 <code>String[]</code>를 리턴하지만 Rust의 경우 <code>Split</code>을 리턴합니다. 이는 <strong>lazy evaluation</strong> 을 가능하게 합니다. 즉, <code>split</code>을 호출할 때마다 새로운 문자열을 생성하지 않고, 필요할 때만 clone 을 통해 생성한다는 것입니다. 이렇게 되면 불필요한 메모리 할당이 발생하지 않고 성능이 향상될 수 있습니다.</p>
+<p>또한 HashMap이 key, value 모두 &amp;’str 을 사용하고 있는데, 이는 HashMap이 가지는 값은 실제 할당된 메모리가 아닌 원본 문자열의 특정 부분의 참조를 저장한다는 뜻 입니다. 그리고 생성된 HashMap과 원본 문자열은 동일한 라이프타임을 가지고 있어 현재 함수 내에서만 두 정보가 유효합니다. 즉, 원본 문자열이 drop 될 때 HashMap도 같이 drop이 됩니다.</p>
+<h2><span id="enum-과-pattern-matching-을-활용한-null-error-check">enum 과 pattern matching 을 활용한 null / error check</span></h2><p>Rust의 마음에 드는 기능이고 언어 구조상 꼭 필요한 기능 중에 하나인 pattern matching 입니다. 최근에 많은 언어들이 지원을 하고 있지만 Rust의 경우 enum과 함께 사용하면 매우 강력한 기능을 제공합니다. </p>
+<blockquote>
+<p>Rust의 enum은 C/C++, Java의 enum과는 다릅니다. C/C++의 enum은 정수형 상수를 정의하는 용도로 사용되고 Java에서는 하나의 Singleton instance로 정의하여 사용하지만 Rust의 enum은 타입을 정의하는 용도로 사용됩니다. kotlin 의 sealed interface 정도로 보셔도 좋을 것 같네요.</p>
+</blockquote>
+<p>예를 들어 Rust의 표준 라이브러리에는 <code>Option&lt;T&gt;</code> 라는 enum이 있습니다. 이 enum은 <code>Some(T)</code> 또는 <code>None</code> 값을 가질 수 있습니다. Option<t>는 다른언어에서는 null 과 비슷하지만 null과는 매우 다릅니다. null은 값이 없음을 나타내지만 Option<t>는 값이 있거나 없을 수도 있음을 나타냅니다. 따라서 기존 언어에서는 null 체크를 하지 않을 수 있고 이로 인해 런타임 에러가 발생할 수 있지만 Rust에서는 Option 내 값을 사용하기 위해서는 어쩔 수 없이 검증을 강제하게 됩니다.</t></t></p>
+<p>마찬가지로 <code>Result&lt;T, E&gt;</code> 라는 enum도 있습니다. 이 enum은 <code>Ok(T)</code> 또는 <code>Err(E)</code> 값을 가질 수 있습니다. Result&lt;T, E&gt;는 다른언어에서는 try-catch 처리를 대체 하는 enum 타입입니다. try-catch 는 try 블록 내의 에러를 잡아서 catch 핸들러에서 처리하도록 구분하는 것 처럼 Result&lt;T, E&gt;는 성공 / 실패 상황에 대한 케이스를 pattern matching 문법을 사용해 표현합니다.</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> result = socket.accept();</span><br><span class="line"></span><br><span class="line"><span class="keyword">match</span> result &#123;</span><br><span class="line">    <span class="literal">Ok</span>(stream) =&gt; &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;Accepted connection from &#123;&#125;&quot;</span>, stream.peer_addr().unwrap());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="literal">Err</span>(e) =&gt; &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;Error: &#123;&#125;&quot;</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>또한 실패 케이스의 경우 <code>?</code> 연산자를 사용하면 에러를 호출한 함수로 전파할 수 있습니다. 이 경우 호출한 함수의 에러 리턴 타입은 함수의 리턴타입에 선언된 에러타입의 것과 동일해야 합니다. 만약 다른 경우 <code>map_err</code> 함수를 통해 변환 후 처리 할 수도 있습니다.</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() -&gt; <span class="built_in">Result</span>&lt;(), <span class="built_in">Box</span>&lt;<span class="keyword">dyn</span> std::error::Error&gt;&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> socket = Socket::new(Domain::IPV4, Type::STREAM, <span class="literal">Some</span>(Protocol::TCP))?; <span class="comment">// err 상황일 때는 바로 main 함수 리턴</span></span><br><span class="line">    socket.bind(&amp;<span class="string">&quot;0.0.0.0:8080&quot;</span>.parse()?);</span><br><span class="line">    socket.listen(<span class="number">128</span>)?;</span><br><span class="line">    <span class="keyword">let</span> (stream, addr) = socket.accept()?;</span><br><span class="line">    <span class="comment">// do something...   </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>그렇게 작성된 코드는 <a target="_blank" rel="noopener" href="https://github.com/ksmail13/httprs">여기</a>에서 확인하실 수 있습니다.</p>
+<p>현재는 위에서 언급한대로 HTTP 1.0 만 지원하고 있고 로깅이나 필터 같은 기능은 아직 지원하지 않고 있습니다. 추후에 HTTP 1.1 을 지원하고 로깅이나 필터 같은 기능을 추가해보고자 합니다.<br>성능은 로깅을 끈 상태에서 keep-alive 를 끈 Apache httpd 와 동일하게 나오는 것을 확인했고, 로깅을 켠 상태에서는 20% 정도 느리게 나옵니다. </p>
+<h2><span id="전반적인-후기">전반적인 후기</span></h2><p>개발을 하면서 가장 인상 깊었던 점은 메모리를 관리하지 않아도 되지만 결국 메모리를 관리한다는 점이었습니다. 약간 말장난 같지만 실제로 개발을 하는데에 있어 직접 new / malloc, delete / free 를 호출하지 않았을 뿐, 실제 메모리 할당과 해제를 고려하지 않는다면 일단 먼저 컴파일이 안될 것이고 그 이후에는 성능에 많은 영향을 주게 됩니다.</p>
+<p>따라서 Rust 코드를 작성하기에 앞서 신중한 고민이 필요하고 지속적인 프로파일링을 통해 병목지점을 찾아 최적화 할 방법을 고민해야할 필요가 있습니다.</p>
+<blockquote>
+<p>물론 요즘은 AI 딸깍으로 해결 가능한 부분이기는 합니다.</p>
+</blockquote>
+<p>꽤나 재미있는 경험이었고 계속 진행하여 추후에는 async/await 런타임을 개발해보는 것도 좋은 경험이 될 것 같습니다.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <div class="utterance"></div>
+
+    <script src="https://utteranc.es/client.js"
+        repo="ksmail13/ksmail13.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ksmail13" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:ksmail13@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2026 Minkyu Kim<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
